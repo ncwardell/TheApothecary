@@ -501,22 +501,99 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
           <div class="related-grid">{cards}</div>
         </div>"""
 
+    # Build JSON-LD Recipe schema
+    ingredient_names = []
+    for iid in recipe.get("coreIngredients", []):
+        ing = ingredients_db.get(iid)
+        ingredient_names.append(ing["name"] if ing else iid)
+    for iid in recipe.get("optionalIngredients", []):
+        ing = ingredients_db.get(iid)
+        ingredient_names.append(f'{ing["name"] if ing else iid} (optional)')
+
+    recipe_schema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": name,
+        "description": desc,
+        "url": canonical,
+        "supply": [{"@type": "HowToSupply", "name": n} for n in ingredient_names],
+        "totalTime": "PT15M" if recipe.get("difficulty") == "Easy" else "PT30M" if recipe.get("difficulty") == "Moderate" else "PT60M",
+    }
+
+    # FAQ schema for GEO (AI search engines extract Q&A)
+    replaces_clean = (recipe.get("replaces", "") or "").split("(")[0].strip()
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": f"How do you make homemade {name.lower()}?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": f"{desc} The core ingredients are: {', '.join(ingredient_names[:5])}. {recipe.get('scienceNote', '')}"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": f"Is DIY {name.lower()} as good as {replaces_clean.lower()}?" if replaces_clean else f"How effective is {name.lower()}?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": f"Effectiveness: {effectiveness}/10 compared to commercial. {recipe.get('effectivenessNote', '')} Cost per use: {recipe.get('costPerUse', 'varies')}."
+                }
+            }
+        ]
+    }
+
+    # BreadcrumbList schema
+    breadcrumb_schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "The Apothecary", "item": SITE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Recipes", "item": SITE_URL + "/#recipes"},
+            {"@type": "ListItem", "position": 3, "name": name, "item": canonical}
+        ]
+    }
+
+    schemas_json = json.dumps(recipe_schema)
+    faq_json = json.dumps(faq_schema)
+    breadcrumb_json = json.dumps(breadcrumb_schema)
+
+    # GEO: Static summary block visible to all crawlers
+    geo_summary = f"""
+  <aside class="geo-summary" style="margin-top:32px;padding:20px;background:#f8f5ed;border-radius:10px;border:1px solid #e0d8c8">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.1em;margin-bottom:8px">Quick Summary</h2>
+    <p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>{e(name)}</strong> is a DIY replacement for {e(replaces_clean or 'commercial products')}. It costs approximately {e(recipe.get('costPerUse', 'varies'))} per use and scores <strong>{effectiveness}/10</strong> versus commercial alternatives.</p>
+    <p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>Core ingredients:</strong> {', '.join(e(n) for n in ingredient_names if '(optional)' not in n)}</p>
+    {f'<p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>How it works:</strong> {e(recipe.get("scienceNote", ""))}</p>' if recipe.get("scienceNote") else ""}
+    {f'<p style="font-size:0.88em;color:#6b4a3e;line-height:1.6"><strong>Limitations:</strong> {e(recipe.get("effectivenessNote", ""))}</p>' if recipe.get("effectivenessNote") else ""}
+  </aside>"""
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 {HEAD_COMMON.format(canonical=canonical)}
 <title>{e(name)} — The Apothecary</title>
-<meta name="description" content="{e(desc)}">
+<meta name="description" content="{e(desc)} Effectiveness: {effectiveness}/10 vs commercial. Cost: {e(recipe.get('costPerUse', 'varies'))}/use.">
 <meta property="og:title" content="{e(name)} — The Apothecary">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="The Apothecary">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{e(name)} — The Apothecary">
+<meta name="twitter:description" content="{e(desc)} {effectiveness}/10 vs commercial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">{schemas_json}</script>
+<script type="application/ld+json">{faq_json}</script>
+<script type="application/ld+json">{breadcrumb_json}</script>
 {STYLES}
 </head>
 <body>
 <div class="page-container">
-  <nav class="top-nav">
+  <nav class="top-nav" aria-label="Breadcrumb">
     <a href="../../">The Apothecary</a>
     <span class="nav-sep">/</span>
     <a href="../../#recipes">Recipes</a>
@@ -524,6 +601,7 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
     <span class="nav-current">{e(name)}</span>
   </nav>
 
+  <article>
   <h1 class="page-title">{e(name)}</h1>
   <p class="page-subtitle">{e(desc)}</p>
 
@@ -553,6 +631,9 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
   {science_html}
 
   <div class="md-body" id="md-content"></div>
+
+  {geo_summary}
+  </article>
 
   {related_html}
 </div>
@@ -669,22 +750,110 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
           <div class="related-grid">{cards}</div>
         </div>"""
 
+    # Structured data: Chemical substance / product
+    cat_labels = [CATEGORY_LABELS.get(c, c) for c in cats]
+    substance_schema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": name,
+        "description": desc,
+        "url": canonical,
+        "about": {
+            "@type": "ChemicalSubstance",
+            "name": name,
+            "description": desc,
+        },
+        "author": {"@type": "Organization", "name": "The Apothecary"},
+    }
+    if ingredient.get("chemicalName"):
+        substance_schema["about"]["alternateName"] = ingredient["chemicalName"]
+
+    # FAQ schema for GEO
+    faq_questions = [
+        {
+            "@type": "Question",
+            "name": f"What is {name.lower()} used for in DIY products?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f"{desc} Categories: {', '.join(cat_labels)}. {ingredient.get('chemistry', '')}"
+            }
+        }
+    ]
+    if ingredient.get("warnings"):
+        faq_questions.append({
+            "@type": "Question",
+            "name": f"Is {name.lower()} safe to use?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f"Safety considerations: {ingredient['warnings']} Always follow recommended concentrations and handling guidelines."
+            }
+        })
+    if used_in:
+        recipe_names = ", ".join(r["name"] for r in used_in[:5])
+        faq_questions.append({
+            "@type": "Question",
+            "name": f"What DIY recipes use {name.lower()}?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": f"{name} is used in: {recipe_names}{'.' if len(used_in) <= 5 else f', and {len(used_in) - 5} more recipes.'}"
+            }
+        })
+
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_questions}
+
+    breadcrumb_schema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "The Apothecary", "item": SITE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Ingredients", "item": SITE_URL + "/#ingredients"},
+            {"@type": "ListItem", "position": 3, "name": name, "item": canonical}
+        ]
+    }
+
+    substance_json = json.dumps(substance_schema)
+    faq_json = json.dumps(faq_schema)
+    breadcrumb_json = json.dumps(breadcrumb_schema)
+
+    # GEO: Static summary
+    recipe_list_text = ""
+    if used_in:
+        recipe_list_text = f'<p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>Used in:</strong> {", ".join(e(r["name"]) for r in used_in)}</p>'
+
+    geo_summary = f"""
+  <aside class="geo-summary" style="margin-top:32px;padding:20px;background:#f8f5ed;border-radius:10px;border:1px solid #e0d8c8">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.1em;margin-bottom:8px">Quick Summary</h2>
+    <p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>{e(name)}</strong>{f' ({e(ingredient.get("formula", ""))})' if ingredient.get("formula") else ""}: {e(desc)}</p>
+    {f'<p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>Mechanism:</strong> {e(ingredient.get("chemistry", ""))}</p>' if ingredient.get("chemistry") else ""}
+    {f'<p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-bottom:8px"><strong>Cost:</strong> {e(ingredient.get("costNote", ""))}</p>' if ingredient.get("costNote") else ""}
+    {recipe_list_text}
+    {f'<p style="font-size:0.88em;color:#6b4a3e;line-height:1.6"><strong>Safety:</strong> {e(ingredient.get("warnings", ""))}</p>' if ingredient.get("warnings") else ""}
+  </aside>"""
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 {HEAD_COMMON.format(canonical=canonical)}
-<title>{e(name)} — The Apothecary</title>
-<meta name="description" content="{e(desc)}">
+<title>{e(name)} — DIY Ingredient Profile — The Apothecary</title>
+<meta name="description" content="{e(name)}: {e(desc)} Chemical properties, safety data, DIY uses, and sourcing information.">
 <meta property="og:title" content="{e(name)} — The Apothecary">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="The Apothecary">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{e(name)} — The Apothecary">
+<meta name="twitter:description" content="{e(desc)}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">{substance_json}</script>
+<script type="application/ld+json">{faq_json}</script>
+<script type="application/ld+json">{breadcrumb_json}</script>
 {STYLES}
 </head>
 <body>
 <div class="page-container">
-  <nav class="top-nav">
+  <nav class="top-nav" aria-label="Breadcrumb">
     <a href="../../">The Apothecary</a>
     <span class="nav-sep">/</span>
     <a href="../../#ingredients">Ingredients</a>
@@ -692,6 +861,7 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
     <span class="nav-current">{e(name)}</span>
   </nav>
 
+  <article>
   <h1 class="page-title">{e(name)}</h1>
   <p class="page-subtitle">{e(desc)}</p>
 
@@ -705,6 +875,9 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
   {cost_html}
 
   <div class="md-body" id="md-content"></div>
+
+  {geo_summary}
+  </article>
 
   {used_html}
   {related_html}
@@ -759,8 +932,8 @@ def main():
     OUT.mkdir()
 
     print("Copying source files to _site/...")
-    # Copy the main index and .nojekyll
-    for f in ["index.html", ".nojekyll"]:
+    # Copy static files
+    for f in ["index.html", ".nojekyll", "robots.txt", "llms.txt"]:
         src = ROOT / f
         if src.exists():
             shutil.copy2(src, OUT / f)

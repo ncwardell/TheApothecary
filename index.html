@@ -5,15 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Apothecary — Science-Backed DIY Replacements for Everyday Products</title>
 <meta name="description" content="35 ingredient profiles and 26 recipes with real chemistry, honest effectiveness ratings, and bulk ingredient sourcing. Replace overpriced commercial products with science-backed DIY alternatives.">
-<meta property="og:title" content="The Apothecary — DIY Essentials">
-<meta property="og:description" content="Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients.">
+<meta property="og:title" content="The Apothecary — Science-Backed DIY Essentials">
+<meta property="og:description" content="Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients. 26 recipes across oral care, skin, hair, cleaning, laundry, kitchen, health, and garden.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ncwardell.github.io/LifeApothecary/">
+<meta property="og:site_name" content="The Apothecary">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Apothecary — Science-Backed DIY Essentials">
+<meta name="twitter:description" content="26 DIY recipes with real chemistry and honest effectiveness ratings. Replace overpriced products with bulk ingredients.">
 <link rel="canonical" href="https://ncwardell.github.io/LifeApothecary/">
 <link rel="sitemap" type="application/xml" href="sitemap.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Apothecary",
+  "alternateName": "LifeApothecary",
+  "url": "https://ncwardell.github.io/LifeApothecary/",
+  "description": "Science-backed DIY replacements for everyday commercial products. Every recipe is grounded in real chemistry, cites actual mechanisms of action, and honestly rates its effectiveness against the commercial product it replaces.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://ncwardell.github.io/LifeApothecary/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Apothecary",
+  "url": "https://ncwardell.github.io/LifeApothecary/",
+  "description": "A rigorous, science-based repository of DIY replacements for everyday commercial products."
+}
+</script>
 <style>
 /* ========== Design Tokens ========== */
 :root {
@@ -957,42 +986,65 @@ header p {
 <body>
 <div class="container">
 
-  <!-- ========== Header ========== -->
   <header>
     <h1>The Apothecary</h1>
     <p>Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients.</p>
   </header>
 
-  <!-- ========== Tab Bar ========== -->
-  <div class="tab-bar">
-    <button class="tab-btn active" data-action="switch-tab" data-view="recipes">Recipes</button>
+  <nav class="tab-bar" aria-label="Main navigation">
+    <button class="tab-btn active" data-action="switch-tab" data-view="recipes" aria-current="page">Recipes</button>
     <button class="tab-btn" data-action="switch-tab" data-view="ingredients">Ingredients</button>
     <button class="tab-btn" data-action="switch-tab" data-view="shopping" id="tab-shopping">Shopping List</button>
-  </div>
+  </nav>
 
-  <!-- ========== Controls ========== -->
-  <div class="controls" id="controls">
+  <search class="controls" id="controls">
     <div class="search-box">
-      <input type="text" id="search-input" placeholder="Search recipes, ingredients, chemistry...">
+      <input type="search" id="search-input" placeholder="Search recipes, ingredients, chemistry..." aria-label="Search recipes and ingredients">
     </div>
-    <div class="filter-bar" id="filter-bar"></div>
-  </div>
+    <div class="filter-bar" id="filter-bar" role="group" aria-label="Category filters"></div>
+  </search>
 
-  <!-- ========== Views ========== -->
-  <div id="view-recipes"></div>
-  <div id="view-ingredients" class="hidden"></div>
-  <div id="view-shopping" class="hidden"></div>
+  <main>
+    <section id="view-recipes" aria-label="Recipes"></section>
+    <section id="view-ingredients" class="hidden" aria-label="Ingredients"></section>
+    <section id="view-shopping" class="hidden" aria-label="Shopping list"></section>
 
-  <!-- ========== Loading ========== -->
-  <div id="loading" class="loading">
-    <div class="loading-spinner"></div>
-    <div>Loading ingredient and recipe data...</div>
-  </div>
+    <div id="loading" class="loading" aria-live="polite">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <div>Loading ingredient and recipe data...</div>
+    </div>
+  </main>
+
+  <!-- GEO: Static content block for AI crawlers that don't execute JS -->
+  <noscript>
+    <section class="geo-static" style="max-width:780px;margin:40px auto;padding:0 20px">
+      <h2>About The Apothecary</h2>
+      <p>The Apothecary is a rigorous, science-based collection of DIY replacements for everyday commercial products. Most commercial products are combinations of 15-20 bulk ingredients repackaged with branding, fragrance, and markup. A $12 bottle of surface cleaner is vinegar and water. A $40 face cream is tallow and jojoba oil. A $25 tub of OxiClean is sodium percarbonate.</p>
+      <p>This site documents the chemistry, provides tested recipes, and points you to the bulk ingredients. Every recipe includes an honest effectiveness score compared to the commercial product it replaces.</p>
+
+      <h3>Recipe Categories</h3>
+      <ul>
+        <li><strong>Oral Care:</strong> Remineralizing clay toothpaste, hydrogen peroxide whitening rinse, oil pulling, miswak sticks</li>
+        <li><strong>Skin &amp; Body:</strong> Natural deodorant, whipped tallow balm, simple oil moisturizer</li>
+        <li><strong>Hair:</strong> Castile soap &amp; ACV hair rinse, natural shampoo &amp; rinse system</li>
+        <li><strong>Cleaning:</strong> All-purpose cleaning system, castile soap multi-use</li>
+        <li><strong>Laundry:</strong> Complete laundry system, stain treatment guide, vinegar fabric softener</li>
+        <li><strong>Kitchen &amp; Food:</strong> Bone broth, fermented foods, sourdough starter, whole spice grinding</li>
+        <li><strong>Health:</strong> Saline solution, Epsom salt bath, magnesium oil spray, herbal teas</li>
+        <li><strong>Garden &amp; Home:</strong> Neem oil garden spray, diatomaceous earth pest control, vinegar-iron wood stain, compost</li>
+      </ul>
+
+      <h3>Key Ingredients</h3>
+      <p>The ingredient database covers 35 substances with full chemistry profiles: baking soda (NaHCO3), bentonite clay, coconut oil, white vinegar (5% acetic acid), castile soap, hydrogen peroxide (3%), sodium percarbonate (oxygen bleach), tea tree oil, Epsom salt (MgSO4), citric acid, washing soda (Na2CO3), and more.</p>
+
+      <h3>How It Works</h3>
+      <p>Each recipe includes: what commercial product it replaces, cost per use comparison, step-by-step instructions, the chemistry behind why it works, an effectiveness score from 1-10 versus commercial, and honest limitations. Each ingredient includes: chemical properties, mechanism of action, safety data, regulatory status, and sourcing information.</p>
+    </section>
+  </noscript>
 
 </div>
 
-<!-- ========== Modal ========== -->
-<div class="modal-overlay" id="modal-overlay">
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Ingredient details">
   <div class="modal" id="modal-content"></div>
 </div>
 
@@ -1085,11 +1137,61 @@ async function loadData() {
     document.getElementById("loading").classList.add("hidden");
     buildFilterBar();
     renderAll();
+    injectStructuredData();
   } catch (err) {
     document.getElementById("loading").innerHTML =
       `<p>Error loading data. Serve this file from the project root:</p>
        <code>python3 -m http.server 8000</code>`;
   }
+}
+
+/* ===========================================================
+   C2. STRUCTURED DATA (GEO / SEO)
+   =========================================================== */
+function injectStructuredData() {
+  // ItemList of all recipes for search engines
+  const recipeItems = state.recipes.map((r, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": r.name,
+    "url": `https://ncwardell.github.io/LifeApothecary/recipes/${r.slug}/`,
+    "description": r.description || ""
+  }));
+
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "DIY Recipes",
+    "description": "Science-backed DIY replacements for everyday commercial products",
+    "numberOfItems": recipeItems.length,
+    "itemListElement": recipeItems
+  };
+
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(itemList);
+  document.head.appendChild(script);
+
+  // FAQPage schema from top recipes (GEO: AI engines love FAQ format)
+  const faqEntries = state.recipes.slice(0, 10).map(r => ({
+    "@type": "Question",
+    "name": `What is a DIY replacement for ${(r.replaces || "").replace(/\s*\(.*?\)/g, "")}?`,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": `${r.name}: ${r.description || ""} Effectiveness: ${r.effectiveness}/10 vs commercial. Cost: ${r.costPerUse || "varies"} per use. ${r.effectivenessNote || ""}`
+    }
+  }));
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqEntries
+  };
+
+  const faqScript = document.createElement("script");
+  faqScript.type = "application/ld+json";
+  faqScript.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(faqScript);
 }
 
 /* ===========================================================

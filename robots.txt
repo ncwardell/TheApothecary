@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ncwardell.github.io/LifeApothecary/sitemap.xml
