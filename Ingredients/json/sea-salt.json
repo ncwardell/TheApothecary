@@ -1,0 +1,19 @@
+{
+  "id": "sea-salt",
+  "name": "Sea Salt / Himalayan Salt",
+  "slug": "sea-salt",
+  "description": "Minimally processed sodium chloride with trace minerals, used in oral care, wound healing, saline solutions, and nasal irrigation via its osmotic antibacterial properties.",
+  "chemicalName": "Sodium chloride",
+  "formula": "NaCl",
+  "casNumber": "7647-14-5",
+  "molecularWeight": "58.44 g/mol",
+  "appearance": "White, gray, pink, or reddish crystalline solid depending on source and mineral content",
+  "pH": "6.5–7.5",
+  "solubility": "360 g/L in water at 20°C; insoluble in ethanol",
+  "chemistry": "Sodium chloride with trace minerals. Antibacterial via osmotic pressure — draws water out of bacterial cells. Promotes gum tissue healing.",
+  "warnings": "Use fine-ground for toothpaste. Non-iodized for nasal irrigation.",
+  "costNote": "$3–5 for 2 lb bag",
+  "shelfLife": "Indefinite",
+  "categories": ["oral", "health", "cleaning"],
+  "relatedIngredients": ["baking-soda", "bentonite-clay", "epsom-salt", "magnesium-chloride"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "saline",
+  "name": "Saline Solution",
+  "slug": "saline-solution",
+  "description": "Isotonic 0.9% sodium chloride solution identical to commercial nasal sprays and wound washes — Cochrane-reviewed for rhinosinusitis and standard post-surgical recommendation.",
+  "category": "health",
+  "replaces": "Nasal spray, wound wash, saline eye rinse ($4–8)",
+  "costPerUse": "~$0.01",
+  "shelfLife": "24 hours (fresh batch for nasal use)",
+  "effectiveness": 10,
+  "effectivenessNote": "Identical to commercial — 0.9% NaCl. Cochrane review supports nasal irrigation. Doctors prescribe post-surgery. Full marks.",
+  "difficulty": "Easy",
+  "coreIngredients": ["sea-salt"],
+  "optionalIngredients": ["baking-soda"],
+  "warnings": ["CRITICAL: Use boiled-and-cooled or distilled water only for nasal irrigation — never tap water (risk of amoebic infection)", "Make fresh daily — no preservatives", "Neti pot technique has a learning curve"],
+  "scienceNote": "Cochrane review: effective for rhinosinusitis. Thins mucus, promotes cilia function, flushes allergens. Pharmaceutical treatment at bulk ingredient prices."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "acv",
+  "name": "Apple Cider Vinegar (Raw)",
+  "slug": "apple-cider-vinegar",
+  "description": "A fermented vinegar from apple juice containing acetic acid, malic acid, and beneficial bacterial cultures ('the mother'), used primarily as a hair rinse and scalp treatment.",
+  "chemicalName": "Aqueous solution of acetic acid with malic acid and microbial cultures",
+  "formula": "CH₃COOH (acetic acid); C₄H₆O₅ (malic acid)",
+  "casNumber": "64-19-7",
+  "molecularWeight": "60.05 g/mol (acetic acid)",
+  "appearance": "Amber to golden-brown liquid; raw versions contain visible cloudy strands ('mother')",
+  "pH": "2.5–3.5 (undiluted)",
+  "solubility": "Fully miscible with water in all proportions",
+  "chemistry": "Acetic + malic acid. 'Mother' contains beneficial bacteria. Restores scalp pH, closes cuticle, dissolves buildup.",
+  "warnings": "Always dilute 1:3+. Undiluted damages enamel/skin.",
+  "costNote": "$4–8 for 32 oz",
+  "shelfLife": "Essentially indefinite",
+  "categories": ["hair", "health"],
+  "relatedIngredients": ["white-vinegar", "castile-soap", "soapwort-root", "rosemary"]
+}

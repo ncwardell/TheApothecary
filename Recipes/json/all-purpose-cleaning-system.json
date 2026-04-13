@@ -1,0 +1,17 @@
+{
+  "id": "all-purpose-cleaner",
+  "name": "All-Purpose Cleaning System",
+  "slug": "all-purpose-cleaning-system",
+  "description": "A five-ingredient system covering acid cleaning (minerals/limescale), alkaline cleaning (grease), disinfection, and specialty stain removal — replacing an entire shelf of commercial products.",
+  "category": "cleaning",
+  "replaces": "Surface cleaners, glass cleaner, degreaser, oven cleaner, descaler ($3–8 each)",
+  "costPerUse": "~$0.03",
+  "shelfLife": "Indefinite (dry ingredients); solutions vary",
+  "effectiveness": 8,
+  "effectivenessNote": "Matches commercial for everyday use. Vinegar/citric acid equal or beat descalers. Washing soda matches oven cleaners. -2 for no specialty surfactants (streak-free finishes).",
+  "difficulty": "Easy",
+  "coreIngredients": ["white-vinegar", "washing-soda"],
+  "optionalIngredients": ["citric-acid", "hydrogen-peroxide", "castile-soap", "oxalic-acid", "tea-tree-oil"],
+  "warnings": ["Never mix acid and alkaline cleaners (they neutralize each other)", "No acid on marble/granite/natural stone — permanent etching", "Washing soda needs gloves (pH 11)", "H₂O₂ degrades in light — use opaque containers"],
+  "scienceNote": "All cleaning = acid vs base. Minerals are alkaline → acid dissolves. Grease → base saponifies. Every commercial product is an acid, base, surfactant, or combination. Five bulk ingredients replace a shelf."
+}

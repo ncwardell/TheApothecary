@@ -1,0 +1,17 @@
+{
+  "id": "tallow-balm",
+  "name": "Whipped Tallow Balm",
+  "slug": "whipped-tallow-balm",
+  "description": "A sebum-mimicking moisturizer made from grass-fed beef tallow, providing fat-soluble vitamins A, D, E, K in a fatty acid profile nearly identical to human skin oils.",
+  "category": "skin",
+  "replaces": "Face cream, lotion, hand cream, lip balm ($10–40 each)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "6–12 months",
+  "effectiveness": 9,
+  "effectivenessNote": "Equal/superior to commercial moisturizers. Sebum-mimicking composition gives inherent advantage. -1 only because commercial products sometimes include targeted actives (retinol, HA).",
+  "difficulty": "Moderate",
+  "coreIngredients": ["tallow", "jojoba-oil"],
+  "optionalIngredients": ["shea-butter", "tea-tree-oil", "rosemary"],
+  "warnings": ["Must source grass-fed tallow (toxins concentrate in conventional fat)", "Rendering takes 4–6 hours (can buy pre-rendered)", "Faint beefy smell if not purified", "Not vegan — no plant equivalent matches sebum this closely"],
+  "scienceNote": "Human sebum: ~41% oleic, ~25% palmitic. Tallow: ~45% oleic, ~25% palmitic. Near-identical = efficient absorption. Commercial lotions use synthetic emulsifiers to approximate what tallow does naturally."
+}

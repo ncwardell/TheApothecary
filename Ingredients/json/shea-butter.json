@@ -1,0 +1,19 @@
+{
+  "id": "shea-butter",
+  "name": "Shea Butter (Unrefined)",
+  "slug": "shea-butter",
+  "description": "An ivory-to-yellow fat from the African shea tree, rich in vitamins A, E, and F, with cinnamic acid esters providing anti-inflammatory and UV-absorptive properties.",
+  "chemicalName": "Mixed triglycerides with cinnamic acid esters",
+  "formula": "Variable (mixture of triglycerides)",
+  "casNumber": "194043-92-0",
+  "molecularWeight": "~850–900 g/mol (average triglyceride)",
+  "appearance": "Unrefined: ivory to yellowish solid with nutty aroma; Refined: white, odorless",
+  "pH": "Not applicable (fat; not water-soluble)",
+  "solubility": "Insoluble in water; soluble in oils, fats, and warm ethanol",
+  "chemistry": "Vitamins A, E, F. Cinnamic acid esters (anti-inflammatory). Melts at body temp. Non-comedogenic.",
+  "warnings": "Nut allergy (shea tree nuts).",
+  "costNote": "$8–14 for 16 oz",
+  "shelfLife": "1–2 years (unrefined); 2–3 years (refined)",
+  "categories": ["skin"],
+  "relatedIngredients": ["tallow", "beeswax", "coconut-oil", "jojoba-oil"]
+}

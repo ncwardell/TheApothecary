@@ -1,0 +1,19 @@
+{
+  "id": "vitamin-e",
+  "name": "Vitamin E (Tocopherol)",
+  "slug": "vitamin-e",
+  "description": "A fat-soluble antioxidant that protects oil-based formulations from oxidative rancidity by terminating lipid peroxidation chain reactions — the essential preservative for any DIY product containing unsaturated oils.",
+  "chemicalName": "(2R)-2,5,7,8-Tetramethyl-2-[(4R,8R)-4,8,12-trimethyltridecyl]-3,4-dihydro-2H-chromen-6-ol (α-tocopherol)",
+  "formula": "C₂₉H₅₀O₂",
+  "casNumber": "59-02-9 (d-α-tocopherol)",
+  "molecularWeight": "430.71 g/mol",
+  "appearance": "Pale yellow to amber viscous oil",
+  "pH": "Not applicable (oil-soluble)",
+  "solubility": "Insoluble in water; soluble in oils, fats, ethanol",
+  "chemistry": "Chain-breaking antioxidant. Donates phenolic hydrogen to lipid peroxyl radicals (LOO•), terminating oxidation chain. Gamma-tocopherol > alpha-tocopherol for formulation antioxidant potency. Use at 0.5–1% in oil phase.",
+  "warnings": "Not a standalone preservative — prevents lipid oxidation only, NOT microbial growth. Contact dermatitis in ~3–5% of individuals. Degrades with air/light/heat exposure. Scar treatment evidence is weak.",
+  "costNote": "$5–9 for 1 oz (T-50); $10–18 for 4 oz",
+  "shelfLife": "2–3 years unopened; 1 year after opening. Store in dark glass.",
+  "categories": ["skin"],
+  "relatedIngredients": ["jojoba-oil", "coconut-oil", "shea-butter", "zinc-oxide", "rosemary"]
+}

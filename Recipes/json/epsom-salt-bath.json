@@ -1,0 +1,17 @@
+{
+  "id": "epsom-salt-bath",
+  "name": "Epsom Salt Bath",
+  "slug": "epsom-salt-bath",
+  "description": "Magnesium sulfate dissolved in bath water for transdermal magnesium absorption — standard sports recovery recommendation for muscle soreness, tension, and relaxation.",
+  "category": "health",
+  "replaces": "Muscle rubs, bath bombs, recovery products ($5–15)",
+  "costPerUse": "~$0.30",
+  "shelfLife": "Indefinite (dry Epsom salt)",
+  "effectiveness": 7,
+  "effectivenessNote": "Well-established in sports medicine for muscle recovery. Transdermal magnesium absorption is supported by some evidence. The warm water soak itself provides therapeutic benefit independent of magnesium.",
+  "difficulty": "Easy",
+  "coreIngredients": ["epsom-salt"],
+  "optionalIngredients": [],
+  "warnings": ["Use 2 cups per bath, soak for 20 minutes minimum", "Do not use Epsom salt in laundry — hardens water", "People with kidney problems should consult a doctor before frequent use", "Hot baths may lower blood pressure — stand up slowly"],
+  "scienceNote": "Magnesium sulfate provides magnesium (muscle relaxation via calcium channel regulation) and sulfate (supports detoxification and joint health). The osmotic properties reduce inflammation. Standard post-exercise recovery protocol in sports medicine."
+}

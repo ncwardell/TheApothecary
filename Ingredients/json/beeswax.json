@@ -1,0 +1,19 @@
+{
+  "id": "beeswax",
+  "name": "Beeswax",
+  "slug": "beeswax",
+  "description": "A complex natural wax secreted by honey bees, forming a breathable occlusive barrier indispensable in balm sticks, lip balms, and protective skin formulations.",
+  "chemicalName": "Complex mixture; primary component: myricyl palmitate (triacontanyl hexadecanoate)",
+  "formula": "Mixture; predominant ester: C₁₅H₃₁COOC₃₀H₆₁",
+  "casNumber": "8012-89-3",
+  "molecularWeight": "~550–750 g/mol (major ester components)",
+  "appearance": "Yellow (unrefined) to white (bleached); solid at room temperature; slight honey aroma",
+  "pH": "Not applicable (insoluble in water)",
+  "solubility": "Insoluble in water; soluble in warm oils, chloroform, ether",
+  "chemistry": "Esters/hydrocarbons/fatty acids. Breathable barrier. Melts at ~145°F — structural firmness for sticks.",
+  "warnings": "Not vegan. Candelilla wax at half amount as alternative.",
+  "costNote": "$6–12 for 1 lb",
+  "shelfLife": "Essentially indefinite",
+  "categories": ["skin"],
+  "relatedIngredients": ["shea-butter", "coconut-oil", "jojoba-oil", "tallow"]
+}

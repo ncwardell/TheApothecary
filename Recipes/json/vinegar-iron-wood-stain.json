@@ -1,0 +1,17 @@
+{
+  "id": "vinegar-iron-wood-stain",
+  "name": "Vinegar + Iron Wood Stain",
+  "slug": "vinegar-iron-wood-stain",
+  "description": "Iron acetate solution made by dissolving steel wool in vinegar, reacting with wood tannins to produce a natural aged/weathered finish — zero VOCs, zero toxicity, pennies per project.",
+  "category": "garden",
+  "replaces": "Commercial wood stain ($8–20)",
+  "costPerUse": "~$0.10 per project",
+  "shelfLife": "Iron acetate solution: months in sealed jar",
+  "effectiveness": 8,
+  "effectivenessNote": "Produces beautiful, natural-looking aged finishes. Color depends on wood species and tannin content. High-tannin woods (oak, walnut) react dramatically. Low-tannin woods need pre-treatment with tea.",
+  "difficulty": "Easy",
+  "coreIngredients": ["white-vinegar"],
+  "optionalIngredients": [],
+  "warnings": ["Leave jar lid loose during dissolution — gas produced", "Different woods react differently (oak goes dark, pine stays light)", "Pre-treat low-tannin woods with strong black tea for better results", "Test on scrap wood first — color darkens over 24 hours", "Steel wool must be real steel (not stainless, not SOS pads)"],
+  "scienceNote": "Acetic acid dissolves iron from steel wool, forming iron(II) acetate in solution. When applied to wood, iron ions react with tannins (polyphenols) in the wood to form dark iron-tannin complexes — the same chemistry that causes natural wood weathering over decades, compressed into minutes."
+}

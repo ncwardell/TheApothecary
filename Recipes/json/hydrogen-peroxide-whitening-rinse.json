@@ -1,0 +1,17 @@
+{
+  "id": "hydrogen-peroxide-rinse",
+  "name": "Hydrogen Peroxide Whitening Rinse",
+  "slug": "hydrogen-peroxide-whitening-rinse",
+  "description": "A diluted peroxide rinse using the same active chemistry as commercial whitening strips and rinses at a fraction of the cost — gradual oxidative whitening plus oral disinfection.",
+  "category": "oral",
+  "replaces": "Whitening strips, whitening rinses ($15–40)",
+  "costPerUse": "~$0.02",
+  "shelfLife": "Use 3% H₂O₂ within 6 months of opening; dilute fresh",
+  "effectiveness": 7,
+  "effectivenessNote": "Same active ingredient as commercial whitening products. Gradual results over weeks. Lower concentration than strips so slower whitening, but also less sensitivity.",
+  "difficulty": "Easy",
+  "coreIngredients": ["hydrogen-peroxide"],
+  "optionalIngredients": [],
+  "warnings": ["Dilute 1:1 with water (1.5% final concentration)", "Limit to 2–3 times per week", "May cause temporary tooth sensitivity", "Do not swallow", "Keep H₂O₂ in opaque bottle — light degrades it"],
+  "scienceNote": "Hydrogen peroxide oxidizes chromophore molecules bound to tooth enamel, breaking their conjugated double-bond systems and rendering stains colorless. Same mechanism as commercial whitening at lower concentration."
+}

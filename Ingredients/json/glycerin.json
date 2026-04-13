@@ -1,0 +1,19 @@
+{
+  "id": "glycerin",
+  "name": "Glycerin (Glycerol)",
+  "slug": "glycerin",
+  "description": "A simple three-carbon polyol that is the most effective humectant available for DIY formulations — drawing moisture from the environment to hydrate skin while also serving as a solvent, preservative booster, and emollient.",
+  "chemicalName": "Propane-1,2,3-triol",
+  "formula": "C₃H₈O₃",
+  "casNumber": "56-81-5",
+  "molecularWeight": "92.09 g/mol",
+  "appearance": "Clear, colorless, viscous liquid; odorless with sweet taste",
+  "pH": "~7.0 (neutral)",
+  "solubility": "Fully miscible with water and ethanol; insoluble in oils",
+  "chemistry": "Three hydroxyl groups hydrogen-bond with water. Modulates aquaporin-3 channels in keratinocytes. Reduces water activity (aW) in formulations. Hygroscopic — draws moisture from atmosphere above 65% RH.",
+  "warnings": "In very dry environments (<40% RH), can draw moisture FROM skin — always pair with an occlusive. Sticky above 20% concentration. Use USP grade only for personal care.",
+  "costNote": "$7–12 for 16 oz; $18–28 per gallon",
+  "shelfLife": "2–3 years sealed; indefinite if kept dry",
+  "categories": ["skin", "oral", "hair"],
+  "relatedIngredients": ["shea-butter", "beeswax", "coconut-oil", "aloe-vera", "jojoba-oil"]
+}

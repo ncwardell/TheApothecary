@@ -1,0 +1,17 @@
+{
+  "id": "whole-spice-grinding",
+  "name": "Whole Spice Grinding",
+  "slug": "whole-spice-grinding",
+  "description": "Buying whole spices and grinding fresh preserves volatile oils that begin degrading immediately after commercial grinding — dramatically better flavor at lower cost per year.",
+  "category": "kitchen",
+  "replaces": "Pre-ground spices ($3–8 per jar)",
+  "costPerUse": "~$0.02 per use",
+  "shelfLife": "Whole spices: 2–4 years; freshly ground: 3–6 months",
+  "effectiveness": 9,
+  "effectivenessNote": "Measurably superior flavor. Volatile oil content in freshly ground spices can be 5–10x higher than pre-ground store spices. Toast before grinding for maximum flavor.",
+  "difficulty": "Easy",
+  "coreIngredients": [],
+  "optionalIngredients": [],
+  "warnings": ["A cheap blade grinder ($15–20) is the only equipment needed", "Toast whole spices in a dry pan before grinding for maximum flavor", "Grind only what you need — ground spices lose potency within weeks", "Clean grinder between batches to avoid flavor cross-contamination"],
+  "scienceNote": "Volatile aromatic compounds (terpenes, phenylpropanoids, sulfur compounds) are released when cell walls are broken during grinding. These compounds oxidize and evaporate rapidly after grinding. Whole spices keep these compounds sealed inside intact cells."
+}

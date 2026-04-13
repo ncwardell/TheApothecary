@@ -1,0 +1,19 @@
+{
+  "id": "oxalic-acid",
+  "name": "Oxalic Acid",
+  "slug": "oxalic-acid",
+  "description": "A strong dicarboxylic acid that forms stable complexes with iron and calcium, exceptionally effective at removing rust stains, tannin stains, and wood discoloration.",
+  "chemicalName": "Ethanedioic acid",
+  "formula": "C₂H₂O₄",
+  "casNumber": "144-62-7",
+  "molecularWeight": "90.03 g/mol",
+  "appearance": "White crystalline powder; odorless",
+  "pH": "~1.3 (saturated solution)",
+  "solubility": "143 g/L in water at 25°C; soluble in ethanol",
+  "chemistry": "Complexes with iron/calcium. Dissolves rust + tannin stains. Active in Bar Keeper's Friend. Brightens wood.",
+  "warnings": "More toxic — gloves, ventilate, rinse.",
+  "costNote": "$8–12 for 2 lb",
+  "shelfLife": "Indefinite when stored dry",
+  "categories": ["cleaning"],
+  "relatedIngredients": ["citric-acid", "white-vinegar", "hydrogen-peroxide", "washing-soda"]
+}

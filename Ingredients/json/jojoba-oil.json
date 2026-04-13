@@ -1,0 +1,19 @@
+{
+  "id": "jojoba-oil",
+  "name": "Jojoba Oil",
+  "slug": "jojoba-oil",
+  "description": "A liquid wax ester (not a true oil) that closely mimics human sebum, offering exceptional oxidative stability and non-comedogenic skin compatibility.",
+  "chemicalName": "Mixture of long-chain wax esters (primarily eicosenoyl eicosenoate)",
+  "formula": "Primarily C₄₀–C₄₄ wax esters (e.g., C₄₂H₈₂O₂)",
+  "casNumber": "61789-91-1",
+  "molecularWeight": "~606–662 g/mol",
+  "appearance": "Clear to golden yellow liquid at room temperature; odorless to very faint nutty odor",
+  "pH": "Not applicable (non-aqueous)",
+  "solubility": "Insoluble in water; miscible with most oils and non-polar solvents",
+  "chemistry": "Liquid wax ester closest to human sebum. Non-comedogenic. Balances oil production. Long shelf life.",
+  "warnings": "Pricier but concentrated.",
+  "costNote": "$8–14 for 4 oz",
+  "shelfLife": "5+ years (essentially indefinite)",
+  "categories": ["skin", "hair"],
+  "relatedIngredients": ["tallow", "shea-butter", "coconut-oil", "beeswax"]
+}

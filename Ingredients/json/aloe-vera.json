@@ -1,0 +1,19 @@
+{
+  "id": "aloe-vera",
+  "name": "Aloe Vera",
+  "slug": "aloe-vera",
+  "description": "A succulent plant whose inner leaf gel contains acemannan polysaccharides that accelerate wound healing through macrophage activation — the definitive natural treatment for minor burns and wound care.",
+  "chemicalName": "Aloe barbadensis Miller; acemannan (primary active polysaccharide)",
+  "formula": "Acemannan: acetylated mannose polymer (~1,000,000 Da)",
+  "casNumber": "85507-69-3 (leaf juice); 110042-95-0 (acemannan)",
+  "molecularWeight": "Variable (gel is ~99% water with dissolved polysaccharides)",
+  "appearance": "Fresh gel: clear, viscous, slightly yellowish. Commercial: clear to slightly opaque.",
+  "pH": "4.0–5.5 (matches skin's acid mantle)",
+  "solubility": "Gel components water-soluble",
+  "chemistry": "Acemannan activates macrophages via mannose receptors → IL-1, IL-6, TNF-α release → fibroblast proliferation → collagen synthesis. Bradykinase breaks down inflammatory bradykinin. Salicylic acid provides analgesic effect. Systematic review: reduces burn healing by ~9 days.",
+  "warnings": "Aloe LATEX (yellow sap) contains aloin — potent laxative, IARC Group 2B carcinogen. Drain latex completely before harvesting gel. Fresh gel spoils in 5–7 days. Not for deep wounds or severe burns.",
+  "costNote": "$4–8 per plant; $8–14 for 12 oz commercial gel",
+  "shelfLife": "5–7 days (fresh, refrigerated); months frozen; 1–2 years (commercial preserved)",
+  "categories": ["skin", "health"],
+  "relatedIngredients": ["glycerin", "coconut-oil", "witch-hazel", "tea-tree-oil", "vitamin-e"]
+}

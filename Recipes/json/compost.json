@@ -1,0 +1,17 @@
+{
+  "id": "compost",
+  "name": "Compost",
+  "slug": "compost",
+  "description": "Aerobic decomposition of kitchen scraps and yard waste into complete soil fertility — feeding soil biology rather than force-feeding plants with synthetic fertilizers.",
+  "category": "garden",
+  "replaces": "Bagged fertilizer, soil amendments ($10–25)",
+  "costPerUse": "Free (uses waste materials)",
+  "shelfLife": "Finished compost: 1–2 years; improves with aging",
+  "effectiveness": 9,
+  "effectivenessNote": "Superior to synthetic fertilizers for long-term soil health. Improves soil structure, water retention, drainage, and biological diversity simultaneously. Takes 2–6 months but produces complete nutrition.",
+  "difficulty": "Easy (patience required)",
+  "coreIngredients": [],
+  "optionalIngredients": [],
+  "warnings": ["Alternate green (nitrogen: food scraps, grass) and brown (carbon: leaves, cardboard) layers", "Keep moist but not soggy — like a wrung-out sponge", "Turn occasionally to maintain aerobic conditions and prevent odor", "Avoid meat, dairy, and oils in outdoor piles (attract pests)", "Worm composting (vermicomposting) works for apartments"],
+  "scienceNote": "Aerobic bacteria, fungi, and invertebrates break down organic matter into humus — a stable, nutrient-rich material. The carbon:nitrogen ratio (ideally 25–30:1) determines decomposition speed. Compost feeds soil microbiome, which makes nutrients bioavailable to plants through symbiotic relationships."
+}

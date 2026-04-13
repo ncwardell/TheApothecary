@@ -1,0 +1,19 @@
+{
+  "id": "clove-oil",
+  "name": "Clove Essential Oil",
+  "slug": "clove-oil",
+  "description": "A steam-distilled essential oil containing 70–90% eugenol, a phenylpropanoid with potent dental analgesic and antiseptic properties.",
+  "chemicalName": "Complex mixture; primary component: eugenol (2-methoxy-4-(2-propenyl)phenol)",
+  "formula": "Mixture; eugenol: C₁₀H₁₂O₂",
+  "casNumber": "8000-34-8",
+  "molecularWeight": "164.20 g/mol (eugenol)",
+  "appearance": "Clear to pale yellow liquid; strong, warm, spicy aroma",
+  "pH": "Not applicable (non-aqueous)",
+  "solubility": "Slightly soluble in water; miscible with ethanol and organic solvents",
+  "chemistry": "70–90% eugenol — dental analgesic/antiseptic. Nerve signal inhibition.",
+  "warnings": "1–2 drops max. Irritates mucous membranes.",
+  "costNote": "$5–8 for 1 oz",
+  "shelfLife": "2–3 years when stored properly",
+  "categories": ["oral"],
+  "relatedIngredients": ["tea-tree-oil", "baking-soda", "bentonite-clay", "coconut-oil"]
+}

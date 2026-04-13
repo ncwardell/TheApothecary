@@ -1,0 +1,19 @@
+{
+  "id": "washing-soda",
+  "name": "Washing Soda (Sodium Carbonate)",
+  "slug": "washing-soda",
+  "description": "A strong alkaline salt (pH ~11) that saponifies grease on contact, softens hard water, and boosts surfactant performance.",
+  "chemicalName": "Sodium carbonate",
+  "formula": "Na₂CO₃",
+  "casNumber": "497-19-8",
+  "molecularWeight": "105.99 g/mol",
+  "appearance": "White crystalline powder or granules; odorless",
+  "pH": "~11.3 (1% solution)",
+  "solubility": "215 g/L in water at 20°C; insoluble in ethanol",
+  "chemistry": "Strong alkaline (pH ~11). Saponifies grease — turns fat into soap. Softens water. Boosts surfactant action, denatures protein stains.",
+  "warnings": "Wear gloves. Can fade colors, damage delicate fabrics. Don't mix with acids.",
+  "costNote": "$4–6 for 3 lb box",
+  "shelfLife": "Indefinite when stored dry",
+  "categories": ["cleaning", "laundry"],
+  "relatedIngredients": ["baking-soda", "borax", "castile-soap", "white-vinegar"]
+}

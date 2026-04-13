@@ -1,0 +1,19 @@
+{
+  "id": "neem-oil",
+  "name": "Neem Oil (Cold-Pressed)",
+  "slug": "neem-oil",
+  "description": "A vegetable oil from the seeds of the neem tree containing azadirachtin, which disrupts insect feeding, mating, and molting while exhibiting antifungal properties.",
+  "chemicalName": "Complex mixture of triglycerides and limonoids; primary bioactive: azadirachtin",
+  "formula": "Mixture; azadirachtin: C₃₅H₄₄O₁₆",
+  "casNumber": "8002-65-1",
+  "molecularWeight": "720.71 g/mol (azadirachtin)",
+  "appearance": "Yellow to dark brown liquid; strong garlic/sulfur-like odor",
+  "pH": "~6.5–7.0 (when emulsified)",
+  "solubility": "Insoluble in water (must be emulsified with soap)",
+  "chemistry": "Azadirachtin disrupts insect feeding/mating/eggs. Antifungal. Spares beneficials when applied evening.",
+  "warnings": "Emulsify with soap. Evening only. Strong smell.",
+  "costNote": "$8–12 for 16 oz",
+  "shelfLife": "1–2 years (cold-pressed, sealed)",
+  "categories": ["garden"],
+  "relatedIngredients": ["diatomaceous-earth", "castile-soap"]
+}

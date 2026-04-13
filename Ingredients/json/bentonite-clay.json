@@ -1,0 +1,19 @@
+{
+  "id": "bentonite-clay",
+  "name": "Bentonite Clay",
+  "slug": "bentonite-clay",
+  "description": "A naturally occurring montmorillonite mineral clay with a powerful negative ionic charge, capable of binding positively-charged toxins, heavy metals, and bacteria.",
+  "chemicalName": "Hydrated sodium calcium aluminium magnesium silicate hydroxide",
+  "formula": "(Na,Ca)₀.₃₃(Al,Mg)₂(Si₄O₁₀)(OH)₂·nH₂O",
+  "casNumber": "1302-78-9",
+  "molecularWeight": "Variable (layered silicate structure)",
+  "appearance": "Fine grey-green to cream powder; smooth, slightly slippery texture when wet",
+  "pH": "8.5–10.5",
+  "solubility": "Insoluble in water; swells to absorb water up to several times its dry volume",
+  "chemistry": "Montmorillonite mineral with strong negative ionic charge. Swells in water, creating electrical attraction that binds positively-charged toxins, heavy metals, and bacteria. Rich in calcium, magnesium, silica, iron. Two types: sodium bentonite (higher swelling) and calcium bentonite (preferred for oral care due to calcium content).",
+  "warnings": "Never contact metal — loses ionic charge. Use wooden/plastic utensils. Store in glass.",
+  "costNote": "$8–12/lb, lasts 30+ batches",
+  "shelfLife": "Indefinite when stored dry",
+  "categories": ["oral", "skin"],
+  "relatedIngredients": ["baking-soda", "sea-salt", "coconut-oil", "arrowroot-powder"]
+}

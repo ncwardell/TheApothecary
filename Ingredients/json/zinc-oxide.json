@@ -1,0 +1,19 @@
+{
+  "id": "zinc-oxide",
+  "name": "Zinc Oxide",
+  "slug": "zinc-oxide",
+  "description": "An inorganic mineral compound that provides broad-spectrum UV protection by physically reflecting and scattering ultraviolet radiation, while also serving as a skin protectant, mild antiseptic, and alternative deodorant active ingredient.",
+  "chemicalName": "Zinc oxide",
+  "formula": "ZnO",
+  "casNumber": "1314-13-2",
+  "molecularWeight": "81.38 g/mol",
+  "appearance": "Fine white powder; odorless and tasteless",
+  "pH": "~7.0 (suspension); amphoteric",
+  "solubility": "Insoluble in water (0.0004 g/100 mL); soluble in dilute acids and alkalis",
+  "chemistry": "Semiconductor with 3.37 eV band gap. UV protection via absorption (band gap excitation), scattering (Mie), and reflection (high refractive index 2.0). Broad-spectrum UVA+UVB. Zn²⁺ ions are directly antibacterial.",
+  "warnings": "Do NOT inhale dry powder — can cause metal fume fever. Wear dust mask when handling. Not for ingestion. DIY sunscreen SPF cannot be reliably tested.",
+  "costNote": "$8–12 for 8 oz; $12–18 for 1 lb",
+  "shelfLife": "Indefinite (stable inorganic mineral); formulations limited by carrier oil shelf life",
+  "categories": ["skin", "health"],
+  "relatedIngredients": ["beeswax", "shea-butter", "coconut-oil", "jojoba-oil", "vitamin-e", "magnesium-hydroxide"]
+}

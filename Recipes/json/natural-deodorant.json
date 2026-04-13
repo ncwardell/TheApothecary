@@ -1,0 +1,17 @@
+{
+  "id": "deodorant",
+  "name": "Natural Deodorant (Paste / Stick / Roll-On)",
+  "slug": "natural-deodorant",
+  "description": "A multi-format deodorant using three independent odor-control mechanisms: antimicrobial coconut oil, pH-shifting baking soda, and moisture-absorbing arrowroot.",
+  "category": "skin",
+  "replaces": "Commercial deodorant ($5–12)",
+  "costPerUse": "~$0.04",
+  "shelfLife": "3–6 months",
+  "effectiveness": 7,
+  "effectivenessNote": "Excellent odor control for most people. -3 vs commercial antiperspirants because it doesn't block sweat. Heavy sweaters may reapply midday.",
+  "difficulty": "Easy",
+  "coreIngredients": ["coconut-oil", "arrowroot-powder", "baking-soda"],
+  "optionalIngredients": ["magnesium-hydroxide", "tea-tree-oil", "shea-butter", "beeswax", "witch-hazel"],
+  "warnings": ["Does NOT stop sweating — odor control only", "Baking soda causes rash in ~15–20% of people — use magnesium hydroxide instead", "Coconut oil melts above 76°F — paste may liquify in summer", "2–4 week transition period from commercial antiperspirant", "May stain light shirts (coconut oil)"],
+  "scienceNote": "Odor = bacteria metabolizing sweat proteins. Three independent mechanisms: coconut oil kills bacteria (lauric acid), baking soda/MgOH creates hostile pH, arrowroot manages moisture."
+}

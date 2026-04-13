@@ -1,0 +1,19 @@
+{
+  "id": "magnesium-chloride",
+  "name": "Magnesium Chloride Flakes",
+  "slug": "magnesium-chloride",
+  "description": "A highly soluble magnesium salt used to create 'magnesium oil' for topical magnesium delivery, foot soaks, and bath applications.",
+  "chemicalName": "Magnesium chloride hexahydrate",
+  "formula": "MgCl₂·6H₂O",
+  "casNumber": "7791-18-6",
+  "molecularWeight": "203.30 g/mol (hexahydrate)",
+  "appearance": "White to off-white crystalline flakes or pellets; hygroscopic; bitter taste",
+  "pH": "6.0–8.0",
+  "solubility": "54.3 g/100 mL water at 20°C (extremely soluble)",
+  "chemistry": "Dissolved in water creates 'magnesium oil.' Some pilot studies positive for transdermal absorption; 2017 NIH review noted evidence remains limited.",
+  "warnings": "Tingles initially. Transdermal evidence promising but unproven. Pair with dietary magnesium.",
+  "costNote": "$10–15 for 2 lb",
+  "shelfLife": "Indefinite when stored dry (hygroscopic — keep sealed)",
+  "categories": ["health"],
+  "relatedIngredients": ["epsom-salt", "magnesium-hydroxide", "sea-salt"]
+}

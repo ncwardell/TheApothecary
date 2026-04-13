@@ -1,0 +1,19 @@
+{
+  "id": "arrowroot-powder",
+  "name": "Arrowroot Powder",
+  "slug": "arrowroot-powder",
+  "description": "A fine, silky white starch extracted from the rhizomes of Maranta arundinacea, prized for its hypoallergenic moisture absorption.",
+  "chemicalName": "Amylose and amylopectin (polysaccharides)",
+  "formula": "(C₆H₁₀O₅)ₙ",
+  "casNumber": "9005-25-8",
+  "molecularWeight": "Variable (starch polymer)",
+  "appearance": "Very fine, bright white, odorless powder with a silky feel",
+  "pH": "4.5–7.0",
+  "solubility": "Insoluble in cold water; gelatinizes in hot water at ~60–68°C",
+  "chemistry": "Fine starch absorbing moisture without blocking pores. Silky texture. Hypoallergenic.",
+  "warnings": "Cornstarch substitutes 1:1.",
+  "costNote": "$5–8 for 8 oz",
+  "shelfLife": "2–3 years in sealed container",
+  "categories": ["skin"],
+  "relatedIngredients": ["baking-soda", "coconut-oil", "magnesium-hydroxide", "shea-butter"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "oil-pulling",
+  "name": "Oil Pulling",
+  "slug": "oil-pulling",
+  "description": "Swishing coconut oil to reduce Streptococcus mutans and plaque through lipophilic biofilm penetration — clinically shown to reduce gingivitis in controlled trials.",
+  "category": "oral",
+  "replaces": "Mouthwash ($4–8)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "Coconut oil shelf life (1–2 years)",
+  "effectiveness": 7,
+  "effectivenessNote": "Clinical studies confirm reduction in S. mutans and plaque. Comparable to chlorhexidine mouthwash in some trials. Requires 10–20 minutes vs seconds for commercial mouthwash.",
+  "difficulty": "Easy",
+  "coreIngredients": ["coconut-oil"],
+  "optionalIngredients": [],
+  "warnings": ["Spit into trash, not sink (oil clogs drains)", "Do before brushing, not after", "10–20 minute time commitment", "Not a substitute for brushing and flossing"],
+  "scienceNote": "Lipophilic coconut oil penetrates bacterial biofilms that water-based mouthwash cannot reach. Lauric acid disrupts bacterial cell membranes. Mechanical swishing action dislodges plaque."
+}

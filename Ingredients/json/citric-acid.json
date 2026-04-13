@@ -1,0 +1,19 @@
+{
+  "id": "citric-acid",
+  "name": "Citric Acid",
+  "slug": "citric-acid",
+  "description": "A weak tricarboxylic organic acid used as a chelating descaler, pH adjuster, and preservative, offering superior limescale removal compared to vinegar with no odor.",
+  "chemicalName": "2-Hydroxypropane-1,2,3-tricarboxylic acid",
+  "formula": "C₆H₈O₇",
+  "casNumber": "77-92-9",
+  "molecularWeight": "192.12 g/mol",
+  "appearance": "White crystalline powder or granules; odorless",
+  "pH": "~2.2 (1% solution)",
+  "solubility": "592 g/L in water at 20°C; soluble in ethanol",
+  "chemistry": "Chelating acid — binds metal ions in deposits, dissolving them. More effective than vinegar for descaling. Prevents yellowing by chelating iron in water.",
+  "warnings": "Don't mix with baking soda/washing soda (neutralize). Not on stone. Not with bleach.",
+  "costNote": "$6–10 for 2 lb bag",
+  "shelfLife": "3–5 years; essentially indefinite in sealed container",
+  "categories": ["cleaning", "laundry"],
+  "relatedIngredients": ["white-vinegar", "washing-soda", "oxalic-acid", "baking-soda"]
+}

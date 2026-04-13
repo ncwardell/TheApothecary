@@ -1,0 +1,17 @@
+{
+  "id": "stain-treatment",
+  "name": "Stain Treatment Guide",
+  "slug": "stain-treatment-guide",
+  "description": "A chemistry-based approach to stain removal: alkaline paste for grease, oxidizers for organic stains, chelating acids for rust/tannin, and UV for whites — matching the stain's chemistry to the correct treatment.",
+  "category": "laundry",
+  "replaces": "Commercial stain removers ($4–10)",
+  "costPerUse": "~$0.02",
+  "shelfLife": "Indefinite (dry ingredients)",
+  "effectiveness": 8,
+  "effectivenessNote": "Targeted chemistry often outperforms generic commercial stain removers. Enzyme-based commercial products still have an edge on protein stains. UV/sunlight bleaching is genuinely one of the most effective whiteners.",
+  "difficulty": "Easy",
+  "coreIngredients": ["washing-soda", "hydrogen-peroxide"],
+  "optionalIngredients": ["oxalic-acid", "white-vinegar", "citric-acid"],
+  "warnings": ["Match chemistry to stain type — wrong treatment can set stains", "Oxalic acid requires gloves and ventilation", "Test on inconspicuous area first for colored fabrics", "H₂O₂ can bleach colored fabrics — test first"],
+  "scienceNote": "Grease = alkaline saponification (washing soda). Blood/wine/coffee = oxidative bleaching (H₂O₂). Rust/tannin = chelation (oxalic acid). Yellowing = UV photolysis (sunlight). Different stains need different chemistry."
+}

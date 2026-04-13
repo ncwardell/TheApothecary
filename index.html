@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Apothecary — DIY Essentials</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+/* ========== Design Tokens ========== */
+:root {
+  --bg: #f4f1eb;
+  --card: #ffffff;
+  --text: #2c2416;
+  --muted: #7a6f5f;
+  --accent: #b8860b;
+  --accent-light: #dcc07a;
+  --divider: #e0d8c8;
+  --tag-bg: #f0e9d8;
+  --savings-bg: #e8f0e4;
+  --savings-text: #3a6b2a;
+  --warn-bg: #faf0ec;
+  --warn-text: #993333;
+  --warn-border: #d4a8a8;
+  --shadow: 0 1px 3px rgba(44,36,22,0.06);
+  --radius: 10px;
+}
+
+/* ========== Reset & Base ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.hidden { display: none !important; }
+
+/* ========== Header ========== */
+header {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--accent);
+}
+
+header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.4em;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+header p {
+  color: var(--muted);
+  font-size: 1.05em;
+  font-weight: 300;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ========== Tab Bar ========== */
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.tab-btn {
+  padding: 7px 22px;
+  border: 2px solid var(--divider);
+  background: var(--card);
+  color: var(--muted);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.88em;
+  font-weight: 600;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.tab-btn:hover { border-color: var(--accent); color: var(--text); }
+
+.tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.tab-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--savings-text);
+  color: #fff;
+  font-size: 0.65em;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ========== Controls (Search + Category Filter) ========== */
+.controls {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  padding: 10px 0 12px;
+  z-index: 10;
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 24px;
+}
+
+.search-box {
+  margin-bottom: 10px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 9px 16px;
+  border: 1.5px solid var(--divider);
+  border-radius: 24px;
+  font-family: inherit;
+  font-size: 0.92em;
+  background: var(--card);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-box input:focus { border-color: var(--accent); }
+.search-box input::placeholder { color: #b8ad9a; }
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.filter-btn {
+  border: 1.5px solid var(--divider);
+  background: var(--card);
+  color: var(--muted);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.82em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.filter-btn:hover { border-color: var(--accent); color: var(--text); }
+
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ========== Section Titles ========== */
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35em;
+  margin: 32px 0 12px;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+}
+
+.section-title:first-child { margin-top: 0; }
+
+/* ========== Recipe Cards ========== */
+.recipe-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--divider);
+  box-shadow: var(--shadow);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.recipe-card:hover { box-shadow: 0 3px 12px rgba(44,36,22,0.1); }
+
+.recipe-header {
+  padding: 16px 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.recipe-header-left { flex: 1; min-width: 0; }
+
+.recipe-header h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.08em;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.recipe-replaces {
+  font-size: 0.8em;
+  color: var(--muted);
+}
+
+.recipe-badges {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.badge {
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-size: 0.72em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-cost { background: var(--savings-bg); color: var(--savings-text); }
+.badge-eff-high { background: #e4f0e4; color: #3a7d2a; }
+.badge-eff-mid { background: #f0ede4; color: #8a7d2a; }
+.badge-eff-low { background: #f0e8e4; color: #a05a2a; }
+.badge-diff-easy { background: #e4f0e4; color: #3a7d2a; }
+.badge-diff-moderate { background: #f0ede4; color: #8a7d2a; }
+.badge-diff-advanced { background: #f0e8e4; color: #a05a2a; }
+
+.chevron {
+  font-size: 1em;
+  color: var(--accent);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.chevron.open { transform: rotate(180deg); }
+
+/* ---- Recipe Detail (expandable) ---- */
+.recipe-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.recipe-detail-inner {
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--tag-bg);
+}
+
+.eff-bar-wrap { margin: 12px 0 6px; }
+
+.eff-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eff-bar-label {
+  font-size: 0.72em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 85px;
+}
+
+.eff-bar-track {
+  flex: 1;
+  height: 7px;
+  background: #eae5d6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.eff-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.eff-bar-score {
+  font-size: 0.8em;
+  font-weight: 700;
+  min-width: 28px;
+  text-align: right;
+}
+
+.eff-note {
+  font-size: 0.82em;
+  color: #6b5d4d;
+  line-height: 1.5;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.shelf-life {
+  font-size: 0.78em;
+  color: #9a8e7a;
+  margin-top: 8px;
+}
+
+/* Section headings inside recipe detail */
+.detail-heading {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin: 14px 0 8px;
+}
+
+.detail-heading-accent { color: var(--accent); }
+.detail-heading-muted { color: #8a7d6b; }
+.detail-heading-warn { color: var(--warn-text); }
+
+/* Ingredient pill rows */
+.ingredient-row {
+  background: #faf6ec;
+  border-radius: 8px;
+  padding: 8px 11px;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 5px;
+}
+
+.ingredient-row.optional {
+  background: #f8f5ed;
+  border-left-color: #d4c8a8;
+}
+
+.ingredient-pill {
+  display: inline-block;
+  background: none;
+  border: 1px solid #c8bfa8;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 0.82em;
+  color: #6b5d4d;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+
+.ingredient-pill:hover {
+  background: #f5eed8;
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* Warning items */
+.warning-item {
+  font-size: 0.83em;
+  line-height: 1.45;
+  color: #6b4a3e;
+  padding: 5px 10px;
+  background: var(--warn-bg);
+  border-radius: 6px;
+  border-left: 2px solid var(--warn-border);
+  margin-bottom: 4px;
+}
+
+/* Science box */
+.science-box {
+  background: #eae5d6;
+  border-radius: var(--radius);
+  padding: 13px 15px;
+  margin-top: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+.science-box p {
+  font-size: 0.84em;
+  line-height: 1.55;
+  color: #4a3f30;
+}
+
+/* ========== Ingredient Cards ========== */
+.ingredient-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  border: 1px solid var(--divider);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.2s;
+  margin-bottom: 8px;
+}
+
+.ingredient-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 3px 12px rgba(44,36,22,0.1);
+}
+
+.ingredient-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.ingredient-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95em;
+  font-weight: 700;
+}
+
+.ingredient-card .cost {
+  font-size: 0.73em;
+  color: #9a8e7a;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ingredient-card .chem-preview {
+  font-size: 0.83em;
+  color: #6b5d4d;
+  line-height: 1.5;
+}
+
+.cat-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 7px;
+}
+
+.cat-pill {
+  background: var(--tag-bg);
+  padding: 2px 7px;
+  border-radius: 7px;
+  font-size: 0.66em;
+  color: #8a7d6b;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ========== Modal ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.modal-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 26px 24px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  transform: translateY(10px);
+  transition: transform 0.2s;
+}
+
+.modal-overlay.visible .modal {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.modal-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.6em;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.modal-close:hover { color: var(--text); }
+
+.modal-desc {
+  font-size: 0.88em;
+  color: #6b5d4d;
+  line-height: 1.55;
+  margin: 8px 0 14px;
+}
+
+.modal-section-title {
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 14px 0 6px;
+}
+
+.modal-section-title.warn { color: var(--warn-text); }
+
+.modal-text {
+  font-size: 0.88em;
+  line-height: 1.6;
+  color: #4a3f30;
+}
+
+.modal-props {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.modal-prop {
+  background: #f5f0e4;
+  border-radius: 6px;
+  padding: 7px 10px;
+}
+
+.modal-prop-label {
+  font-size: 0.65em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9a8e7a;
+  font-weight: 700;
+}
+
+.modal-prop-value {
+  font-size: 0.84em;
+  color: #4a3f30;
+  margin-top: 1px;
+}
+
+.modal-cost-box {
+  background: #eae5d6;
+  border-radius: 8px;
+  padding: 9px 13px;
+  margin-top: 10px;
+}
+
+.modal-cost-box .label {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6b5d4d;
+  font-weight: 700;
+}
+
+.modal-cost-box .value {
+  font-size: 0.88em;
+  color: #4a3f30;
+}
+
+.modal-pills {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.modal-recipe-pill {
+  background: var(--tag-bg);
+  padding: 3px 11px;
+  border-radius: 8px;
+  font-size: 0.8em;
+  color: #6b5d4d;
+}
+
+/* ========== Shopping List View ========== */
+.shopping-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.shopping-panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--divider);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.shopping-panel h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05em;
+  margin-bottom: 12px;
+}
+
+.shopping-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.shopping-actions button {
+  padding: 4px 12px;
+  border: 1px solid var(--divider);
+  background: var(--card);
+  border-radius: 6px;
+  font-size: 0.78em;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--muted);
+  transition: all 0.15s;
+}
+
+.shopping-actions button:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.shopping-cat-label {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 10px 0 5px;
+}
+
+.shopping-cat-label:first-child { margin-top: 0; }
+
+.shopping-recipe-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  font-size: 0.88em;
+}
+
+.shopping-recipe-row input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.shopping-recipe-row label {
+  cursor: pointer;
+  flex: 1;
+}
+
+.shopping-recipe-row .cost-hint {
+  font-size: 0.78em;
+  color: #9a8e7a;
+}
+
+.shopping-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--tag-bg);
+  border-radius: 7px;
+  margin-bottom: 5px;
+  font-size: 0.88em;
+}
+
+.shopping-result-row .name {
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.shopping-result-row .name:hover { color: var(--accent); }
+
+.shopping-result-row .cost {
+  color: var(--muted);
+  font-size: 0.85em;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.shopping-empty {
+  text-align: center;
+  color: #b8ad9a;
+  font-size: 0.92em;
+  padding: 40px 20px;
+  font-style: italic;
+}
+
+.shopping-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.shopping-toggle input { accent-color: var(--accent); cursor: pointer; }
+.shopping-toggle label { cursor: pointer; }
+
+.shopping-count {
+  font-size: 0.82em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+/* ========== Loading ========== */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+  font-size: 1.1em;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--divider);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ========== Markdown Content ========== */
+.md-divider {
+  border: none;
+  border-top: 2px solid var(--accent);
+  margin: 20px 0 16px;
+}
+
+.md-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.84em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-top: 12px;
+}
+
+.md-toggle:hover { background: var(--accent); color: #fff; }
+.md-toggle.active { background: var(--accent); color: #fff; }
+
+.md-toggle .arrow {
+  display: inline-block;
+  transition: transform 0.25s;
+  font-size: 0.85em;
+}
+
+.md-toggle.active .arrow { transform: rotate(180deg); }
+
+.md-loading {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.88em;
+  font-style: italic;
+}
+
+.md-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.md-content.open {
+  max-height: none;
+}
+
+.md-body {
+  padding: 16px 0 4px;
+  font-size: 0.9em;
+  line-height: 1.7;
+  color: #3a3225;
+}
+
+.md-body h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5em;
+  margin: 24px 0 8px;
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 6px;
+}
+
+.md-body h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+  color: var(--text);
+}
+
+.md-body h3 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 16px 0 6px;
+  color: var(--text);
+}
+
+.md-body h4 {
+  font-size: 0.88em;
+  font-weight: 700;
+  margin: 12px 0 4px;
+  color: var(--accent);
+}
+
+.md-body p {
+  margin: 8px 0;
+}
+
+.md-body ul, .md-body ol {
+  margin: 8px 0;
+  padding-left: 24px;
+}
+
+.md-body li { margin: 3px 0; }
+
+.md-body blockquote {
+  border-left: 3px solid var(--accent-light);
+  margin: 12px 0;
+  padding: 8px 16px;
+  background: var(--tag-bg);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #5a4f3e;
+}
+
+.md-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.92em;
+}
+
+.md-body th {
+  background: var(--tag-bg);
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--divider);
+  font-size: 0.88em;
+  color: var(--text);
+}
+
+.md-body td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--divider);
+  vertical-align: top;
+}
+
+.md-body tr:last-child td { border-bottom: none; }
+
+.md-body code {
+  background: var(--tag-bg);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.md-body pre {
+  background: #2c2416;
+  color: #e8dcc8;
+  padding: 14px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 12px 0;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+.md-body pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.md-body strong { color: var(--text); }
+
+.md-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-light);
+}
+
+.md-body a:hover { border-bottom-color: var(--accent); }
+
+.md-body hr {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 16px 0;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 640px) {
+  header h1 { font-size: 1.8em; }
+  .container { padding: 20px 14px 60px; }
+  .recipe-header { flex-direction: column; gap: 8px; }
+  .recipe-badges { justify-content: flex-start; }
+  .shopping-layout { grid-template-columns: 1fr; }
+  .modal { padding: 20px 16px; }
+  .modal-props { grid-template-columns: 1fr; }
+  .tab-btn { padding: 6px 14px; font-size: 0.82em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== Header ========== -->
+  <header>
+    <h1>The Apothecary</h1>
+    <p>Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients.</p>
+  </header>
+
+  <!-- ========== Tab Bar ========== -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-action="switch-tab" data-view="recipes">Recipes</button>
+    <button class="tab-btn" data-action="switch-tab" data-view="ingredients">Ingredients</button>
+    <button class="tab-btn" data-action="switch-tab" data-view="shopping" id="tab-shopping">Shopping List</button>
+  </div>
+
+  <!-- ========== Controls ========== -->
+  <div class="controls" id="controls">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="Search recipes, ingredients, chemistry...">
+    </div>
+    <div class="filter-bar" id="filter-bar"></div>
+  </div>
+
+  <!-- ========== Views ========== -->
+  <div id="view-recipes"></div>
+  <div id="view-ingredients" class="hidden"></div>
+  <div id="view-shopping" class="hidden"></div>
+
+  <!-- ========== Loading ========== -->
+  <div id="loading" class="loading">
+    <div class="loading-spinner"></div>
+    <div>Loading ingredient and recipe data...</div>
+  </div>
+
+</div>
+
+<!-- ========== Modal ========== -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<script>
+/* ===========================================================
+   A. CONSTANTS
+   =========================================================== */
+const CATEGORIES = [
+  { id: "all", label: "All" },
+  { id: "oral", label: "Oral Care" },
+  { id: "skin", label: "Skin & Body" },
+  { id: "hair", label: "Hair" },
+  { id: "cleaning", label: "Cleaning" },
+  { id: "laundry", label: "Laundry" },
+  { id: "kitchen", label: "Kitchen" },
+  { id: "health", label: "Health" },
+  { id: "garden", label: "Garden & Home" }
+];
+
+const CATEGORY_LABELS = {};
+CATEGORIES.forEach(c => CATEGORY_LABELS[c.id] = c.label);
+
+const INGREDIENT_FILES = [
+  "activated-charcoal","aloe-vera","apple-cider-vinegar","arrowroot-powder",
+  "baking-soda","beeswax","bentonite-clay","borax","castile-soap","citric-acid",
+  "clove-oil","coconut-oil","diatomaceous-earth","epsom-salt","glycerin",
+  "household-ammonia","hydrogen-peroxide","jojoba-oil","magnesium-chloride",
+  "magnesium-hydroxide","neem-oil","oxalic-acid","rosemary","sea-salt",
+  "shea-butter","soapwort-root","sodium-percarbonate","tallow","tea-tree-oil",
+  "vitamin-e","washing-soda","white-vinegar","witch-hazel","xylitol","zinc-oxide"
+];
+
+const RECIPE_FILES = [
+  "all-purpose-cleaning-system","bone-broth","castile-soap-acv-hair-rinse",
+  "castile-soap-multi-use","complete-laundry-system","compost",
+  "diatomaceous-earth-pest-control","epsom-salt-bath","fermented-foods",
+  "herbal-teas","hydrogen-peroxide-whitening-rinse","magnesium-oil-spray",
+  "miswak-sticks","natural-deodorant","natural-shampoo-rinse-system",
+  "neem-oil-garden-spray","oil-pulling","remineralizing-clay-toothpaste",
+  "saline-solution","simple-oil-moisturizer","sourdough-starter",
+  "stain-treatment-guide","vinegar-fabric-softener","vinegar-iron-wood-stain",
+  "whipped-tallow-balm","whole-spice-grinding"
+];
+
+/* ===========================================================
+   B. STATE
+   =========================================================== */
+const state = {
+  ingredients: {},
+  ingredientsBySlug: {},
+  recipes: [],
+  currentView: "recipes",
+  currentCategory: "all",
+  searchQuery: "",
+  expandedRecipe: null,
+  selectedIngredient: null,
+  shoppingSelections: new Set(),
+  includeOptional: false,
+  mdCache: {}  // slug -> rendered HTML string
+};
+
+/* ===========================================================
+   C. DATA LOADING
+   =========================================================== */
+async function loadData() {
+  try {
+    const [ingResults, recResults] = await Promise.all([
+      Promise.all(INGREDIENT_FILES.map(slug =>
+        fetch(`Ingredients/json/${slug}.json`)
+          .then(r => { if (!r.ok) throw new Error(slug); return r.json(); })
+          .catch(() => null)
+      )),
+      Promise.all(RECIPE_FILES.map(slug =>
+        fetch(`Recipes/json/${slug}.json`)
+          .then(r => { if (!r.ok) throw new Error(slug); return r.json(); })
+          .catch(() => null)
+      ))
+    ]);
+
+    ingResults.filter(Boolean).forEach(ing => {
+      state.ingredients[ing.id] = ing;
+      state.ingredientsBySlug[ing.slug] = ing;
+    });
+
+    state.recipes = recResults.filter(Boolean);
+
+    const catOrder = CATEGORIES.map(c => c.id);
+    state.recipes.sort((a, b) => catOrder.indexOf(a.category) - catOrder.indexOf(b.category));
+
+    document.getElementById("loading").classList.add("hidden");
+    buildFilterBar();
+    renderAll();
+  } catch (err) {
+    document.getElementById("loading").innerHTML =
+      `<p>Error loading data. Serve this file from the project root:</p>
+       <code>python3 -m http.server 8000</code>`;
+  }
+}
+
+/* ===========================================================
+   D. FILTERING
+   =========================================================== */
+function getFilteredRecipes() {
+  return state.recipes.filter(r => {
+    if (state.currentCategory !== "all" && r.category !== state.currentCategory) return false;
+    if (!state.searchQuery) return true;
+    const q = state.searchQuery.toLowerCase();
+    return r.name.toLowerCase().includes(q)
+      || (r.description || "").toLowerCase().includes(q)
+      || (r.replaces || "").toLowerCase().includes(q)
+      || (r.scienceNote || "").toLowerCase().includes(q);
+  });
+}
+
+function getFilteredIngredients() {
+  return Object.values(state.ingredients)
+    .filter(ing => {
+      if (state.currentCategory !== "all" && !ing.categories.includes(state.currentCategory)) return false;
+      if (!state.searchQuery) return true;
+      const q = state.searchQuery.toLowerCase();
+      return ing.name.toLowerCase().includes(q)
+        || (ing.chemistry || "").toLowerCase().includes(q)
+        || (ing.chemicalName || "").toLowerCase().includes(q)
+        || (ing.description || "").toLowerCase().includes(q);
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/* ===========================================================
+   E0. MARKDOWN LOADING
+   =========================================================== */
+
+async function fetchMd(type, slug) {
+  const key = `${type}/${slug}`;
+  if (state.mdCache[key]) return state.mdCache[key];
+
+  const path = type === "ingredient"
+    ? `Ingredients/${slug}.md`
+    : `Recipes/${slug}.md`;
+
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(res.status);
+    const md = await res.text();
+    const html = marked.parse(md);
+    state.mdCache[key] = html;
+    return html;
+  } catch (e) {
+    return `<p style="color:var(--muted);font-style:italic">Could not load ${path}</p>`;
+  }
+}
+
+async function toggleMdSection(type, slug, containerId, toggleBtn) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const isOpen = container.classList.contains("open");
+  if (isOpen) {
+    container.style.maxHeight = container.scrollHeight + "px";
+    requestAnimationFrame(() => { container.style.maxHeight = "0"; });
+    container.classList.remove("open");
+    toggleBtn.classList.remove("active");
+    return;
+  }
+
+  // Show loading if not cached
+  const key = `${type}/${slug}`;
+  if (!state.mdCache[key]) {
+    container.innerHTML = `<div class="md-loading">Loading full profile...</div>`;
+    container.style.maxHeight = "60px";
+    container.classList.add("open");
+  }
+
+  const html = await fetchMd(type, slug);
+  container.innerHTML = `<div class="md-body">${html}</div>`;
+  container.classList.add("open");
+  container.style.maxHeight = "none";
+  toggleBtn.classList.add("active");
+}
+
+/* ===========================================================
+   E. RENDERING
+   =========================================================== */
+
+function esc(s) {
+  if (!s) return "";
+  const d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function effColor(s) {
+  return s >= 8 ? "#3a7d2a" : s >= 6 ? "#8a7d2a" : "#a05a2a";
+}
+
+function effBadgeClass(s) {
+  return s >= 8 ? "badge-eff-high" : s >= 6 ? "badge-eff-mid" : "badge-eff-low";
+}
+
+function diffBadgeClass(d) {
+  if (!d) return "badge-diff-easy";
+  const dl = d.toLowerCase();
+  if (dl.includes("advanced") || dl.includes("hard")) return "badge-diff-advanced";
+  if (dl.includes("moderate") || dl.includes("medium")) return "badge-diff-moderate";
+  return "badge-diff-easy";
+}
+
+function ingredientName(id) {
+  const ing = state.ingredients[id];
+  return ing ? ing.name : id;
+}
+
+function buildFilterBar() {
+  const bar = document.getElementById("filter-bar");
+  bar.innerHTML = CATEGORIES.map(c =>
+    `<button class="filter-btn${c.id === state.currentCategory ? " active" : ""}"
+       data-action="filter-category" data-cat="${c.id}">${esc(c.label)}</button>`
+  ).join("");
+}
+
+function renderAll() {
+  // Update tabs
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.view === state.currentView);
+  });
+
+  // Show/hide views and controls
+  document.getElementById("view-recipes").classList.toggle("hidden", state.currentView !== "recipes");
+  document.getElementById("view-ingredients").classList.toggle("hidden", state.currentView !== "ingredients");
+  document.getElementById("view-shopping").classList.toggle("hidden", state.currentView !== "shopping");
+  document.getElementById("controls").classList.toggle("hidden", state.currentView === "shopping");
+
+  // Update shopping badge
+  const badge = document.getElementById("tab-shopping");
+  const count = state.shoppingSelections.size;
+  const existing = badge.querySelector(".tab-badge");
+  if (existing) existing.remove();
+  if (count > 0) {
+    badge.insertAdjacentHTML("beforeend", `<span class="tab-badge">${count}</span>`);
+  }
+
+  if (state.currentView === "recipes") renderRecipes();
+  else if (state.currentView === "ingredients") renderIngredients();
+  else if (state.currentView === "shopping") renderShopping();
+}
+
+/* ---------- Recipes ---------- */
+function renderRecipes() {
+  const recipes = getFilteredRecipes();
+  const container = document.getElementById("view-recipes");
+
+  if (recipes.length === 0) {
+    container.innerHTML = `<div class="shopping-empty">No recipes found.</div>`;
+    return;
+  }
+
+  let html = "";
+  let lastCat = null;
+
+  recipes.forEach(r => {
+    if (r.category !== lastCat) {
+      lastCat = r.category;
+      html += `<div class="section-title">${esc(CATEGORY_LABELS[r.category] || r.category)}</div>`;
+    }
+
+    const isOpen = state.expandedRecipe === r.id;
+    const ec = effColor(r.effectiveness);
+
+    html += `
+      <div class="recipe-card">
+        <div class="recipe-header" data-action="toggle-recipe" data-recipe-id="${esc(r.id)}">
+          <div class="recipe-header-left">
+            <h3>${esc(r.name)}</h3>
+            <div class="recipe-replaces">${esc(r.replaces)}</div>
+          </div>
+          <div class="recipe-badges">
+            <span class="badge badge-cost">${esc(r.costPerUse)}</span>
+            <span class="badge ${effBadgeClass(r.effectiveness)}">${r.effectiveness}/10</span>
+            ${r.difficulty ? `<span class="badge ${diffBadgeClass(r.difficulty)}">${esc(r.difficulty)}</span>` : ""}
+            <span class="chevron${isOpen ? " open" : ""}">&#9662;</span>
+          </div>
+        </div>
+        <div class="recipe-detail" data-detail-for="${esc(r.id)}" style="max-height:${isOpen ? "none" : "0"}">
+          <div class="recipe-detail-inner">
+            ${renderRecipeDetail(r)}
+          </div>
+        </div>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function renderRecipeDetail(r) {
+  const ec = effColor(r.effectiveness);
+  let html = "";
+
+  // Effectiveness bar
+  html += `
+    <div class="eff-bar-wrap">
+      <div class="eff-bar">
+        <span class="eff-bar-label" style="color:${ec}">vs Commercial</span>
+        <div class="eff-bar-track">
+          <div class="eff-bar-fill" style="width:${r.effectiveness * 10}%;background:${ec}"></div>
+        </div>
+        <span class="eff-bar-score" style="color:${ec}">${r.effectiveness}/10</span>
+      </div>
+      <div class="eff-note">${esc(r.effectivenessNote)}</div>
+    </div>
+    <div class="shelf-life">Shelf life: ${esc(r.shelfLife)}</div>`;
+
+  // Description
+  if (r.description) {
+    html += `<p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-top:10px">${esc(r.description)}</p>`;
+  }
+
+  // Core ingredients
+  if (r.coreIngredients && r.coreIngredients.length > 0) {
+    html += `<div class="detail-heading detail-heading-accent">Core Ingredients</div>`;
+    r.coreIngredients.forEach(id => {
+      html += `
+        <div class="ingredient-row">
+          <button class="ingredient-pill" data-action="open-ingredient" data-ingredient-id="${esc(id)}">${esc(ingredientName(id))}</button>
+        </div>`;
+    });
+  }
+
+  // Optional ingredients
+  if (r.optionalIngredients && r.optionalIngredients.length > 0) {
+    html += `<div class="detail-heading detail-heading-muted">Optional / Replacements</div>`;
+    r.optionalIngredients.forEach(id => {
+      html += `
+        <div class="ingredient-row optional">
+          <button class="ingredient-pill" data-action="open-ingredient" data-ingredient-id="${esc(id)}">${esc(ingredientName(id))}</button>
+        </div>`;
+    });
+  }
+
+  // Warnings
+  if (r.warnings && r.warnings.length > 0) {
+    html += `<div class="detail-heading detail-heading-warn">Warnings & Limitations</div>`;
+    r.warnings.forEach(w => {
+      html += `<div class="warning-item">${esc(w)}</div>`;
+    });
+  }
+
+  // Science note
+  if (r.scienceNote) {
+    html += `
+      <div class="science-box">
+        <div class="detail-heading detail-heading-accent" style="margin-top:0">The Science</div>
+        <p>${esc(r.scienceNote)}</p>
+      </div>`;
+  }
+
+  // Full recipe from MD file
+  if (r.slug) {
+    html += `
+      <hr class="md-divider">
+      <button class="md-toggle" data-action="toggle-recipe-md" data-slug="${esc(r.slug)}" id="md-toggle-recipe-${esc(r.slug)}">
+        Full Recipe <span class="arrow">&#9662;</span>
+      </button>
+      <div class="md-content" id="md-recipe-${esc(r.slug)}"></div>`;
+  }
+
+  return html;
+}
+
+/* ---------- Ingredients ---------- */
+function renderIngredients() {
+  const ingredients = getFilteredIngredients();
+  const container = document.getElementById("view-ingredients");
+
+  if (ingredients.length === 0) {
+    container.innerHTML = `<div class="shopping-empty">No ingredients found.</div>`;
+    return;
+  }
+
+  container.innerHTML = ingredients.map(ing => `
+    <div class="ingredient-card" data-action="open-ingredient" data-ingredient-id="${esc(ing.id)}">
+      <div class="ingredient-card-header">
+        <h3>${esc(ing.name)}</h3>
+        <span class="cost">${esc(ing.costNote)}</span>
+      </div>
+      <div class="chem-preview">${esc((ing.chemistry || "").substring(0, 140))}${(ing.chemistry || "").length > 140 ? "..." : ""}</div>
+      <div class="cat-pills">
+        ${(ing.categories || []).map(c => `<span class="cat-pill">${esc(CATEGORY_LABELS[c] || c)}</span>`).join("")}
+      </div>
+    </div>
+  `).join("");
+}
+
+/* ---------- Modal ---------- */
+function openModal(ingredientId) {
+  const ing = state.ingredients[ingredientId];
+  if (!ing) return;
+
+  state.selectedIngredient = ingredientId;
+  const modal = document.getElementById("modal-content");
+
+  // Find recipes that use this ingredient
+  const usedIn = state.recipes.filter(r =>
+    (r.coreIngredients || []).includes(ingredientId) ||
+    (r.optionalIngredients || []).includes(ingredientId)
+  );
+
+  // Resolve related ingredients
+  const related = (ing.relatedIngredients || [])
+    .map(rid => {
+      // relatedIngredients may use slug — try both lookups
+      return state.ingredients[rid] || state.ingredientsBySlug[rid];
+    })
+    .filter(Boolean);
+
+  let propsHtml = "";
+  const props = [
+    ["Formula", ing.formula],
+    ["CAS Number", ing.casNumber],
+    ["Mol. Weight", ing.molecularWeight],
+    ["pH", ing.pH],
+    ["Appearance", ing.appearance],
+    ["Solubility", ing.solubility],
+  ].filter(([, v]) => v && v !== "Not applicable");
+
+  if (props.length > 0) {
+    propsHtml = `<div class="modal-props">${props.map(([label, val]) => `
+      <div class="modal-prop">
+        <div class="modal-prop-label">${esc(label)}</div>
+        <div class="modal-prop-value">${esc(val)}</div>
+      </div>`).join("")}</div>`;
+  }
+
+  modal.innerHTML = `
+    <div class="modal-header">
+      <h2>${esc(ing.name)}</h2>
+      <button class="modal-close" data-action="close-modal">&times;</button>
+    </div>
+    <div class="cat-pills" style="margin-bottom:10px">
+      ${(ing.categories || []).map(c => `<span class="cat-pill">${esc(CATEGORY_LABELS[c] || c)}</span>`).join("")}
+    </div>
+    ${ing.description ? `<p class="modal-desc">${esc(ing.description)}</p>` : ""}
+    <div class="modal-section-title">Chemistry & Mechanism</div>
+    <p class="modal-text">${esc(ing.chemistry)}</p>
+    ${propsHtml}
+    ${ing.shelfLife ? `
+      <div class="modal-prop" style="margin:8px 0;background:#f5f0e4;border-radius:6px;padding:7px 10px">
+        <div class="modal-prop-label">Shelf Life</div>
+        <div class="modal-prop-value">${esc(ing.shelfLife)}</div>
+      </div>` : ""}
+    <div class="modal-section-title warn">Warnings & Interactions</div>
+    <p class="modal-text">${esc(ing.warnings)}</p>
+    <div class="modal-cost-box">
+      <span class="label">Cost: </span>
+      <span class="value">${esc(ing.costNote)}</span>
+    </div>
+    ${related.length > 0 ? `
+      <div class="modal-section-title">Related Ingredients</div>
+      <div class="modal-pills">
+        ${related.map(ri => `<button class="ingredient-pill" data-action="open-ingredient" data-ingredient-id="${esc(ri.id)}">${esc(ri.name)}</button>`).join("")}
+      </div>` : ""}
+    ${usedIn.length > 0 ? `
+      <div class="modal-section-title">Used In Recipes</div>
+      <div class="modal-pills">
+        ${usedIn.map(r => `<span class="modal-recipe-pill">${esc(r.name)}</span>`).join("")}
+      </div>` : ""}
+    ${ing.slug ? `
+      <hr class="md-divider">
+      <button class="md-toggle" data-action="toggle-ingredient-md" data-slug="${esc(ing.slug)}" id="md-toggle-ing-${esc(ing.slug)}">
+        Full Profile <span class="arrow">&#9662;</span>
+      </button>
+      <div class="md-content" id="md-ing-${esc(ing.slug)}"></div>` : ""}
+  `;
+
+  document.getElementById("modal-overlay").classList.add("visible");
+}
+
+function closeModal() {
+  state.selectedIngredient = null;
+  document.getElementById("modal-overlay").classList.remove("visible");
+}
+
+/* ---------- Shopping List ---------- */
+function renderShopping() {
+  const container = document.getElementById("view-shopping");
+
+  // Left panel: recipe selector
+  let leftHtml = `
+    <div class="shopping-panel">
+      <h3>Select Recipes</h3>
+      <div class="shopping-actions">
+        <button data-action="shopping-select-all">Select All</button>
+        <button data-action="shopping-clear">Clear</button>
+      </div>`;
+
+  let lastCat = null;
+  state.recipes.forEach(r => {
+    if (r.category !== lastCat) {
+      lastCat = r.category;
+      leftHtml += `<div class="shopping-cat-label">${esc(CATEGORY_LABELS[r.category] || r.category)}</div>`;
+    }
+    const checked = state.shoppingSelections.has(r.id) ? "checked" : "";
+    leftHtml += `
+      <div class="shopping-recipe-row">
+        <input type="checkbox" id="shop-${esc(r.id)}" ${checked}
+          data-action="toggle-shopping" data-recipe-id="${esc(r.id)}">
+        <label for="shop-${esc(r.id)}">${esc(r.name)}</label>
+        <span class="cost-hint">${esc(r.costPerUse)}</span>
+      </div>`;
+  });
+  leftHtml += `</div>`;
+
+  // Right panel: results
+  let rightHtml = `<div class="shopping-panel" id="shopping-results">`;
+  rightHtml += renderShoppingResults();
+  rightHtml += `</div>`;
+
+  container.innerHTML = `
+    <div class="shopping-layout">
+      ${leftHtml}
+      ${rightHtml}
+    </div>`;
+}
+
+function renderShoppingResults() {
+  const ingredientIds = new Set();
+  let recipeCount = 0;
+
+  for (const recipeId of state.shoppingSelections) {
+    const recipe = state.recipes.find(r => r.id === recipeId);
+    if (!recipe) continue;
+    recipeCount++;
+    (recipe.coreIngredients || []).forEach(id => ingredientIds.add(id));
+    if (state.includeOptional) {
+      (recipe.optionalIngredients || []).forEach(id => ingredientIds.add(id));
+    }
+  }
+
+  if (recipeCount === 0) {
+    return `
+      <h3>Your Ingredient List</h3>
+      <div class="shopping-toggle">
+        <input type="checkbox" id="include-optional" ${state.includeOptional ? "checked" : ""}
+          data-action="toggle-optional">
+        <label for="include-optional">Include optional ingredients</label>
+      </div>
+      <div class="shopping-empty">Select recipes to build your shopping list.</div>`;
+  }
+
+  const ingredients = [...ingredientIds]
+    .map(id => state.ingredients[id])
+    .filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  return `
+    <h3>Your Ingredient List</h3>
+    <div class="shopping-toggle">
+      <input type="checkbox" id="include-optional" ${state.includeOptional ? "checked" : ""}
+        data-action="toggle-optional">
+      <label for="include-optional">Include optional ingredients</label>
+    </div>
+    <div class="shopping-count">${ingredients.length} ingredients for ${recipeCount} recipe${recipeCount !== 1 ? "s" : ""}</div>
+    ${ingredients.map(ing => `
+      <div class="shopping-result-row">
+        <span class="name" data-action="open-ingredient" data-ingredient-id="${esc(ing.id)}">${esc(ing.name)}</span>
+        <span class="cost">${esc(ing.costNote)}</span>
+      </div>`).join("")}`;
+}
+
+function updateShoppingResults() {
+  const panel = document.getElementById("shopping-results");
+  if (panel) panel.innerHTML = renderShoppingResults();
+}
+
+/* ===========================================================
+   F. EVENT HANDLING
+   =========================================================== */
+document.addEventListener("click", (e) => {
+  const target = e.target.closest("[data-action]");
+  if (!target) return;
+
+  const action = target.dataset.action;
+
+  switch (action) {
+    case "switch-tab": {
+      state.currentView = target.dataset.view;
+      if (state.currentView === "shopping") {
+        state.searchQuery = "";
+        document.getElementById("search-input").value = "";
+      }
+      renderAll();
+      break;
+    }
+
+    case "filter-category": {
+      state.currentCategory = target.dataset.cat;
+      document.querySelectorAll(".filter-btn").forEach(btn =>
+        btn.classList.toggle("active", btn.dataset.cat === state.currentCategory)
+      );
+      if (state.currentView === "recipes") renderRecipes();
+      else if (state.currentView === "ingredients") renderIngredients();
+      break;
+    }
+
+    case "toggle-recipe": {
+      const rid = target.dataset.recipeId;
+      const wasOpen = state.expandedRecipe === rid;
+      const oldId = state.expandedRecipe;
+
+      // Collapse previous
+      if (oldId && oldId !== rid) {
+        const oldDetail = document.querySelector(`[data-detail-for="${oldId}"]`);
+        if (oldDetail) oldDetail.style.maxHeight = "0";
+        const oldChevron = document.querySelector(`[data-recipe-id="${oldId}"] .chevron`);
+        if (oldChevron) oldChevron.classList.remove("open");
+      }
+
+      state.expandedRecipe = wasOpen ? null : rid;
+
+      const detail = document.querySelector(`[data-detail-for="${rid}"]`);
+      const chevron = target.querySelector(".chevron") || target.closest(".recipe-header").querySelector(".chevron");
+
+      if (wasOpen) {
+        if (detail) detail.style.maxHeight = "0";
+        if (chevron) chevron.classList.remove("open");
+      } else {
+        if (detail) {
+          detail.style.maxHeight = detail.scrollHeight + "px";
+          // After transition, allow dynamic content height
+          const handler = () => {
+            if (state.expandedRecipe === rid) detail.style.maxHeight = "none";
+            detail.removeEventListener("transitionend", handler);
+          };
+          detail.addEventListener("transitionend", handler);
+        }
+        if (chevron) chevron.classList.add("open");
+      }
+      break;
+    }
+
+    case "open-ingredient": {
+      e.preventDefault();
+      e.stopPropagation();
+      openModal(target.dataset.ingredientId);
+      break;
+    }
+
+    case "close-modal": {
+      closeModal();
+      break;
+    }
+
+    case "toggle-recipe-md": {
+      e.stopPropagation();
+      const slug = target.dataset.slug;
+      toggleMdSection("recipe", slug, `md-recipe-${slug}`, target);
+      break;
+    }
+
+    case "toggle-ingredient-md": {
+      e.stopPropagation();
+      const slug = target.dataset.slug;
+      toggleMdSection("ingredient", slug, `md-ing-${slug}`, target);
+      break;
+    }
+
+    case "toggle-shopping": {
+      const rid = target.dataset.recipeId;
+      if (target.tagName === "INPUT") {
+        if (target.checked) state.shoppingSelections.add(rid);
+        else state.shoppingSelections.delete(rid);
+      } else {
+        if (state.shoppingSelections.has(rid)) state.shoppingSelections.delete(rid);
+        else state.shoppingSelections.add(rid);
+      }
+      // Update badge
+      renderAll();
+      break;
+    }
+
+    case "toggle-optional": {
+      state.includeOptional = target.checked;
+      updateShoppingResults();
+      break;
+    }
+
+    case "shopping-select-all": {
+      state.recipes.forEach(r => state.shoppingSelections.add(r.id));
+      renderAll();
+      break;
+    }
+
+    case "shopping-clear": {
+      state.shoppingSelections.clear();
+      renderAll();
+      break;
+    }
+  }
+});
+
+// Modal backdrop close
+document.getElementById("modal-overlay").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+// Keyboard close
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && state.selectedIngredient) closeModal();
+});
+
+// Search input
+let searchTimer;
+document.getElementById("search-input").addEventListener("input", (e) => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    state.searchQuery = e.target.value.trim();
+    if (state.currentView === "recipes") renderRecipes();
+    else if (state.currentView === "ingredients") renderIngredients();
+  }, 150);
+});
+
+/* ===========================================================
+   G. INIT
+   =========================================================== */
+document.addEventListener("DOMContentLoaded", loadData);
+</script>
+</body>
+</html>

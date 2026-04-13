@@ -1,0 +1,17 @@
+{
+  "id": "fermented-foods",
+  "name": "Fermented Foods",
+  "slug": "fermented-foods",
+  "description": "Lacto-fermentation producing more probiotic diversity than any supplement capsule — sauerkraut from cabbage + salt, water kefir from grains + sugar water, and kefir from grains + milk.",
+  "category": "kitchen",
+  "replaces": "Probiotic supplements, kombucha, store-bought pickles ($5–25)",
+  "costPerUse": "~$0.10–0.50 per serving",
+  "shelfLife": "Sauerkraut: months refrigerated; kefir: 1–2 weeks; grains: indefinite with feeding",
+  "effectiveness": 9,
+  "effectivenessNote": "Superior probiotic diversity compared to supplements. Live cultures in naturally fermented foods contain hundreds of bacterial strains vs 5–15 in a capsule. One-time investment in grains provides infinite returns.",
+  "difficulty": "Easy (patience required)",
+  "coreIngredients": ["sea-salt"],
+  "optionalIngredients": [],
+  "warnings": ["Use clean equipment to avoid contamination", "Submerge vegetables below brine to prevent mold", "Fermentation produces CO₂ — burp jars or use airlock lids", "Sauerkraut needs 2% salt by weight — too little risks spoilage"],
+  "scienceNote": "Lactobacillus bacteria convert sugars to lactic acid, dropping pH to ~3.5 and preserving food while producing B vitamins, vitamin K2, and beneficial organic acids. The acidic environment selects for probiotic species while inhibiting pathogens."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "tea-tree-oil",
+  "name": "Tea Tree Essential Oil",
+  "slug": "tea-tree-oil",
+  "description": "A steam-distilled essential oil from Melaleuca alternifolia containing terpinen-4-ol, providing broad-spectrum antibacterial, antiviral, and antifungal activity.",
+  "chemicalName": "Complex mixture; primary component: terpinen-4-ol",
+  "formula": "Mixture; terpinen-4-ol: C₁₀H₁₈O",
+  "casNumber": "68647-73-4",
+  "molecularWeight": "154.25 g/mol (terpinen-4-ol)",
+  "appearance": "Clear to pale yellow liquid; fresh, camphoraceous, medicinal aroma",
+  "pH": "Not applicable (non-aqueous)",
+  "solubility": "Insoluble in water; miscible with carrier oils and organic solvents",
+  "chemistry": "Terpinen-4-ol: broad-spectrum antibacterial, antiviral, antifungal. Hundreds of papers.",
+  "warnings": "Always dilute. Toxic if ingested. Patch test.",
+  "costNote": "$6–10 for 1 oz",
+  "shelfLife": "1–2 years after opening; oxidized oil is more allergenic",
+  "categories": ["skin", "oral", "cleaning"],
+  "relatedIngredients": ["coconut-oil", "jojoba-oil", "clove-oil", "rosemary"]
+}

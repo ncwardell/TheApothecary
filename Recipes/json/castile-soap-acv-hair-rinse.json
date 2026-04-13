@@ -1,0 +1,17 @@
+{
+  "id": "castile-soap-acv-hair-rinse",
+  "name": "Castile Soap + ACV Hair Rinse",
+  "slug": "castile-soap-acv-hair-rinse",
+  "description": "A two-step sulfate-free hair washing system using diluted castile soap for cleansing and apple cider vinegar rinse to restore pH, close the cuticle, and add shine.",
+  "category": "hair",
+  "replaces": "Shampoo + conditioner ($5–15 each)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "Diluted soap: use fresh; ACV: 2+ years",
+  "effectiveness": 7,
+  "effectivenessNote": "Effective cleansing without sulfates. ACV rinse closes cuticle and removes buildup. 2–4 week transition period as scalp recalibrates oil production.",
+  "difficulty": "Easy",
+  "coreIngredients": ["castile-soap", "acv"],
+  "optionalIngredients": ["tea-tree-oil", "jojoba-oil"],
+  "warnings": ["2–4 week adjustment period — hair may feel oily or waxy initially", "Hard water + castile soap = soap scum in hair (use soapwort instead)", "Always dilute both soap and ACV", "ACV rinse is essential after castile wash to restore acidic pH"],
+  "scienceNote": "Castile soap's alkaline pH (~9) opens hair cuticle during washing. ACV rinse (pH ~3) closes the cuticle, locking in moisture and creating the smooth surface responsible for shine. This mimics the acid-balanced formulation of commercial conditioners."
+}

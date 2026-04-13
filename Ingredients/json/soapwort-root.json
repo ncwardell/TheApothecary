@@ -1,0 +1,19 @@
+{
+  "id": "soapwort-root",
+  "name": "Soapwort Root",
+  "slug": "soapwort-root",
+  "description": "The richest known natural source of saponins, acting as amphiphilic surfactants that gently cleanse hair and skin at the scalp's natural pH (~5).",
+  "chemicalName": "Triterpenoid saponins (saponarioside A–D, quillaic acid glycosides)",
+  "formula": "Complex saponin glycosides",
+  "casNumber": "8047-15-2",
+  "molecularWeight": "Variable (saponin glycosides ~600–1200 g/mol)",
+  "appearance": "Dried root: pale tan to reddish-brown, fibrous; Decoction: slightly foamy amber liquid",
+  "pH": "4.8–5.5 (decoction — matches scalp pH)",
+  "solubility": "Saponins: soluble in water and aqueous ethanol; poorly soluble in non-polar solvents",
+  "chemistry": "Richest natural saponin source (224–694 mg/g). Amphiphilic surfactant at pH ~5 (matches scalp). Cleans without stripping lipid barrier. Antibacterial.",
+  "warnings": "Toxic if ingested. Lethal to fish. Irritates eyes. Spoils 7–10 days. Use distilled water.",
+  "costNote": "$8–14 for 4 oz (15+ batches)",
+  "shelfLife": "2–3 years (dried root); 7–10 days (decoction, refrigerated)",
+  "categories": ["hair", "cleaning"],
+  "relatedIngredients": ["castile-soap", "acv", "rosemary", "tea-tree-oil"]
+}

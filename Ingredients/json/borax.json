@@ -1,0 +1,19 @@
+{
+  "id": "borax",
+  "name": "Borax (Sodium Tetraborate)",
+  "slug": "borax",
+  "description": "A naturally occurring mineral salt of boron with alkaline pH, used as a water softener, laundry booster, and mild antiseptic.",
+  "chemicalName": "Sodium tetraborate decahydrate",
+  "formula": "Na₂B₄O₇·10H₂O",
+  "casNumber": "1303-96-4",
+  "molecularWeight": "381.37 g/mol (decahydrate)",
+  "appearance": "White crystalline powder or granules; odorless",
+  "pH": "~9.2 (1% solution)",
+  "solubility": "47.1 g/L at 20°C in water",
+  "chemistry": "Natural mineral. Softens water, boosts pH. Mild antiseptic. Best in hot water.",
+  "warnings": "Keep from children/pets. Gloves. Washing soda is stronger alternative.",
+  "costNote": "$5–7 for large box",
+  "shelfLife": "Indefinite when stored dry",
+  "categories": ["laundry", "cleaning"],
+  "relatedIngredients": ["washing-soda", "baking-soda", "citric-acid", "white-vinegar"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "diatomaceous-earth-pest-control",
+  "name": "Diatomaceous Earth Pest Control",
+  "slug": "diatomaceous-earth-pest-control",
+  "description": "Microscopic fossilized diatom shells that mechanically shred insect exoskeletons on contact, causing dehydration death — a physical mechanism that insects cannot develop resistance to.",
+  "category": "garden",
+  "replaces": "Indoor insecticides ($5–12)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "Indefinite when dry",
+  "effectiveness": 8,
+  "effectivenessNote": "Highly effective against crawling insects (ants, cockroaches, bedbugs, fleas, silverfish). Mechanical action means zero resistance development. Slower than chemical sprays but permanent solution when applied correctly.",
+  "difficulty": "Easy",
+  "coreIngredients": ["diatomaceous-earth"],
+  "optionalIngredients": [],
+  "warnings": ["FOOD-GRADE only — never use pool-grade (crystalline silica, toxic to lungs)", "Wear dust mask when applying — fine particles irritate lungs", "Ineffective when wet — reapply after moisture exposure", "Apply thin layers — insects avoid thick piles", "Keep away from beneficial insects (bees, ladybugs)"],
+  "scienceNote": "Diatom frustules are microscopically sharp silica structures. Contact with insect exoskeleton causes physical abrasion, disrupting the waxy epicuticle. Water loss through damaged cuticle causes dehydration death within 24–72 hours. No chemical pathway = no resistance."
+}

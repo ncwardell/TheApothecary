@@ -1,0 +1,19 @@
+{
+  "id": "white-vinegar",
+  "name": "White Vinegar (5% Acetic Acid)",
+  "slug": "white-vinegar",
+  "description": "A clear solution of ~5% acetic acid in water, serving as a versatile household acid for cleaning, descaling, laundry, and hair care.",
+  "chemicalName": "Acetic acid (ethanoic acid) aqueous solution",
+  "formula": "CH₃COOH (5% w/v in water)",
+  "casNumber": "64-19-7",
+  "molecularWeight": "60.052 g/mol (acetic acid)",
+  "appearance": "Clear, colorless liquid with sharp, pungent odor",
+  "pH": "~2.4–2.5",
+  "solubility": "Completely miscible with water in all proportions",
+  "chemistry": "Dissolves mineral deposits (limescale), cuts grease, mildly antimicrobial. pH ~2.5. In laundry, neutralizes alkaline residue, softens fabric. As hair rinse, restores scalp pH.",
+  "warnings": "NOT on marble/granite/stone. Not with bleach (toxic gas). Not with castile soap.",
+  "costNote": "$3–4 per gallon",
+  "shelfLife": "Essentially indefinite",
+  "categories": ["cleaning", "laundry", "hair"],
+  "relatedIngredients": ["citric-acid", "washing-soda", "hydrogen-peroxide", "acv"]
+}

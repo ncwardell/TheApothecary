@@ -1,0 +1,19 @@
+{
+  "id": "hydrogen-peroxide",
+  "name": "Hydrogen Peroxide (3%)",
+  "slug": "hydrogen-peroxide",
+  "description": "A versatile oxidizing agent that breaks down to water and oxygen, used as an EPA-registered disinfectant, oxygen bleach, and oral care agent.",
+  "chemicalName": "Hydrogen peroxide / Dihydrogen dioxide",
+  "formula": "H₂O₂",
+  "casNumber": "7722-84-1",
+  "molecularWeight": "34.01 g/mol",
+  "appearance": "Colorless liquid (3% solution appears identical to water)",
+  "pH": "3.5–4.5 (3% solution)",
+  "solubility": "Miscible with water in all proportions; soluble in ethanol",
+  "chemistry": "Oxidizer destroying bacterial membranes. EPA-registered disinfectant. Breaks down to water + oxygen. Bleaches via oxidation.",
+  "warnings": "Degrades in light. Don't mix with vinegar. Can bleach fabrics.",
+  "costNote": "$2–3 for 32 oz",
+  "shelfLife": "1–3 years unopened; 1–6 months after opening",
+  "categories": ["cleaning", "oral", "laundry"],
+  "relatedIngredients": ["white-vinegar", "washing-soda", "oxalic-acid", "baking-soda"]
+}

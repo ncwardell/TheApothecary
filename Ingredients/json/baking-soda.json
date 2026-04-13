@@ -1,0 +1,19 @@
+{
+  "id": "baking-soda",
+  "name": "Baking Soda (Sodium Bicarbonate)",
+  "slug": "baking-soda",
+  "description": "A mild alkaline salt with pH ~8.3 in solution, functioning as an acid neutralizer, gentle abrasive, and deodorizer.",
+  "chemicalName": "Sodium hydrogen carbonate",
+  "formula": "NaHCO₃",
+  "casNumber": "144-55-8",
+  "molecularWeight": "84.007 g/mol",
+  "appearance": "White crystalline powder or fine granules; odorless",
+  "pH": "8.3–8.6",
+  "solubility": "96 g/L in water at 20°C; insoluble in ethanol",
+  "chemistry": "Mild alkaline (pH ~8.3). Neutralizes acids produced by oral bacteria (S. mutans). Mild abrasive with very low RDA score (~7 vs 70–150 for commercial pastes). In deodorant, neutralizes acidic sweat compounds that cause odor.",
+  "warnings": "Can irritate sensitive underarm skin at high concentrations. Keep ratio 1:3 to 1:6 with carrier.",
+  "costNote": "$3–5 for 5 lb bag",
+  "shelfLife": "Indefinite when stored dry",
+  "categories": ["oral", "cleaning", "laundry", "skin"],
+  "relatedIngredients": ["washing-soda", "bentonite-clay", "sea-salt", "arrowroot-powder"]
+}

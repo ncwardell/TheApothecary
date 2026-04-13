@@ -1,0 +1,19 @@
+{
+  "id": "magnesium-hydroxide",
+  "name": "Magnesium Hydroxide",
+  "slug": "magnesium-hydroxide",
+  "description": "An inorganic compound that creates an alkaline skin surface inhospitable to odor-causing bacteria, offering a gentler alternative to baking soda in deodorants.",
+  "chemicalName": "Magnesium hydroxide",
+  "formula": "Mg(OH)₂",
+  "casNumber": "1309-42-8",
+  "molecularWeight": "58.32 g/mol",
+  "appearance": "White powder or milky white suspension (Milk of Magnesia)",
+  "pH": "~10.5 (saturated solution)",
+  "solubility": "0.009 g/L at 25°C (very poorly soluble in water)",
+  "chemistry": "Creates alkaline skin surface inhibiting odor bacteria. Stays on surface — doesn't absorb. Gentler than baking soda. Available as Milk of Magnesia.",
+  "warnings": "Different from magnesium chloride. Water-soluble.",
+  "costNote": "$8–12 for 8 oz",
+  "shelfLife": "Indefinite (powder); 2–3 years (Milk of Magnesia)",
+  "categories": ["skin"],
+  "relatedIngredients": ["baking-soda", "arrowroot-powder", "coconut-oil", "witch-hazel"]
+}

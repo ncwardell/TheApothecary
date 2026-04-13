@@ -1,0 +1,17 @@
+{
+  "id": "herbal-teas",
+  "name": "Evidence-Backed Herbal Teas",
+  "slug": "herbal-teas",
+  "description": "Pharmacologically active herbal infusions with clinical trial evidence: ginger for nausea, valerian for sleep, chamomile for anxiety, and peppermint for IBS — real compounds, not placebo.",
+  "category": "health",
+  "replaces": "OTC sleep aids, anti-nausea meds, anxiety supplements ($5–15)",
+  "costPerUse": "~$0.05–0.15 per cup (bulk dried herbs)",
+  "shelfLife": "Dried herbs: 1–3 years; prepared tea: drink fresh",
+  "effectiveness": 7,
+  "effectivenessNote": "Each herb has specific clinical evidence for its primary indication. Ginger compares favorably to ondansetron for nausea. Valerian shows efficacy in multiple sleep trials. These are pharmacologically active preparations.",
+  "difficulty": "Easy",
+  "coreIngredients": [],
+  "optionalIngredients": [],
+  "warnings": ["These are pharmacologically active — they contain real compounds that interact with receptors", "Valerian may interact with sedative medications", "Ginger may thin blood at high doses", "Chamomile: avoid if allergic to ragweed/daisies (same family)", "Buy from reputable sources to avoid contamination"],
+  "scienceNote": "Ginger: gingerols and shogaols act on 5-HT3 receptors (same target as ondansetron). Valerian: valerenic acid modulates GABA-A receptors. Chamomile: apigenin binds benzodiazepine sites on GABA receptors. Peppermint: menthol relaxes smooth muscle via calcium channel blockade."
+}

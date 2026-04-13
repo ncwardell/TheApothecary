@@ -1,0 +1,17 @@
+{
+  "id": "laundry-system",
+  "name": "Complete Laundry System",
+  "slug": "complete-laundry-system",
+  "description": "A comprehensive laundry system covering detergent, softening, drying, and stain treatment using alkaline salts, bar soap, and targeted oxidizers.",
+  "category": "laundry",
+  "replaces": "Detergent + softener + dryer sheets + stain removers ($0.50+/load)",
+  "costPerUse": "~$0.04",
+  "shelfLife": "Powder: indefinite",
+  "effectiveness": 7,
+  "effectivenessNote": "Good for everyday laundry. Commercial has edge on heavy soil via enzyme blends. DIY matches/beats for: odor removal, softening, cost. Ammonia option excels on workwear.",
+  "difficulty": "Easy",
+  "coreIngredients": ["washing-soda", "baking-soda", "borax", "white-vinegar"],
+  "optionalIngredients": ["ammonia", "citric-acid", "hydrogen-peroxide", "oxalic-acid"],
+  "warnings": ["Cannot match commercial enzymes (protease, lipase) for set-in stains", "Bar soap residue in HE machines — use fine powder, 1 tbsp max", "Ammonia: harsh fumes, destroys wool/silk, NEVER with bleach", "Dissolves slower in cold water — warm/hot water recommended"],
+  "scienceNote": "Commercial = surfactants (soap) + softeners (borax/soda) + buffers (baking soda) + enzymes (no DIY match) + brighteners (unnecessary) + fragrance (unnecessary). You cover 4/7, skip 3 unnecessary. Enzymes are the one genuine gap."
+}

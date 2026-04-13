@@ -1,0 +1,19 @@
+{
+  "id": "xylitol",
+  "name": "Xylitol",
+  "slug": "xylitol",
+  "description": "A naturally occurring five-carbon sugar alcohol that cavity-causing bacteria (S. mutans) cannot metabolize, effectively starving them while stimulating remineralizing saliva.",
+  "chemicalName": "(2R,3r,4S)-Pentane-1,2,3,4,5-pentol",
+  "formula": "C₅H₁₂O₅",
+  "casNumber": "87-99-0",
+  "molecularWeight": "152.15 g/mol",
+  "appearance": "White crystalline powder or granules; sweet taste with cooling sensation",
+  "pH": "~7.0 (neutral)",
+  "solubility": "169 g/100 mL in water at 20°C",
+  "chemistry": "Sugar alcohol S. mutans cannot metabolize. Starves cavity bacteria. Clinical evidence. Stimulates remineralizing saliva.",
+  "warnings": "Extremely toxic to dogs. GI upset if >15g swallowed.",
+  "costNote": "$8–12 for 1 lb",
+  "shelfLife": "2–3 years; indefinite if stored properly",
+  "categories": ["oral"],
+  "relatedIngredients": ["baking-soda", "bentonite-clay", "sea-salt", "clove-oil"]
+}

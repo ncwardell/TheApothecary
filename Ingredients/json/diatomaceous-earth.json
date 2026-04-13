@@ -1,0 +1,19 @@
+{
+  "id": "diatomaceous-earth",
+  "name": "Diatomaceous Earth (Food-Grade)",
+  "slug": "diatomaceous-earth",
+  "description": "Fossilized diatom shells composed of amorphous silica that mechanically damage insect exoskeletons, providing chemical-free pest control.",
+  "chemicalName": "Silicon dioxide (amorphous, biogenic)",
+  "formula": "SiO₂ (amorphous)",
+  "casNumber": "61790-53-2",
+  "molecularWeight": "60.08 g/mol (SiO₂ unit)",
+  "appearance": "Off-white to grey fine powder; feels slightly gritty",
+  "pH": "6.0–8.5 (in aqueous suspension)",
+  "solubility": "Insoluble in water; slightly soluble in strong alkali",
+  "chemistry": "Fossilized diatoms — microscopically sharp. Mechanical damage to insect exoskeletons = dehydration. No resistance development.",
+  "warnings": "FOOD-GRADE only. Mask when applying. Ineffective when wet.",
+  "costNote": "$10–15 for 10 lb",
+  "shelfLife": "Indefinite",
+  "categories": ["garden"],
+  "relatedIngredients": ["neem-oil", "borax"]
+}

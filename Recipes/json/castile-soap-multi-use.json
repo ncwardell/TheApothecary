@@ -1,0 +1,17 @@
+{
+  "id": "castile-soap-multi-use",
+  "name": "Castile Soap Multi-Use System",
+  "slug": "castile-soap-multi-use",
+  "description": "A single bottle of saponified plant oil soap replacing body wash, hand soap, face wash, and shaving cream through different dilution ratios.",
+  "category": "skin",
+  "replaces": "Body wash, hand soap, face wash, shaving cream ($3–8 each)",
+  "costPerUse": "~$0.03",
+  "shelfLife": "2+ years (concentrated); diluted solutions 1–2 months",
+  "effectiveness": 8,
+  "effectivenessNote": "True soap from saponified oils cleans effectively without synthetic surfactants. One product replaces 4–6 commercial products. Alkaline pH can be drying for some skin types.",
+  "difficulty": "Easy",
+  "coreIngredients": ["castile-soap"],
+  "optionalIngredients": ["tea-tree-oil"],
+  "warnings": ["Do not mix with acids (vinegar, citric acid) — creates oily precipitate", "Hard water causes soap scum", "Alkaline pH (~9) may dry sensitive skin — moisturize after"],
+  "scienceNote": "Castile soap is a true soap made by saponifying plant oils with alkali. The resulting surfactant has both hydrophilic and lipophilic ends, allowing it to emulsify oils and dirt for rinsing. No synthetic detergents needed."
+}

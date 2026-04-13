@@ -1,0 +1,17 @@
+{
+  "id": "toothpaste",
+  "name": "Remineralizing Clay Toothpaste",
+  "slug": "remineralizing-clay-toothpaste",
+  "description": "A mineral-rich, fluoride-free toothpaste that neutralizes cavity-causing acids and delivers bioavailable minerals to tooth enamel.",
+  "category": "oral",
+  "replaces": "Commercial toothpaste ($4–8/tube)",
+  "costPerUse": "~$0.03",
+  "shelfLife": "1–2 months sealed glass jar",
+  "effectiveness": 8,
+  "effectivenessNote": "Matches/exceeds commercial for cleaning, whitening, remineralization. -2 because fluoride paste has stronger cavity-prevention evidence for high-risk individuals.",
+  "difficulty": "Easy",
+  "coreIngredients": ["bentonite-clay", "coconut-oil"],
+  "optionalIngredients": ["baking-soda", "sea-salt", "xylitol", "clove-oil", "tea-tree-oil"],
+  "warnings": ["No fluoride — consider fluoride rinse if cavity-prone", "Must use non-metal utensils with bentonite clay", "Shorter shelf life than commercial (1–2 months vs years)", "Clay can clog drains — spit in trash or toilet"],
+  "scienceNote": "Cavity bacteria produce acid dissolving enamel. Baking soda neutralizes acid. Clay delivers remineralizing minerals. Salt creates inhospitable osmotic environment. Together they address root causes."
+}

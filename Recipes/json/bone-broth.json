@@ -1,0 +1,17 @@
+{
+  "id": "bone-broth",
+  "name": "Bone Broth",
+  "slug": "bone-broth",
+  "description": "Slow-simmered bones releasing collagen, glycine, proline, glutamine, and bioavailable minerals — replacing boxed broth, collagen supplements, and glycine capsules with a single whole-food preparation.",
+  "category": "kitchen",
+  "replaces": "Boxed broth, collagen supplements, glycine supplements ($4–40)",
+  "costPerUse": "~$0.50–1.00 per cup (nearly free with saved bones)",
+  "shelfLife": "5 days refrigerated; 6 months frozen",
+  "effectiveness": 9,
+  "effectivenessNote": "Provides the full spectrum of compounds that supplement manufacturers isolate and sell individually. Properly made broth gels when cold — the hallmark of complete collagen extraction.",
+  "difficulty": "Easy (time-consuming: 12–24 hours)",
+  "coreIngredients": ["acv", "sea-salt"],
+  "optionalIngredients": [],
+  "warnings": ["Apple cider vinegar is essential — acid leaches minerals from bones", "Must simmer 12–24 hours for full extraction (slow cooker ideal)", "Should gel when cold — if it doesn't, not enough collagen extracted", "Skim foam/scum in first hour for clearer broth"],
+  "scienceNote": "Prolonged simmering hydrolyzes collagen into gelatin and further into glycine, proline, and hydroxyproline. ACV's acetic acid dissolves calcium phosphate from bone matrix, releasing calcium, magnesium, and phosphorus into solution in ionic (bioavailable) form."
+}

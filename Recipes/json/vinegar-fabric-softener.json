@@ -1,0 +1,17 @@
+{
+  "id": "vinegar-fabric-softener",
+  "name": "Vinegar Fabric Softener",
+  "slug": "vinegar-fabric-softener",
+  "description": "White vinegar in the rinse cycle neutralizes alkaline detergent residue, softens fabric, and reduces static — without the waxy coating that commercial softeners leave on fibers.",
+  "category": "laundry",
+  "replaces": "Fabric softener, dryer sheets ($4–8)",
+  "costPerUse": "~$0.02",
+  "shelfLife": "Indefinite (white vinegar)",
+  "effectiveness": 8,
+  "effectivenessNote": "Genuinely softens fabric and eliminates odors. Preserves towel absorbency (commercial softeners reduce it). No fragrance trail — some people miss this.",
+  "difficulty": "Easy",
+  "coreIngredients": ["white-vinegar"],
+  "optionalIngredients": [],
+  "warnings": ["Clothes will NOT smell like vinegar — it evaporates completely in the dryer", "Use wool dryer balls (set of 6) to replace dryer sheets for static and drying time", "Do not combine vinegar with bleach in the same cycle"],
+  "scienceNote": "Commercial fabric softeners coat fibers with cationic surfactants (quaternary ammonium compounds) that reduce friction but also reduce absorbency. Vinegar neutralizes alkaline residue without coating, maintaining fiber performance."
+}

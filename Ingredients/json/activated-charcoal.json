@@ -1,0 +1,19 @@
+{
+  "id": "activated-charcoal",
+  "name": "Activated Charcoal",
+  "slug": "activated-charcoal",
+  "description": "A highly porous form of carbon with enormous surface area (500–1,500 m²/g) that adsorbs toxins, impurities, and odors through van der Waals forces — complementing bentonite clay's ionic exchange with non-specific physical adsorption.",
+  "chemicalName": "Carbon (activated)",
+  "formula": "C (amorphous, porous)",
+  "casNumber": "64365-11-3",
+  "molecularWeight": "12.011 g/mol (carbon atom)",
+  "appearance": "Fine black powder (food/cosmetic grade); granules (filtration grade)",
+  "pH": "6–8 (varies by source)",
+  "solubility": "Insoluble in water and all common solvents",
+  "chemistry": "Van der Waals adsorption (surface phenomenon). 1g = 1,000+ m² surface area. Micropores (<2nm) for small molecules, mesopores (2–50nm) for medium molecules. Non-selective — binds most organic molecules regardless of charge.",
+  "warnings": "Inhalation hazard — use dust mask with powder. Non-selective adsorption affects medications (separate by 2+ hours). Stains surfaces black. Not a detox supplement. Does NOT make water microbiologically safe.",
+  "costNote": "$6–10 for 4 oz; $10–16 for 1 lb",
+  "shelfLife": "Indefinite when kept sealed and dry",
+  "categories": ["oral", "skin", "cleaning"],
+  "relatedIngredients": ["bentonite-clay", "baking-soda", "diatomaceous-earth", "hydrogen-peroxide"]
+}

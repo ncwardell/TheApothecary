@@ -1,0 +1,17 @@
+{
+  "id": "neem-spray",
+  "name": "Neem Oil Garden Spray",
+  "slug": "neem-oil-garden-spray",
+  "description": "A broad-spectrum biological pesticide and fungicide using azadirachtin to disrupt insect life cycles while sparing beneficial insects through its targeted hormonal mechanism.",
+  "category": "garden",
+  "replaces": "Garden pesticides + fungicides ($8–15)",
+  "costPerUse": "~$0.10",
+  "shelfLife": "Mix fresh each application",
+  "effectiveness": 7,
+  "effectivenessNote": "Excellent for prevention + mild infestations. Chemical pesticides faster for severe. Neem's edge: selectivity — spares beneficials. Often better overall for home gardens.",
+  "difficulty": "Easy",
+  "coreIngredients": ["neem-oil"],
+  "optionalIngredients": [],
+  "warnings": ["Slower than chemical pesticides — works over days/weeks", "Must reapply after rain", "Strong smell", "Can harm beneficial insects if sprayed directly on them — apply in evening", "Degrades in UV within hours"],
+  "scienceNote": "Azadirachtin mimics insect hormones disrupting molting/feeding/egg-laying. Biological pathway = beneficials unaffected. Chemical pesticides kill indiscriminately."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "epsom-salt",
+  "name": "Epsom Salt (Magnesium Sulfate)",
+  "slug": "epsom-salt",
+  "description": "A naturally occurring mineral compound of magnesium, sulfur, and oxygen used for muscle relaxation, bath soaks, and anti-inflammatory applications.",
+  "chemicalName": "Magnesium sulfate heptahydrate",
+  "formula": "MgSO₄·7H₂O",
+  "casNumber": "10034-99-8",
+  "molecularWeight": "246.47 g/mol (heptahydrate)",
+  "appearance": "Colorless to white orthorhombic crystals; odorless; bitter saline taste",
+  "pH": "5.5–7.0",
+  "solubility": "35.1 g/100 mL water at 20°C",
+  "chemistry": "Muscle relaxation via calcium channel regulation. Osmotic anti-inflammatory. Standard sports recovery.",
+  "warnings": "Baths only — hardens laundry water.",
+  "costNote": "$5–8 for 5 lb",
+  "shelfLife": "Indefinite when stored dry",
+  "categories": ["health"],
+  "relatedIngredients": ["magnesium-chloride", "sea-salt", "magnesium-hydroxide"]
+}

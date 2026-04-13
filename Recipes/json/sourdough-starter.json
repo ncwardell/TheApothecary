@@ -1,0 +1,17 @@
+{
+  "id": "sourdough-starter",
+  "name": "Sourdough Starter",
+  "slug": "sourdough-starter",
+  "description": "A self-perpetuating wild yeast culture from flour and water that provides free leavening indefinitely — also breaks down phytic acid and partially pre-digests gluten through fermentation.",
+  "category": "kitchen",
+  "replaces": "Commercial yeast, artisan bread purchases ($3–8 per loaf)",
+  "costPerUse": "~$0.10 per loaf (flour cost only)",
+  "shelfLife": "Indefinite with regular feeding",
+  "effectiveness": 9,
+  "effectivenessNote": "Produces superior bread with complex flavor, better texture, and improved digestibility. Takes 5–7 days to establish but lasts forever. Requires weekly maintenance.",
+  "difficulty": "Moderate (requires patience and consistent feeding)",
+  "coreIngredients": [],
+  "optionalIngredients": [],
+  "warnings": ["Takes 5–7 days of daily feeding to become active", "Discard half before each feeding (or use discard in recipes)", "Maintain in fridge with weekly feeds if not baking frequently", "Whole wheat or rye flour establishes faster than white flour"],
+  "scienceNote": "Wild Saccharomyces and Lactobacillus species colonize the flour-water mixture. Lactobacilli produce lactic and acetic acids (the sour flavor) while yeasts produce CO₂ for leavening. The acidic environment breaks down phytic acid (an anti-nutrient) and partially denatures gluten proteins, improving mineral bioavailability and digestibility."
+}

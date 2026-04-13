@@ -1,0 +1,19 @@
+{
+  "id": "sodium-percarbonate",
+  "name": "Sodium Percarbonate (Oxygen Bleach)",
+  "slug": "sodium-percarbonate",
+  "description": "A granular adduct of sodium carbonate and hydrogen peroxide that releases active oxygen (H₂O₂) when dissolved in water, providing color-safe bleaching, stain removal, and sanitization without chlorine.",
+  "chemicalName": "Sodium carbonate—hydrogen peroxide (2:3)",
+  "formula": "2Na₂CO₃·3H₂O₂",
+  "casNumber": "15630-89-4",
+  "molecularWeight": "314.02 g/mol",
+  "appearance": "White, free-flowing granular powder; odorless",
+  "pH": "~10.5 (1% solution)",
+  "solubility": "140 g/L in water at 20°C; releases H₂O₂ and Na₂CO₃ upon dissolution",
+  "chemistry": "Releases H₂O₂ in alkaline solution (pH ~10.5). Perhydroxyl anion (HOO⁻) is the active oxidant — far more potent than molecular H₂O₂. 13.5% active oxygen content. Requires warm/hot water for full activation.",
+  "warnings": "Oxidizer — store away from flammables. Do NOT mix with chlorine bleach, vinegar, or ammonia. Not safe on silk, wool, or leather. Skin/eye irritant in concentrated solutions.",
+  "costNote": "$8–12 for 2 lb; $15–22 for 5 lb",
+  "shelfLife": "1–2 years sealed and dry; degrades with moisture exposure",
+  "categories": ["laundry", "cleaning"],
+  "relatedIngredients": ["hydrogen-peroxide", "washing-soda", "borax", "oxalic-acid", "white-vinegar"]
+}

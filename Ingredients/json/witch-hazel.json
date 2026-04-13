@@ -1,0 +1,19 @@
+{
+  "id": "witch-hazel",
+  "name": "Witch Hazel",
+  "slug": "witch-hazel",
+  "description": "A botanical extract from Hamamelis virginiana containing tannins and gallic acid, providing astringent, anti-inflammatory, and mild antimicrobial properties.",
+  "chemicalName": "Complex botanical extract; key components: hamamelitannin, gallic acid, catechins",
+  "formula": "Mixture; hamamelitannin: C₂₀H₂₀O₁₄; gallic acid: C₇H₆O₅",
+  "casNumber": "84696-19-5",
+  "molecularWeight": "484.37 g/mol (hamamelitannin)",
+  "appearance": "Clear to slightly yellow liquid (distillate); mild, slightly astringent herbaceous scent",
+  "pH": "~3.5–4.5",
+  "solubility": "Miscible with water; active compounds are water-soluble",
+  "chemistry": "Tannins + gallic acid — astringent, anti-inflammatory. Good roll-on deodorant base.",
+  "warnings": "Alcohol-free for sensitive skin.",
+  "costNote": "$4–8 for 16 oz",
+  "shelfLife": "2–3 years (commercial); 7–10 days (homemade decoction)",
+  "categories": ["skin", "health"],
+  "relatedIngredients": ["magnesium-hydroxide", "arrowroot-powder", "tea-tree-oil", "acv"]
+}

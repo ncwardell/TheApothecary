@@ -1,0 +1,19 @@
+{
+  "id": "tallow",
+  "name": "Grass-Fed Beef Tallow",
+  "slug": "tallow",
+  "description": "Rendered fat from grass-fed beef suet whose fatty acid profile closely mirrors human sebum, rich in fat-soluble vitamins A, D, E, and K.",
+  "chemicalName": "Mixed triglycerides of stearic, oleic, and palmitic acids",
+  "formula": "Variable; predominant triglyceride approximately C₅₇H₁₁₀O₆",
+  "casNumber": "61789-97-7",
+  "molecularWeight": "~850–900 g/mol (average triglyceride)",
+  "appearance": "White to pale yellow solid at room temperature; liquid when melted",
+  "pH": "Not applicable (fat; not water-soluble)",
+  "solubility": "Insoluble in water; soluble in ether, chloroform, warm ethanol",
+  "chemistry": "Fatty acids mirror human sebum (~45% oleic, ~25% palmitic). Vitamins A, D, E, K. Grass-fed has 4x more vitamin E + CLA (anti-inflammatory).",
+  "warnings": "Toxins concentrate in fat — grass-fed only. Faint smell if not purified.",
+  "costNote": "$8–15/lb or render suet",
+  "shelfLife": "6–12 months (room temp); 1–2 years (refrigerated)",
+  "categories": ["skin"],
+  "relatedIngredients": ["jojoba-oil", "shea-butter", "beeswax", "coconut-oil"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "miswak-sticks",
+  "name": "Miswak Sticks",
+  "slug": "miswak-sticks",
+  "description": "Salvadora persica twigs containing natural antimicrobials and silica for gentle abrasion — WHO-recognized as effective for oral hygiene, producing zero plastic waste.",
+  "category": "oral",
+  "replaces": "Toothbrush + toothpaste",
+  "costPerUse": "~$0.10",
+  "shelfLife": "1–2 weeks per stick; dry sticks last months",
+  "effectiveness": 7,
+  "effectivenessNote": "WHO-endorsed. Contains natural antimicrobials and silica abrasive. Effective for plaque removal but less precise than modern toothbrush for reaching all surfaces.",
+  "difficulty": "Easy",
+  "coreIngredients": [],
+  "optionalIngredients": [],
+  "warnings": ["Trim tip every few days to refresh bristles", "Technique matters — ensure you reach all tooth surfaces", "Source from reputable suppliers for genuine Salvadora persica"],
+  "scienceNote": "Salvadora persica contains benzyl isothiocyanate (antimicrobial), silica (abrasive), and fluoride. Multiple clinical trials show comparable plaque reduction to conventional brushing."
+}

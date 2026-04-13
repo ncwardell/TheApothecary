@@ -1,0 +1,17 @@
+{
+  "id": "magnesium-spray",
+  "name": "Magnesium Oil Spray",
+  "slug": "magnesium-oil-spray",
+  "description": "A topical magnesium chloride spray for transdermal magnesium supplementation — bypassing GI absorption issues associated with oral supplements.",
+  "category": "health",
+  "replaces": "Magnesium supplements ($10–25)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "6+ months",
+  "effectiveness": 6,
+  "effectivenessNote": "Extensive anecdotal support. 2017 NIH review: transdermal evidence limited. Oral magnesium has stronger evidence. Low risk/cost = worth trying.",
+  "difficulty": "Easy",
+  "coreIngredients": ["magnesium-chloride"],
+  "optionalIngredients": [],
+  "warnings": ["Transdermal absorption evidence limited (2017 NIH review)", "Tingles/stings on first uses", "Sticky/salty residue on skin", "Irritates broken or freshly shaved skin", "Pair with dietary magnesium sources for best results"],
+  "scienceNote": "Magnesium = cofactor in 300+ reactions. Deficiency common. Transdermal question unsettled. Some pilot studies positive. Honest: probably works somewhat, pair with dietary sources."
+}

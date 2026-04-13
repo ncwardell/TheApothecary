@@ -1,0 +1,19 @@
+{
+  "id": "castile-soap",
+  "name": "Castile Soap",
+  "slug": "castile-soap",
+  "description": "A true soap made from saponified plant oils, producing a biodegradable surfactant capable of replacing body wash, hand soap, face wash, and household cleaners.",
+  "chemicalName": "Mixture of potassium/sodium salts of fatty acids (potassium oleate, potassium laurate, potassium palmitate)",
+  "formula": "Mixture; e.g., potassium oleate: C₁₇H₃₃COOK",
+  "casNumber": "Various (mixture of fatty acid salts)",
+  "molecularWeight": "~300–320 g/mol (primary components)",
+  "appearance": "Liquid: amber to brown viscous liquid. Bar: white to cream solid.",
+  "pH": "~9–10",
+  "solubility": "Fully soluble in water; forms micelles above critical micelle concentration",
+  "chemistry": "True soap from saponified plant oils. Surfactant with hydrophilic/lipophilic ends. Biodegradable. Alkaline pH (~9).",
+  "warnings": "Don't mix with acids. Hard water = soap scum.",
+  "costNote": "$12–16 for 32 oz",
+  "shelfLife": "3+ years (liquid); bar soap improves with age",
+  "categories": ["skin", "cleaning", "hair"],
+  "relatedIngredients": ["soapwort-root", "washing-soda", "white-vinegar", "coconut-oil"]
+}

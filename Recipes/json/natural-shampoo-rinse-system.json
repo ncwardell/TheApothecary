@@ -1,0 +1,17 @@
+{
+  "id": "shampoo",
+  "name": "Natural Shampoo + Rinse System",
+  "slug": "natural-shampoo-rinse-system",
+  "description": "A pH-matched hair care system using soapwort saponins for gentle cleansing at the scalp's natural pH (~5), with ACV rinse and clinically-supported rosemary for hair growth.",
+  "category": "hair",
+  "replaces": "Shampoo + conditioner ($5–15 each)",
+  "costPerUse": "~$0.07",
+  "shelfLife": "Soapwort decoction: 7–10 days refrigerated",
+  "effectiveness": 7,
+  "effectivenessNote": "Cleans effectively, much gentler long-term. No lather/fragrance/silicone feel. After 2–4 week adjustment, most report healthier hair. Rosemary has clinical hair growth evidence.",
+  "difficulty": "Moderate",
+  "coreIngredients": ["soapwort-root", "rosemary", "acv"],
+  "optionalIngredients": ["castile-soap", "tea-tree-oil", "jojoba-oil"],
+  "warnings": ["Minimal lather — cleaning is chemical, not foam", "Soapwort spoils in 7–10 days — make frequent small batches", "2–4 week transition period — hair feels oily/waxy while scalp adjusts", "Castile soap + hard water = soap scum (soapwort doesn't have this problem)", "Rosemary growth results take 3–6 months"],
+  "scienceNote": "Soapwort saponins = same amphiphilic structure as SLS but don't penetrate lipid barrier. pH ~5 = no disruption. Rosemary adds three clinical mechanisms. Commercial shampoo strips with sulfates, then coats with silicones — a self-perpetuating purchase cycle."
+}

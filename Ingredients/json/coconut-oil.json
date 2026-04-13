@@ -1,0 +1,19 @@
+{
+  "id": "coconut-oil",
+  "name": "Coconut Oil (Virgin)",
+  "slug": "coconut-oil",
+  "description": "A saturated fat rich in lauric acid (~50%) with potent antimicrobial properties and lipophilic biofilm penetration.",
+  "chemicalName": "Mixture of triglycerides; primarily glyceryl trilaurate",
+  "formula": "Mixture; predominant fatty acid: lauric acid C₁₂H₂₄O₂",
+  "casNumber": "8001-31-8",
+  "molecularWeight": "~650–700 g/mol (average triglyceride)",
+  "appearance": "White solid below 76°F (24°C); clear liquid above; pleasant coconut aroma (virgin)",
+  "pH": "Not applicable (non-aqueous)",
+  "solubility": "Insoluble in water; miscible with other oils and organic solvents",
+  "chemistry": "~50% lauric acid disrupts bacterial lipid membranes. Lipophilic — penetrates biofilms. In deodorant, targets Corynebacterium (primary odor bacteria).",
+  "warnings": "Comedogenic for some faces (4/5). Melts at 76°F. Clogs drains.",
+  "costNote": "$8–12 for 16 oz jar",
+  "shelfLife": "2–3 years (virgin); up to 5 years (refined)",
+  "categories": ["oral", "skin", "hair"],
+  "relatedIngredients": ["jojoba-oil", "shea-butter", "tallow", "beeswax"]
+}

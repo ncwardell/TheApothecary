@@ -1,0 +1,17 @@
+{
+  "id": "simple-oil-moisturizer",
+  "name": "Simple Oil Moisturizer",
+  "slug": "simple-oil-moisturizer",
+  "description": "Single-ingredient oil moisturizing using jojoba (closest to human sebum), argan, or coconut oil — replacing an entire shelf of creams, serums, and lotions that are mostly water + emulsifier + fragrance.",
+  "category": "skin",
+  "replaces": "Face cream, body oil, serum ($10–30 each)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "6–12 months (jojoba); 1–2 years (coconut oil)",
+  "effectiveness": 8,
+  "effectivenessNote": "Simple and effective for most skin types. Jojoba is non-comedogenic and balances oil production. Lacks targeted actives (retinol, peptides) found in specialty products.",
+  "difficulty": "Easy",
+  "coreIngredients": ["jojoba-oil"],
+  "optionalIngredients": ["coconut-oil", "shea-butter"],
+  "warnings": ["Coconut oil is comedogenic for some faces (4/5 on comedogenicity scale)", "Apply to damp skin for best absorption", "A few drops is sufficient — over-application feels greasy"],
+  "scienceNote": "Jojoba oil is technically a liquid wax ester with a composition closest to human sebum among plant oils. It does not clog pores and helps regulate the skin's own oil production through feedback mechanisms."
+}

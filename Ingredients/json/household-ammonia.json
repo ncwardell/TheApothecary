@@ -1,0 +1,19 @@
+{
+  "id": "ammonia",
+  "name": "Household Ammonia (5–10%)",
+  "slug": "household-ammonia",
+  "description": "A powerful alkaline cleaner that saponifies grease and denatures proteins, effective on organic stains but requiring careful handling.",
+  "chemicalName": "Ammonia solution / Ammonium hydroxide",
+  "formula": "NH₃ (dissolved in H₂O)",
+  "casNumber": "7664-41-7",
+  "molecularWeight": "17.03 g/mol (NH₃)",
+  "appearance": "Clear, colorless liquid with intensely pungent, characteristic odor",
+  "pH": "11.0–12.5",
+  "solubility": "Fully miscible with water in all proportions",
+  "chemistry": "Alkaline (pH ~11–12). Saponifies grease. Excels on protein stains — denatures proteins (blood, sweat, food). Softens water. Standard pre-commercial laundry agent.",
+  "warnings": "NEVER with bleach (toxic chloramine gas). Harsh fumes — ventilate. Destroys wool/silk. Fades dyes. Pair with soap.",
+  "costNote": "$2–4 for 64 oz",
+  "shelfLife": "1–2 years (ammonia slowly volatilizes from solution)",
+  "categories": ["laundry", "cleaning"],
+  "relatedIngredients": ["washing-soda", "borax", "white-vinegar", "hydrogen-peroxide"]
+}
