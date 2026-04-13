@@ -545,12 +545,19 @@ header p {
   font-size: 1.6em;
   cursor: pointer;
   color: #999;
-  padding: 0;
+  padding: 4px 8px;
   line-height: 1;
   flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.15s;
 }
 
-.modal-close:hover { color: var(--text); }
+.modal-close:hover { color: var(--text); background: var(--tag-bg); }
 
 .modal-desc {
   font-size: 0.88em;
@@ -720,14 +727,17 @@ header p {
 }
 
 .shopping-result-row {
+  padding: 10px 12px;
+  background: var(--tag-bg);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  font-size: 0.88em;
+}
+
+.shopping-result-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 10px;
-  background: var(--tag-bg);
-  border-radius: 7px;
-  margin-bottom: 5px;
-  font-size: 0.88em;
 }
 
 .shopping-result-row .name {
@@ -744,6 +754,26 @@ header p {
   flex-shrink: 0;
   margin-left: 12px;
 }
+
+.shopping-buy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  padding: 5px 10px;
+  background: var(--savings-bg);
+  border: 1px solid #c8dfc0;
+  border-radius: 6px;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--savings-text);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.shopping-buy-link:hover { border-color: var(--accent); }
+
+.shopping-buy-link svg { width: 12px; height: 12px; flex-shrink: 0; }
 
 .shopping-empty {
   text-align: center;
@@ -797,27 +827,14 @@ header p {
   border: none;
   border-top: 2px solid var(--accent);
   margin: 20px 0 16px;
+  display: none;
 }
 
-.md-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: 1.5px solid var(--accent);
+.md-toggle.active {
+  border-color: var(--accent);
   color: var(--accent);
-  padding: 6px 16px;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 0.84em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-  margin-top: 12px;
+  background: rgba(184, 134, 11, 0.08);
 }
-
-.md-toggle:hover { background: var(--accent); color: #fff; }
-.md-toggle.active { background: var(--accent); color: #fff; }
 
 .md-toggle .arrow {
   display: inline-block;
@@ -970,16 +987,106 @@ header p {
   margin: 16px 0;
 }
 
+/* ========== Action Bar (recipe detail + modal footer) ========== */
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--divider);
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--divider);
+  background: var(--card);
+  color: var(--muted);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.action-btn:hover { border-color: var(--accent); color: var(--text); }
+
+.action-btn--primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.action-btn--primary:hover {
+  background: #9a7209;
+  border-color: #9a7209;
+  color: #fff;
+}
+
+.action-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.action-btn--copied {
+  border-color: var(--savings-text);
+  color: var(--savings-text);
+}
+
 /* ========== Responsive ========== */
 @media (max-width: 640px) {
-  header h1 { font-size: 1.8em; }
-  .container { padding: 20px 14px 60px; }
-  .recipe-header { flex-direction: column; gap: 8px; }
+  :root { font-size: 15px; }
+  .container { padding: 16px 12px 60px; }
+  header { margin-bottom: 20px; padding-bottom: 16px; }
+  header h1 { font-size: clamp(1.5em, 6vw, 2.4em); }
+  header p { font-size: 0.95em; }
+
+  .tab-bar { gap: 3px; }
+  .tab-btn { padding: 8px 12px; font-size: 0.82em; }
+
+  .filter-bar { gap: 5px; }
+  .filter-btn { padding: 6px 12px; font-size: 0.78em; }
+
+  .recipe-header { flex-direction: column; gap: 6px; padding: 14px; }
   .recipe-badges { justify-content: flex-start; }
+  .recipe-detail-inner { padding: 0 14px 14px; }
+
+  .ingredient-card { padding: 12px 14px; }
+
   .shopping-layout { grid-template-columns: 1fr; }
-  .modal { padding: 20px 16px; }
+
+  .modal-overlay { padding: 0; align-items: flex-end; }
+  .modal {
+    padding: 20px 16px;
+    max-height: 92vh;
+    border-radius: 16px 16px 0 0;
+    max-width: 100%;
+  }
+  .modal-header h2 { font-size: 1.15em; }
   .modal-props { grid-template-columns: 1fr; }
-  .tab-btn { padding: 6px 14px; font-size: 0.82em; }
+
+  .action-bar { gap: 5px; }
+  .action-btn { padding: 8px 12px; font-size: 0.78em; }
+
+  .md-body { font-size: 0.88em; }
+  .md-body table { font-size: 0.85em; }
+  .md-body th, .md-body td { padding: 5px 7px; }
+
+  .science-box { padding: 11px 12px; }
+}
+
+@media (max-width: 380px) {
+  .tab-btn { padding: 8px 10px; font-size: 0.78em; }
+  .badge { font-size: 0.68em; padding: 2px 7px; }
+  .container { padding: 12px 10px 50px; }
+}
+
+@media (min-width: 641px) {
+  header h1 { font-size: clamp(2em, 3.5vw, 2.4em); }
 }
 </style>
 </head>
@@ -1368,7 +1475,7 @@ function renderRecipes() {
         <div class="recipe-header" data-action="toggle-recipe" data-recipe-id="${esc(r.id)}">
           <div class="recipe-header-left">
             <h3>${esc(r.name)}</h3>
-            <div class="recipe-replaces">${esc(r.replaces)} &middot; <a href="recipes/${esc(r.slug)}/" style="color:var(--accent);font-size:0.95em" onclick="event.stopPropagation()">View full page &rarr;</a></div>
+            <div class="recipe-replaces">${esc(r.replaces)}</div>
           </div>
           <div class="recipe-badges">
             <span class="badge badge-cost">${esc(r.costPerUse)}</span>
@@ -1450,13 +1557,24 @@ function renderRecipeDetail(r) {
       </div>`;
   }
 
-  // Full recipe from MD file
+  // Action bar: full recipe toggle, full page link, share
   if (r.slug) {
+    const recipeUrl = `recipes/${esc(r.slug)}/`;
     html += `
-      <hr class="md-divider">
-      <button class="md-toggle" data-action="toggle-recipe-md" data-slug="${esc(r.slug)}" id="md-toggle-recipe-${esc(r.slug)}">
-        Full Recipe <span class="arrow">&#9662;</span>
-      </button>
+      <div class="action-bar">
+        <button class="action-btn md-toggle" data-action="toggle-recipe-md" data-slug="${esc(r.slug)}" id="md-toggle-recipe-${esc(r.slug)}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Full Recipe <span class="arrow">&#9662;</span>
+        </button>
+        <a class="action-btn action-btn--primary" href="${recipeUrl}" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Full Page
+        </a>
+        <button class="action-btn" data-action="share-recipe" data-slug="${esc(r.slug)}" data-name="${esc(r.name)}" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Share
+        </button>
+      </div>
       <div class="md-content" id="md-recipe-${esc(r.slug)}"></div>`;
   }
 
@@ -1483,7 +1601,6 @@ function renderIngredients() {
       <div class="cat-pills">
         ${(ing.categories || []).map(c => `<span class="cat-pill">${esc(CATEGORY_LABELS[c] || c)}</span>`).join("")}
       </div>
-      <a href="ingredients/${esc(ing.slug)}/" style="font-size:0.78em;color:var(--accent);margin-top:6px;display:inline-block" onclick="event.stopPropagation()">Full profile &rarr;</a>
     </div>
   `).join("");
 }
@@ -1572,10 +1689,20 @@ function openModal(ingredientId) {
         ${usedIn.map(r => `<span class="modal-recipe-pill">${esc(r.name)}</span>`).join("")}
       </div>` : ""}
     ${ing.slug ? `
-      <hr class="md-divider">
-      <button class="md-toggle" data-action="toggle-ingredient-md" data-slug="${esc(ing.slug)}" id="md-toggle-ing-${esc(ing.slug)}">
-        Full Profile <span class="arrow">&#9662;</span>
-      </button>
+      <div class="action-bar">
+        <button class="action-btn md-toggle" data-action="toggle-ingredient-md" data-slug="${esc(ing.slug)}" id="md-toggle-ing-${esc(ing.slug)}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Full Profile <span class="arrow">&#9662;</span>
+        </button>
+        <a class="action-btn action-btn--primary" href="ingredients/${esc(ing.slug)}/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Full Page
+        </a>
+        <button class="action-btn" data-action="share-ingredient" data-slug="${esc(ing.slug)}" data-name="${esc(ing.name)}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          Share
+        </button>
+      </div>
       <div class="md-content" id="md-ing-${esc(ing.slug)}"></div>` : ""}
   `;
 
@@ -1667,16 +1794,62 @@ function renderShoppingResults() {
       <label for="include-optional">Include optional ingredients</label>
     </div>
     <div class="shopping-count">${ingredients.length} ingredients for ${recipeCount} recipe${recipeCount !== 1 ? "s" : ""}</div>
-    ${ingredients.map(ing => `
+    ${ingredients.map(ing => {
+      const link = (ing.affiliateLinks && ing.affiliateLinks.length > 0) ? ing.affiliateLinks[0] : null;
+      return `
       <div class="shopping-result-row">
-        <span class="name" data-action="open-ingredient" data-ingredient-id="${esc(ing.id)}">${esc(ing.name)}</span>
-        <span class="cost">${esc(ing.costNote)}</span>
-      </div>`).join("")}`;
+        <div class="shopping-result-top">
+          <span class="name" data-action="open-ingredient" data-ingredient-id="${esc(ing.id)}">${esc(ing.name)}</span>
+          <span class="cost">${esc(ing.costNote)}</span>
+        </div>
+        ${link ? `<a class="shopping-buy-link" href="${esc(link.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> ${esc(link.productName)} — ${esc(link.quantity)} — ${esc(link.price)}</a>` : ""}
+      </div>`;
+    }).join("")}
+    ${ingredients.some(ing => ing.affiliateLinks && ing.affiliateLinks.length > 0) ? `<p style="font-size:0.65em;color:var(--muted);margin-top:8px;font-style:italic;text-align:center">Affiliate links — we may earn a commission at no extra cost to you.</p>` : ""}`;
 }
 
 function updateShoppingResults() {
   const panel = document.getElementById("shopping-results");
   if (panel) panel.innerHTML = renderShoppingResults();
+}
+
+/* ===========================================================
+   E2. SHARE
+   =========================================================== */
+function getBaseUrl() {
+  // Works on both local dev and deployed site
+  return window.location.href.replace(/[#?].*$/, "").replace(/\/$/, "");
+}
+
+async function shareItem(type, slug, name, btn) {
+  const url = `${getBaseUrl()}/${type}/${slug}/`;
+  const title = `${name} — The Apothecary`;
+
+  // Try native share API first (mobile)
+  if (navigator.share) {
+    try {
+      await navigator.share({ title, url });
+      return;
+    } catch (e) {
+      // User cancelled or not supported, fall through to clipboard
+      if (e.name === "AbortError") return;
+    }
+  }
+
+  // Fallback: copy to clipboard
+  try {
+    await navigator.clipboard.writeText(url);
+    const origHtml = btn.innerHTML;
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+    btn.classList.add("action-btn--copied");
+    setTimeout(() => {
+      btn.innerHTML = origHtml;
+      btn.classList.remove("action-btn--copied");
+    }, 2000);
+  } catch (e) {
+    // Last resort: prompt
+    prompt("Copy this link:", url);
+  }
 }
 
 /* ===========================================================
@@ -1800,6 +1973,16 @@ document.addEventListener("click", (e) => {
     case "shopping-clear": {
       state.shoppingSelections.clear();
       renderAll();
+      break;
+    }
+
+    case "share-recipe": {
+      shareItem("recipes", target.dataset.slug, target.dataset.name, target);
+      break;
+    }
+
+    case "share-ingredient": {
+      shareItem("ingredients", target.dataset.slug, target.dataset.name, target);
       break;
     }
   }
