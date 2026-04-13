@@ -1,0 +1,14 @@
+{
+  "name": "apothecary-scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "create:ingredient": "tsx create-ingredient.ts",
+    "create:recipe": "tsx create-recipe.ts",
+    "validate": "tsx validate.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
