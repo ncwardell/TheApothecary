@@ -15,5 +15,14 @@
   "costNote": "$6–10 for 4 oz; $10–16 for 1 lb",
   "shelfLife": "Indefinite when kept sealed and dry",
   "categories": ["oral", "skin", "cleaning"],
-  "relatedIngredients": ["bentonite-clay", "baking-soda", "diatomaceous-earth", "hydrogen-peroxide"]
+  "relatedIngredients": ["bentonite-clay", "baking-soda", "diatomaceous-earth", "hydrogen-peroxide"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4msJBTG",
+      "productName": "(Coconut) Activated Charcoal",
+      "quantity": "40 oz",
+      "price": "~$34.00"
+    }
+  ]
 }

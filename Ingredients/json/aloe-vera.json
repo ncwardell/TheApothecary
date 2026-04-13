@@ -15,5 +15,14 @@
   "costNote": "$4–8 per plant; $8–14 for 12 oz commercial gel",
   "shelfLife": "5–7 days (fresh, refrigerated); months frozen; 1–2 years (commercial preserved)",
   "categories": ["skin", "health"],
-  "relatedIngredients": ["glycerin", "coconut-oil", "witch-hazel", "tea-tree-oil", "vitamin-e"]
+  "relatedIngredients": ["glycerin", "coconut-oil", "witch-hazel", "tea-tree-oil", "vitamin-e"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4efsUsI",
+      "productName": "Aloe Vera",
+      "quantity": "64 fl oz",
+      "price": "~$30.00"
+    }
+  ]
 }

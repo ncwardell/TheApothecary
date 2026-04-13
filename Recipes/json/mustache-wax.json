@@ -1,0 +1,22 @@
+{
+  "id": "mustache-wax",
+  "name": "Old-Fashioned Mustache Wax",
+  "slug": "mustache-wax",
+  "description": "A firm-hold mustache wax from beeswax, coconut oil, and shea butter with sandalwood and lemongrass — replaces commercial mustache wax at a fraction of the cost.",
+  "category": "skin",
+  "replaces": "Commercial mustache wax ($8-15/tin)",
+  "costPerUse": "~$0.05",
+  "shelfLife": "6-12 months in sealed tin",
+  "effectiveness": 9,
+  "effectivenessNote": "Equal or superior hold to commercial wax. Beeswax provides firm structure, coconut oil and shea butter condition the hair, and the essential oil blend smells better than most commercial options. Only limitation: requires a double boiler setup.",
+  "difficulty": "Easy",
+  "coreIngredients": ["beeswax", "coconut-oil", "shea-butter"],
+  "optionalIngredients": [],
+  "warnings": [
+    "Use low heat only — do not boil the mixture",
+    "Add essential oils after removing from heat to preserve their volatile compounds",
+    "Test on a small patch of skin first if you have sensitivity to essential oils",
+    "Beeswax is not vegan — candelilla wax at half the amount is a vegan alternative"
+  ],
+  "scienceNote": "Beeswax provides structural hold through its high melting point (~145°F) and ester-based matrix. Coconut oil's lauric acid penetrates the hair shaft for conditioning, while shea butter's unsaponifiable fraction (triterpenes, tocopherols) provides moisture without greasiness. The wax-to-oil ratio determines hold strength — this recipe balances firm hold with workability."
+}

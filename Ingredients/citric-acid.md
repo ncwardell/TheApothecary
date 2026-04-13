@@ -132,6 +132,15 @@ The primary household mechanism:
 - Citric acid + baking soda = fizzing reaction when wet
 - Add essential oils, dried flowers, colorants
 
+**DIY Dishwasher Detergent / Rinse Aid**:
+- Citric acid is the key active ingredient in commercial dishwasher rinse aids (Jet-Dry, Finish)
+- As rinse aid: 1–2 tsp in the rinse aid compartment, or fill compartment with a saturated citric acid solution
+- As detergent booster: add 1 tsp to the detergent compartment alongside washing soda (1 tbsp) and a few drops of castile soap
+- Full DIY dishwasher detergent: 1 cup washing soda + ½ cup citric acid + ½ cup salt — use 1 tbsp per load
+- The citric acid chelates calcium and magnesium ions in hard water that cause water spots and film on glassware
+- Prevents the white mineral haze that hard water leaves on dishes
+- Works as well as commercial rinse aids in most water conditions; may need adjustment for very hard water (>250 ppm)
+
 **Natural Preservative**:
 - Lowers pH of homemade formulations, inhibiting bacterial growth
 - Used in homemade canning, beverages, and cosmetics

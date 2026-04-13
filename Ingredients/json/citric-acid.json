@@ -14,6 +14,15 @@
   "warnings": "Don't mix with baking soda/washing soda (neutralize). Not on stone. Not with bleach.",
   "costNote": "$6–10 for 2 lb bag",
   "shelfLife": "3–5 years; essentially indefinite in sealed container",
-  "categories": ["cleaning", "laundry"],
-  "relatedIngredients": ["white-vinegar", "washing-soda", "oxalic-acid", "baking-soda"]
+  "categories": ["cleaning", "laundry", "kitchen"],
+  "relatedIngredients": ["white-vinegar", "washing-soda", "oxalic-acid", "baking-soda"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4cHl75F",
+      "productName": "Citric Acid",
+      "quantity": "80 oz",
+      "price": "~$21.00"
+    }
+  ]
 }

@@ -15,5 +15,14 @@
   "costNote": "$5–8 for 8 oz",
   "shelfLife": "2–3 years in sealed container",
   "categories": ["skin"],
-  "relatedIngredients": ["baking-soda", "coconut-oil", "magnesium-hydroxide", "shea-butter"]
+  "relatedIngredients": ["baking-soda", "coconut-oil", "magnesium-hydroxide", "shea-butter"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4cpiCne",
+      "productName": "Arrowroot Powder",
+      "quantity": "24 oz",
+      "price": "~$18.00"
+    }
+  ]
 }

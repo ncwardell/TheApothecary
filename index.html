@@ -1086,7 +1086,7 @@ const RECIPE_FILES = [
   "neem-oil-garden-spray","oil-pulling","remineralizing-clay-toothpaste",
   "saline-solution","simple-oil-moisturizer","sourdough-starter",
   "stain-treatment-guide","vinegar-fabric-softener","vinegar-iron-wood-stain",
-  "whipped-tallow-balm","whole-spice-grinding"
+  "whipped-tallow-balm","whole-spice-grinding","mustache-wax"
 ];
 
 /* ===========================================================
@@ -1551,6 +1551,16 @@ function openModal(ingredientId) {
       <span class="label">Cost: </span>
       <span class="value">${esc(ing.costNote)}</span>
     </div>
+    ${(ing.affiliateLinks && ing.affiliateLinks.length > 0) ? `
+      <div class="modal-section-title">Buy This Ingredient</div>
+      ${ing.affiliateLinks.map(link => `
+        <a href="${esc(link.url)}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--savings-bg);border-radius:7px;margin-bottom:5px;text-decoration:none;color:var(--text);font-size:0.85em;border:1px solid #c8dfc0;transition:border-color 0.15s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#c8dfc0'">
+          <span><strong>${esc(link.productName)}</strong> — ${esc(link.quantity)}</span>
+          <span style="color:var(--savings-text);font-weight:700">${esc(link.price)}</span>
+        </a>
+      `).join("")}
+      <p style="font-size:0.65em;color:var(--muted);margin-top:4px;font-style:italic">Affiliate link — we may earn a commission at no extra cost to you.</p>
+    ` : ""}
     ${related.length > 0 ? `
       <div class="modal-section-title">Related Ingredients</div>
       <div class="modal-pills">

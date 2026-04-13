@@ -15,5 +15,14 @@
   "costNote": "$6–12 for 1 lb",
   "shelfLife": "Essentially indefinite",
   "categories": ["skin"],
-  "relatedIngredients": ["shea-butter", "coconut-oil", "jojoba-oil", "tallow"]
+  "relatedIngredients": ["shea-butter", "coconut-oil", "jojoba-oil", "tallow"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4comyon",
+      "productName": "Beeswax Pellets",
+      "quantity": "80 oz",
+      "price": "~$24.00"
+    }
+  ]
 }

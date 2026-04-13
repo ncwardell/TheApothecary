@@ -15,5 +15,14 @@
   "costNote": "$8–12/lb, lasts 30+ batches",
   "shelfLife": "Indefinite when stored dry",
   "categories": ["oral", "skin"],
-  "relatedIngredients": ["baking-soda", "sea-salt", "coconut-oil", "arrowroot-powder"]
+  "relatedIngredients": ["baking-soda", "sea-salt", "coconut-oil", "arrowroot-powder"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4cw24u6",
+      "productName": "Bentonite Clay",
+      "quantity": "80 oz",
+      "price": "~$28.00"
+    }
+  ]
 }

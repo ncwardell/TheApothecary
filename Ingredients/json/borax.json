@@ -15,5 +15,14 @@
   "costNote": "$5–7 for large box",
   "shelfLife": "Indefinite when stored dry",
   "categories": ["laundry", "cleaning"],
-  "relatedIngredients": ["washing-soda", "baking-soda", "citric-acid", "white-vinegar"]
+  "relatedIngredients": ["washing-soda", "baking-soda", "citric-acid", "white-vinegar"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4tFbCJT",
+      "productName": "Borax",
+      "quantity": "128 oz",
+      "price": "~$23.00"
+    }
+  ]
 }

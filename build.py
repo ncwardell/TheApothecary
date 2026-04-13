@@ -696,13 +696,28 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
           <div class="warning-item">{e(ingredient["warnings"])}</div>
         </div>"""
 
-    # Cost
+    # Cost + affiliate links
     cost_html = ""
     if ingredient.get("costNote"):
+        affiliate_html = ""
+        if ingredient.get("affiliateLinks"):
+            links_html = ""
+            for link in ingredient["affiliateLinks"]:
+                links_html += f"""
+            <a href="{e(link['url'])}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--savings-bg);border-radius:8px;margin-top:8px;text-decoration:none;color:var(--text);font-size:0.88em;border:1px solid #c8dfc0;transition:border-color 0.15s">
+              <span><strong>{e(link['productName'])}</strong> — {e(link['quantity'])}</span>
+              <span style="color:var(--savings-text);font-weight:700">{e(link['price'])}</span>
+            </a>"""
+            affiliate_html = f"""{links_html}
+            <p style="font-size:0.7em;color:var(--muted);margin-top:6px;font-style:italic">Affiliate link — we may earn a commission at no extra cost to you.</p>"""
+
         cost_html = f"""
-        <div class="meta-item" style="display:inline-block;margin-bottom:20px">
-          <div class="meta-label">Typical Cost</div>
-          <div class="meta-value">{e(ingredient["costNote"])}</div>
+        <div style="margin-bottom:20px">
+          <div class="meta-item" style="display:inline-block">
+            <div class="meta-label">Typical Cost</div>
+            <div class="meta-value">{e(ingredient["costNote"])}</div>
+          </div>
+          {affiliate_html}
         </div>"""
 
     # Used in recipes

@@ -15,5 +15,14 @@
   "costNote": "$3–5 for 5 lb bag",
   "shelfLife": "Indefinite when stored dry",
   "categories": ["oral", "cleaning", "laundry", "skin"],
-  "relatedIngredients": ["washing-soda", "bentonite-clay", "sea-salt", "arrowroot-powder"]
+  "relatedIngredients": ["washing-soda", "bentonite-clay", "sea-salt", "arrowroot-powder"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/48KxVWx",
+      "productName": "Baking Soda",
+      "quantity": "160 oz",
+      "price": "~$30.00"
+    }
+  ]
 }

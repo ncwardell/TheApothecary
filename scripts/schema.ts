@@ -144,6 +144,30 @@ export interface Ingredient {
    * Each value must correspond to an existing Ingredients/json/{slug}.json file.
    */
   relatedIngredients: string[];
+
+  /**
+   * Optional affiliate links for purchasing this ingredient.
+   * Only link products we'd actually recommend (correct grade, reputable brand, good value).
+   * Prefer bulk sizes that represent the best value.
+   */
+  affiliateLinks?: AffiliateLink[];
+}
+
+export interface AffiliateLink {
+  /** Retailer name. Example: "amazon" */
+  retailer: string;
+
+  /** Full affiliate URL. */
+  url: string;
+
+  /** Product description as listed. Example: "Pure Sodium Bicarbonate, 5 lb" */
+  productName: string;
+
+  /** Quantity/size. Example: "5 lb", "64 fl oz" */
+  quantity: string;
+
+  /** Price or price range. Example: "~$30.00" */
+  price: string;
 }
 
 // ── Recipe Schema ───────────────────────────────────────────────────

@@ -15,5 +15,14 @@
   "costNote": "$12–16 for 32 oz",
   "shelfLife": "3+ years (liquid); bar soap improves with age",
   "categories": ["skin", "cleaning", "hair"],
-  "relatedIngredients": ["soapwort-root", "washing-soda", "white-vinegar", "coconut-oil"]
+  "relatedIngredients": ["soapwort-root", "washing-soda", "white-vinegar", "coconut-oil"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4cw2zV0",
+      "productName": "Castile Soap",
+      "quantity": "64 fl oz",
+      "price": "~$23.00"
+    }
+  ]
 }

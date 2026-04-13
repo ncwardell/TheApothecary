@@ -15,5 +15,14 @@
   "costNote": "$5–8 for 1 oz",
   "shelfLife": "2–3 years when stored properly",
   "categories": ["oral"],
-  "relatedIngredients": ["tea-tree-oil", "baking-soda", "bentonite-clay", "coconut-oil"]
+  "relatedIngredients": ["tea-tree-oil", "baking-soda", "bentonite-clay", "coconut-oil"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/4tszcu1",
+      "productName": "Clove Oil",
+      "quantity": "16 oz",
+      "price": "~$36.00"
+    }
+  ]
 }

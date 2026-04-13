@@ -15,5 +15,14 @@
   "costNote": "$4–8 for 32 oz",
   "shelfLife": "Essentially indefinite",
   "categories": ["hair", "health"],
-  "relatedIngredients": ["white-vinegar", "castile-soap", "soapwort-root", "rosemary"]
+  "relatedIngredients": ["white-vinegar", "castile-soap", "soapwort-root", "rosemary"],
+  "affiliateLinks": [
+    {
+      "retailer": "amazon",
+      "url": "https://amzn.to/48EjPWD",
+      "productName": "Apple Cider Vinegar with Mother",
+      "quantity": "64 fl oz",
+      "price": "~$25.00"
+    }
+  ]
 }
