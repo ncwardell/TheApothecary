@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Apothecary — DIY Essentials</title>
+<title>The Apothecary — Science-Backed DIY Replacements for Everyday Products</title>
+<meta name="description" content="35 ingredient profiles and 26 recipes with real chemistry, honest effectiveness ratings, and bulk ingredient sourcing. Replace overpriced commercial products with science-backed DIY alternatives.">
+<meta property="og:title" content="The Apothecary — DIY Essentials">
+<meta property="og:description" content="Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ncwardell.github.io/LifeApothecary/">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://ncwardell.github.io/LifeApothecary/">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
@@ -1258,7 +1266,7 @@ function renderRecipes() {
         <div class="recipe-header" data-action="toggle-recipe" data-recipe-id="${esc(r.id)}">
           <div class="recipe-header-left">
             <h3>${esc(r.name)}</h3>
-            <div class="recipe-replaces">${esc(r.replaces)}</div>
+            <div class="recipe-replaces">${esc(r.replaces)} &middot; <a href="recipes/${esc(r.slug)}/" style="color:var(--accent);font-size:0.95em" onclick="event.stopPropagation()">View full page &rarr;</a></div>
           </div>
           <div class="recipe-badges">
             <span class="badge badge-cost">${esc(r.costPerUse)}</span>
@@ -1373,6 +1381,7 @@ function renderIngredients() {
       <div class="cat-pills">
         ${(ing.categories || []).map(c => `<span class="cat-pill">${esc(CATEGORY_LABELS[c] || c)}</span>`).join("")}
       </div>
+      <a href="ingredients/${esc(ing.slug)}/" style="font-size:0.78em;color:var(--accent);margin-top:6px;display:inline-block" onclick="event.stopPropagation()">Full profile &rarr;</a>
     </div>
   `).join("");
 }
