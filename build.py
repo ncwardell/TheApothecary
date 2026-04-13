@@ -16,7 +16,7 @@ from datetime import date
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "_site"
-SITE_URL = "https://ncwardell.github.io/LifeApothecary"
+SITE_URL = "https://ncwardell.github.io/TheApothecary"
 
 CATEGORY_LABELS = {
     "oral": "Oral Care",
@@ -925,24 +925,186 @@ def build_sitemap(recipes, ingredients):
 </urlset>"""
 
 
+def build_robots_txt():
+    """Generate robots.txt."""
+    return f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+
+
+def build_llms_txt(recipes, ingredients):
+    """Generate llms.txt dynamically from actual data."""
+    # Group recipes by category
+    by_cat = {}
+    for r in recipes:
+        cat = r.get("category", "other")
+        by_cat.setdefault(cat, []).append(r)
+
+    cat_lines = []
+    for cat_id, cat_label in CATEGORY_LABELS.items():
+        cat_recipes = by_cat.get(cat_id, [])
+        if not cat_recipes:
+            continue
+        names = ", ".join(r["name"] for r in cat_recipes)
+        # Unescape &amp; for plain text
+        label = cat_label.replace("&amp;", "&")
+        cat_lines.append(f"- **{label}:** {names}")
+
+    # Top recipes by effectiveness
+    top_recipes = sorted(recipes, key=lambda r: r.get("effectiveness", 0), reverse=True)[:8]
+    example_lines = []
+    for r in top_recipes:
+        example_lines.append(
+            f"- {r['name']} ({r.get('effectiveness', '?')}/10 vs commercial, {r.get('costPerUse', '?')}/use)"
+        )
+
+    # Top ingredients
+    ingredient_names = []
+    for ing in ingredients[:12]:
+        formula = f" ({ing['formula']})" if ing.get("formula") else ""
+        snippet = ing.get("description", "").split(".")[0]
+        ingredient_names.append(f"- {ing['name']}{formula} — {snippet}")
+
+    return f"""# The Apothecary
+
+> Science-backed DIY replacements for everyday commercial products. Every recipe is grounded in real chemistry, cites actual mechanisms of action, and honestly rates its effectiveness against the commercial product it replaces.
+
+## What This Site Offers
+
+- {len(ingredients)} ingredient profiles with full chemistry, mechanisms of action, safety data, sourcing, and regulatory status
+- {len(recipes)} DIY recipes spanning oral care, skin, hair, cleaning, laundry, kitchen, health, and garden
+- Honest effectiveness scores (1-10 vs commercial) with transparent reasoning about where DIY falls short
+- Structured JSON metadata for every ingredient and recipe
+
+## Content Structure
+
+### Recipe Pages
+Each recipe at /recipes/{{slug}}/ includes:
+- What commercial product it replaces and cost comparison
+- Complete ingredient list with links to ingredient profiles
+- Step-by-step method with chemistry explanations
+- Effectiveness score vs commercial equivalent (1-10 with reasoning)
+- Safety warnings and limitations
+- Full markdown content with citations
+
+### Ingredient Pages
+Each ingredient at /ingredients/{{slug}}/ includes:
+- Chemical properties (formula, CAS number, molecular weight, pH, solubility)
+- Mechanism of action at the molecular level
+- Safety data, warnings, and contraindications
+- Cost and sourcing information
+- Regulatory status (FDA, EU, TGA)
+- Cross-references to recipes that use this ingredient
+
+## Categories
+
+{chr(10).join(cat_lines)}
+
+## Key Principles
+
+- Not "natural is always better" — some commercial products are genuinely superior, and this site says so
+- Every claim links to a mechanism; if evidence is weak, that is stated explicitly
+- Not a substitute for medical advice
+- All effectiveness scores include transparent reasoning about limitations
+
+## Useful URLs
+
+- Homepage: {SITE_URL}/
+- Sitemap: {SITE_URL}/sitemap.xml
+- Recipe JSON data: {SITE_URL}/Recipes/json/{{slug}}.json
+- Ingredient JSON data: {SITE_URL}/Ingredients/json/{{slug}}.json
+
+## Top Recipes (by effectiveness)
+
+{chr(10).join(example_lines)}
+
+## Featured Ingredients
+
+{chr(10).join(ingredient_names)}
+"""
+
+
+def build_index_html(source_html, recipes, ingredients):
+    """Inject dynamic values into index.html — counts, URLs."""
+    n_ing = len(ingredients)
+    n_rec = len(recipes)
+
+    # Group recipes by category for the noscript block
+    by_cat = {}
+    for r in recipes:
+        cat = r.get("category", "other")
+        by_cat.setdefault(cat, []).append(r)
+
+    noscript_cats = []
+    for cat_id, cat_label in CATEGORY_LABELS.items():
+        cat_recipes = by_cat.get(cat_id, [])
+        if not cat_recipes:
+            continue
+        label = cat_label.replace("&amp;", "&amp;")
+        names = ", ".join(r["name"] for r in cat_recipes)
+        noscript_cats.append(f"        <li><strong>{label}:</strong> {names}</li>")
+
+    # Top ingredients for noscript
+    top_ings = ingredients[:12]
+    ing_desc = ", ".join(
+        f'{ing["name"]}{" (" + ing["formula"] + ")" if ing.get("formula") else ""}'
+        for ing in top_ings
+    )
+
+    noscript_block = f"""
+    <section class="geo-static" style="max-width:780px;margin:40px auto;padding:0 20px">
+      <h2>About The Apothecary</h2>
+      <p>The Apothecary is a rigorous, science-based collection of {n_rec} DIY replacements for everyday commercial products, backed by {n_ing} detailed ingredient profiles. Most commercial products are combinations of 15-20 bulk ingredients repackaged with branding, fragrance, and markup. A $12 bottle of surface cleaner is vinegar and water. A $40 face cream is tallow and jojoba oil. A $25 tub of OxiClean is sodium percarbonate.</p>
+      <p>This site documents the chemistry, provides tested recipes, and points you to the bulk ingredients. Every recipe includes an honest effectiveness score compared to the commercial product it replaces.</p>
+
+      <h3>Recipe Categories</h3>
+      <ul>
+{chr(10).join(noscript_cats)}
+      </ul>
+
+      <h3>Key Ingredients</h3>
+      <p>The ingredient database covers {n_ing} substances with full chemistry profiles: {ing_desc}, and more.</p>
+
+      <h3>How It Works</h3>
+      <p>Each recipe includes: what commercial product it replaces, cost per use comparison, step-by-step instructions, the chemistry behind why it works, an effectiveness score from 1-10 versus commercial, and honest limitations. Each ingredient includes: chemical properties, mechanism of action, safety data, regulatory status, and sourcing information.</p>
+    </section>"""
+
+    # Replace the static noscript content
+    import re
+    html = re.sub(
+        r'<noscript>.*?</noscript>',
+        f'<noscript>{noscript_block}\n  </noscript>',
+        source_html,
+        flags=re.DOTALL
+    )
+
+    # Replace hardcoded counts in meta description
+    html = re.sub(
+        r'35 ingredient profiles and 26 recipes',
+        f'{n_ing} ingredient profiles and {n_rec} recipes',
+        html
+    )
+    html = re.sub(
+        r'26 recipes across',
+        f'{n_rec} recipes across',
+        html
+    )
+    html = re.sub(
+        r'26 DIY recipes',
+        f'{n_rec} DIY recipes',
+        html
+    )
+
+    return html
+
+
 def main():
     # Clean and create output directory
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
-
-    print("Copying source files to _site/...")
-    # Copy static files
-    for f in ["index.html", ".nojekyll", "robots.txt", "llms.txt"]:
-        src = ROOT / f
-        if src.exists():
-            shutil.copy2(src, OUT / f)
-
-    # Copy Ingredients and Recipes directories (MD + JSON needed by index.html at runtime)
-    for d in ["Ingredients", "Recipes"]:
-        src = ROOT / d
-        if src.exists():
-            shutil.copytree(src, OUT / d)
 
     print("Loading data...")
     recipes = load_json_files("Recipes")
@@ -954,6 +1116,25 @@ def main():
         ingredients_db[ing["id"]] = ing
 
     print(f"  {len(recipes)} recipes, {len(ingredients_list)} ingredients")
+    print(f"  Site URL: {SITE_URL}")
+
+    # Copy source directories (MD + JSON needed by index.html at runtime)
+    print("Copying source files to _site/...")
+    for d in ["Ingredients", "Recipes"]:
+        src = ROOT / d
+        if src.exists():
+            shutil.copytree(src, OUT / d)
+
+    # Copy .nojekyll
+    nojekyll = ROOT / ".nojekyll"
+    if nojekyll.exists():
+        shutil.copy2(nojekyll, OUT / ".nojekyll")
+
+    # Process and write index.html (inject dynamic counts + noscript content)
+    print("Building index.html...")
+    source_html = (ROOT / "index.html").read_text(encoding="utf-8")
+    index_html = build_index_html(source_html, recipes, ingredients_list)
+    (OUT / "index.html").write_text(index_html, encoding="utf-8")
 
     # Generate recipe pages
     print("Generating recipe pages...")
@@ -975,13 +1156,18 @@ def main():
         (out_dir / "index.html").write_text(page_html, encoding="utf-8")
         print(f"  ingredients/{slug}/index.html")
 
-    # Generate sitemap
+    # Generate sitemap, robots.txt, llms.txt
     print("Generating sitemap.xml...")
-    sitemap = build_sitemap(recipes, ingredients_list)
-    (OUT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    (OUT / "sitemap.xml").write_text(build_sitemap(recipes, ingredients_list), encoding="utf-8")
+
+    print("Generating robots.txt...")
+    (OUT / "robots.txt").write_text(build_robots_txt(), encoding="utf-8")
+
+    print("Generating llms.txt...")
+    (OUT / "llms.txt").write_text(build_llms_txt(recipes, ingredients_list), encoding="utf-8")
 
     total = len(recipes) + len(ingredients_list)
-    print(f"\nDone! Generated {total} pages + sitemap.xml in _site/")
+    print(f"\nDone! Generated {total} pages + sitemap.xml + robots.txt + llms.txt in _site/")
 
 
 if __name__ == "__main__":
