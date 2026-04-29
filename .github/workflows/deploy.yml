@@ -23,6 +23,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: scripts/package-lock.json
+
+      - name: Install schema validator deps
+        working-directory: scripts
+        run: npm ci
+
+      - name: Validate ingredient + recipe JSON
+        working-directory: scripts
+        run: npx tsx validate.ts
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
