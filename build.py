@@ -16,7 +16,7 @@ from datetime import date
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "_site"
-SITE_URL = "https://ncwardell.github.io/TheApothecary"
+SITE_URL = "https://www.theapothecary.diy"
 
 CATEGORY_LABELS = {
     "oral": "Oral Care",
@@ -159,6 +159,132 @@ body {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+/* ── Shop block (prominent affiliate CTA) ── */
+.shop-block {
+  background: linear-gradient(135deg, #f4ecd6 0%, #faf5e3 100%);
+  border: 1px solid var(--accent-light);
+  border-radius: var(--radius);
+  padding: 18px 18px 14px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(184,134,11,0.08);
+}
+.shop-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.shop-block-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1em;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+.shop-block-sub {
+  font-size: 0.78em;
+  color: var(--muted);
+  font-weight: 600;
+}
+.shop-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 13px;
+  background: var(--card);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.shop-row:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(184,134,11,0.12);
+}
+.shop-row-left { min-width: 0; flex: 1; }
+.shop-row-name { font-weight: 700; font-size: 0.92em; color: var(--text); }
+.shop-row-detail { font-size: 0.78em; color: var(--muted); margin-top: 2px; }
+.shop-row-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--accent);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.82em;
+  padding: 7px 14px;
+  border-radius: 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.shop-row:hover .shop-row-cta { background: #9a7209; }
+.shop-row-price { font-weight: 700; color: var(--savings-text); font-size: 0.82em; }
+.shop-row.no-link { cursor: default; opacity: 0.85; }
+.shop-row.no-link:hover { transform: none; box-shadow: none; border-color: var(--divider); }
+.shop-row.no-link .shop-row-cta {
+  background: transparent;
+  color: var(--muted) !important;
+  border: 1px solid var(--divider);
+  font-weight: 600;
+}
+.shop-disclaimer {
+  font-size: 0.7em;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ── Buy CTA (single big button, ingredient page) ── */
+.buy-cta-block {
+  background: linear-gradient(135deg, #f4ecd6 0%, #faf5e3 100%);
+  border: 1px solid var(--accent-light);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(184,134,11,0.08);
+}
+.buy-cta-label {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.buy-cta-cost { font-size: 0.95em; color: var(--text); margin-bottom: 10px; }
+.buy-cta-cost strong { color: var(--accent); }
+.buy-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--accent);
+  color: #fff !important;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 6px;
+  transition: background 0.15s, transform 0.15s;
+  font-size: 0.95em;
+}
+.buy-cta-btn:hover { background: #9a7209; transform: translateY(-1px); }
+.buy-cta-btn-secondary {
+  background: var(--card);
+  color: var(--text) !important;
+  border: 1.5px solid var(--accent);
+  font-weight: 600;
+  font-size: 0.88em;
+}
+.buy-cta-btn-secondary:hover { background: var(--tag-bg); }
+.buy-cta-price { font-weight: 700; opacity: 0.95; }
 
 /* ── Effectiveness bar ── */
 .eff-wrap {
@@ -420,6 +546,47 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
     # Escape the markdown for embedding in a JS string
     md_js = json.dumps(md_content)
 
+    # Build "Shop the Ingredients" block — prominent affiliate CTA
+    shop_block_html = ""
+    if recipe.get("coreIngredients"):
+        rows = []
+        with_links = 0
+        for iid in recipe["coreIngredients"]:
+            ing = ingredients_db.get(iid)
+            if not ing:
+                continue
+            link = (ing.get("affiliateLinks") or [None])[0]
+            if link:
+                with_links += 1
+                rows.append(f"""
+              <a class="shop-row" href="{e(link['url'])}" target="_blank" rel="noopener sponsored" data-aff-ingredient="{e(ing['slug'])}">
+                <div class="shop-row-left">
+                  <div class="shop-row-name">{e(ing['name'])}</div>
+                  <div class="shop-row-detail">{e(link.get('quantity', ''))} &middot; <span class="shop-row-price">{e(link.get('price', ''))}</span></div>
+                </div>
+                <span class="shop-row-cta">Buy on Amazon &rarr;</span>
+              </a>""")
+            else:
+                rows.append(f"""
+              <a class="shop-row no-link" href="../../ingredients/{e(ing['slug'])}/">
+                <div class="shop-row-left">
+                  <div class="shop-row-name">{e(ing['name'])}</div>
+                  <div class="shop-row-detail">{e(ing.get('costNote', 'Source locally or in bulk'))}</div>
+                </div>
+                <span class="shop-row-cta">View &rarr;</span>
+              </a>""")
+        if rows:
+            label = f"{with_links} of {len(rows)} on Amazon" if with_links else "Source guide"
+            shop_block_html = f"""
+        <section class="shop-block" aria-label="Shop ingredients">
+          <div class="shop-block-header">
+            <div class="shop-block-title">Shop the Ingredients</div>
+            <div class="shop-block-sub">{label}</div>
+          </div>
+          {"".join(rows)}
+          {'<div class="shop-disclaimer">Affiliate links — we may earn a commission at no extra cost to you.</div>' if with_links else ''}
+        </section>"""
+
     # Build ingredient links
     core_html = ""
     if recipe.get("coreIngredients"):
@@ -510,6 +677,29 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
         ing = ingredients_db.get(iid)
         ingredient_names.append(f'{ing["name"] if ing else iid} (optional)')
 
+    # Product/Offer schema for ingredients with affiliate links — helps Google show price/store
+    offer_schemas = []
+    for iid in recipe.get("coreIngredients", []) + recipe.get("optionalIngredients", []):
+        ing = ingredients_db.get(iid)
+        if not ing or not ing.get("affiliateLinks"):
+            continue
+        for link in ing["affiliateLinks"]:
+            offer_schemas.append({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                "name": link.get("productName", ing["name"]),
+                "description": ing.get("description", ""),
+                "url": link["url"],
+                "offers": {
+                    "@type": "Offer",
+                    "url": link["url"],
+                    "priceCurrency": "USD",
+                    "price": (link.get("price", "").replace("~", "").replace("$", "").split("-")[0].strip() or "0"),
+                    "availability": "https://schema.org/InStock",
+                    "seller": {"@type": "Organization", "name": link.get("retailer", "Amazon").title()}
+                }
+            })
+
     recipe_schema = {
         "@context": "https://schema.org",
         "@type": "HowTo",
@@ -559,6 +749,24 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
     schemas_json = json.dumps(recipe_schema)
     faq_json = json.dumps(faq_schema)
     breadcrumb_json = json.dumps(breadcrumb_schema)
+    offers_html = "".join(
+        f'<script type="application/ld+json">{json.dumps(o)}</script>' for o in offer_schemas
+    )
+
+    # SEO-optimized title: lead with searchable intent
+    cost_str = recipe.get("costPerUse", "")
+    seo_title = f"Homemade {name} Recipe"
+    if cost_str:
+        seo_title += f" — {cost_str}/use"
+    seo_title += " — The Apothecary"
+
+    # SEO-optimized meta description (under ~160 chars)
+    seo_desc = f"DIY {name.lower()} recipe with real chemistry."
+    if replaces_clean:
+        seo_desc = f"DIY {name.lower()} that replaces {replaces_clean.lower()}."
+    seo_desc += f" {effectiveness}/10 effectiveness, {cost_str}/use."
+    if recipe.get("difficulty"):
+        seo_desc += f" {recipe['difficulty']}."
 
     # GEO: Static summary block visible to all crawlers
     geo_summary = f"""
@@ -574,21 +782,22 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
 <html lang="en">
 <head>
 {HEAD_COMMON.format(canonical=canonical)}
-<title>{e(name)} — The Apothecary</title>
-<meta name="description" content="{e(desc)} Effectiveness: {effectiveness}/10 vs commercial. Cost: {e(recipe.get('costPerUse', 'varies'))}/use.">
-<meta property="og:title" content="{e(name)} — The Apothecary">
-<meta property="og:description" content="{e(desc)}">
+<title>{e(seo_title)}</title>
+<meta name="description" content="{e(seo_desc)}">
+<meta property="og:title" content="{e(seo_title)}">
+<meta property="og:description" content="{e(seo_desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="The Apothecary">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{e(name)} — The Apothecary">
-<meta name="twitter:description" content="{e(desc)} {effectiveness}/10 vs commercial.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(seo_title)}">
+<meta name="twitter:description" content="{e(seo_desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">{schemas_json}</script>
 <script type="application/ld+json">{faq_json}</script>
 <script type="application/ld+json">{breadcrumb_json}</script>
+{offers_html}
 {STYLES}
 </head>
 <body>
@@ -611,6 +820,8 @@ def build_recipe_page(recipe, ingredients_db, all_recipes):
     <span class="badge {eff_badge_class(effectiveness)}">{effectiveness}/10</span>
     {f'<span class="badge {diff_badge_class(recipe.get("difficulty"))}">{e(recipe.get("difficulty"))}</span>' if recipe.get("difficulty") else ""}
   </div>
+
+  {shop_block_html}
 
   {meta_html}
 
@@ -696,28 +907,33 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
           <div class="warning-item">{e(ingredient["warnings"])}</div>
         </div>"""
 
-    # Cost + affiliate links
+    # Cost + affiliate buy CTA — prominent, near top
     cost_html = ""
-    if ingredient.get("costNote"):
-        affiliate_html = ""
-        if ingredient.get("affiliateLinks"):
-            links_html = ""
-            for link in ingredient["affiliateLinks"]:
-                links_html += f"""
-            <a href="{e(link['url'])}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--savings-bg);border-radius:8px;margin-top:8px;text-decoration:none;color:var(--text);font-size:0.88em;border:1px solid #c8dfc0;transition:border-color 0.15s">
-              <span><strong>{e(link['productName'])}</strong> — {e(link['quantity'])}</span>
-              <span style="color:var(--savings-text);font-weight:700">{e(link['price'])}</span>
-            </a>"""
-            affiliate_html = f"""{links_html}
-            <p style="font-size:0.7em;color:var(--muted);margin-top:6px;font-style:italic">Affiliate link — we may earn a commission at no extra cost to you.</p>"""
-
+    aff_links = ingredient.get("affiliateLinks") or []
+    if aff_links:
+        buttons = []
+        primary = True
+        for link in aff_links:
+            cls = "buy-cta-btn" if primary else "buy-cta-btn buy-cta-btn-secondary"
+            buttons.append(f"""
+            <a class="{cls}" href="{e(link['url'])}" target="_blank" rel="noopener sponsored" data-aff-ingredient="{e(slug)}">
+              <span><strong>{'Buy on Amazon' if primary else 'Alternate option'} &rarr;</strong> {e(link.get('productName', ''))} ({e(link.get('quantity', ''))})</span>
+              <span class="buy-cta-price">{e(link.get('price', ''))}</span>
+            </a>""")
+            primary = False
         cost_html = f"""
-        <div style="margin-bottom:20px">
-          <div class="meta-item" style="display:inline-block">
-            <div class="meta-label">Typical Cost</div>
-            <div class="meta-value">{e(ingredient["costNote"])}</div>
-          </div>
-          {affiliate_html}
+        <section class="buy-cta-block" aria-label="Buy {e(name)}">
+          <div class="buy-cta-label">Get {e(name)} Delivered</div>
+          <div class="buy-cta-cost">Typical price: <strong>{e(ingredient.get('costNote', 'varies'))}</strong></div>
+          {"".join(buttons)}
+          <div class="shop-disclaimer">Affiliate link — we may earn a commission at no extra cost to you.</div>
+        </section>"""
+    elif ingredient.get("costNote"):
+        cost_html = f"""
+        <div class="buy-cta-block">
+          <div class="buy-cta-label">Typical Cost</div>
+          <div class="buy-cta-cost"><strong>{e(ingredient["costNote"])}</strong></div>
+          <p style="font-size:0.85em;color:var(--muted);margin:0">Source from local bulk stores or co-ops.</p>
         </div>"""
 
     # Used in recipes
@@ -830,6 +1046,35 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
     faq_json = json.dumps(faq_schema)
     breadcrumb_json = json.dumps(breadcrumb_schema)
 
+    # Product/Offer schemas for affiliate links
+    offer_html_parts = []
+    for link in (ingredient.get("affiliateLinks") or []):
+        product_schema = {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": link.get("productName", name),
+            "description": desc,
+            "url": link["url"],
+            "category": (cat_labels[0] if cat_labels else "Bulk ingredient"),
+            "offers": {
+                "@type": "Offer",
+                "url": link["url"],
+                "priceCurrency": "USD",
+                "price": (link.get("price", "").replace("~", "").replace("$", "").split("-")[0].strip() or "0"),
+                "availability": "https://schema.org/InStock",
+                "seller": {"@type": "Organization", "name": link.get("retailer", "Amazon").title()}
+            }
+        }
+        offer_html_parts.append(f'<script type="application/ld+json">{json.dumps(product_schema)}</script>')
+    offers_html = "".join(offer_html_parts)
+
+    # SEO-optimized title
+    seo_title_parts = [name]
+    if ingredient.get("formula") and ingredient["formula"] != "N/A":
+        seo_title_parts.append(f"({ingredient['formula']})")
+    seo_title = f"{' '.join(seo_title_parts)} — Buy in Bulk, Uses, Chemistry — The Apothecary"
+    seo_desc = f"{desc} {ingredient.get('costNote', '')}. Mechanism, safety data, DIY recipes."[:158]
+
     # GEO: Static summary
     recipe_list_text = ""
     if used_in:
@@ -849,21 +1094,22 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
 <html lang="en">
 <head>
 {HEAD_COMMON.format(canonical=canonical)}
-<title>{e(name)} — DIY Ingredient Profile — The Apothecary</title>
-<meta name="description" content="{e(name)}: {e(desc)} Chemical properties, safety data, DIY uses, and sourcing information.">
-<meta property="og:title" content="{e(name)} — The Apothecary">
-<meta property="og:description" content="{e(desc)}">
+<title>{e(seo_title)}</title>
+<meta name="description" content="{e(seo_desc)}">
+<meta property="og:title" content="{e(seo_title)}">
+<meta property="og:description" content="{e(seo_desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="The Apothecary">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{e(name)} — The Apothecary">
-<meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(seo_title)}">
+<meta name="twitter:description" content="{e(seo_desc)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">{substance_json}</script>
 <script type="application/ld+json">{faq_json}</script>
 <script type="application/ld+json">{breadcrumb_json}</script>
+{offers_html}
 {STYLES}
 </head>
 <body>
@@ -884,10 +1130,10 @@ def build_ingredient_page(ingredient, ingredients_db, all_recipes):
     {cat_pills}
   </div>
 
+  {cost_html}
   {meta_html}
   {chem_html}
   {warnings_html}
-  {cost_html}
 
   <div class="md-body" id="md-content"></div>
 
@@ -1095,20 +1341,39 @@ def build_index_html(source_html, recipes, ingredients):
         flags=re.DOTALL
     )
 
-    # Replace hardcoded counts in meta description
+    # Replace hardcoded counts in meta description (any digits, future-proof)
     html = re.sub(
-        r'35 ingredient profiles and 26 recipes',
+        r'\d+ ingredient profiles and \d+ recipes',
         f'{n_ing} ingredient profiles and {n_rec} recipes',
         html
     )
     html = re.sub(
-        r'26 recipes across',
+        r'\d+ recipes across',
         f'{n_rec} recipes across',
         html
     )
     html = re.sub(
-        r'26 DIY recipes',
+        r'\d+ DIY recipes',
         f'{n_rec} DIY recipes',
+        html
+    )
+
+    # Auto-inject INGREDIENT_FILES and RECIPE_FILES arrays from actual disk state.
+    # Without this, adding a new JSON file silently breaks the homepage until
+    # the arrays are manually updated.
+    ing_slugs = sorted(ing["slug"] for ing in ingredients)
+    rec_slugs = sorted(r["slug"] for r in recipes)
+    ing_array = ",\n  ".join(f'"{s}"' for s in ing_slugs)
+    rec_array = ",\n  ".join(f'"{s}"' for s in rec_slugs)
+
+    html = re.sub(
+        r'const INGREDIENT_FILES = \[[^\]]*\];',
+        f'const INGREDIENT_FILES = [\n  {ing_array}\n];',
+        html
+    )
+    html = re.sub(
+        r'const RECIPE_FILES = \[[^\]]*\];',
+        f'const RECIPE_FILES = [\n  {rec_array}\n];',
         html
     )
 
@@ -1144,6 +1409,15 @@ def main():
     nojekyll = ROOT / ".nojekyll"
     if nojekyll.exists():
         shutil.copy2(nojekyll, OUT / ".nojekyll")
+
+    # Emit CNAME so the custom domain is preserved across GitHub Pages deploys
+    (OUT / "CNAME").write_text("www.theapothecary.diy\n", encoding="utf-8")
+
+    # Copy static assets that live at the site root
+    for asset in ["og-image.svg", "favicon.svg"]:
+        src = ROOT / asset
+        if src.exists():
+            shutil.copy2(src, OUT / asset)
 
     # Process and write index.html (inject dynamic counts + noscript content)
     print("Building index.html...")

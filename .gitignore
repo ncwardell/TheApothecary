@@ -2,3 +2,4 @@ _site/
 __pycache__/
 scripts/node_modules/
 scripts/dist/
+.claude/settings.local.json

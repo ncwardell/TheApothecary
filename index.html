@@ -3,17 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Apothecary — Science-Backed DIY Replacements for Everyday Products</title>
-<meta name="description" content="35 ingredient profiles and 26 recipes with real chemistry, honest effectiveness ratings, and bulk ingredient sourcing. Replace overpriced commercial products with science-backed DIY alternatives.">
-<meta property="og:title" content="The Apothecary — Science-Backed DIY Essentials">
-<meta property="og:description" content="Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients. 26 recipes across oral care, skin, hair, cleaning, laundry, kitchen, health, and garden.">
+<title>The Apothecary — Homemade Replacements for Everyday Products (Real Chemistry)</title>
+<meta name="description" content="35 ingredient profiles and 26 DIY recipes — real chemistry, honest effectiveness vs commercial, bulk-ingredient sourcing. Make $40 face cream for $4. Replace overpriced products.">
+<meta name="keywords" content="DIY recipes, homemade cleaning, natural deodorant recipe, bulk ingredients, sodium percarbonate, castile soap, homemade toothpaste, cheap natural products">
+<meta name="theme-color" content="#b8860b">
+<meta property="og:title" content="The Apothecary — Homemade Replacements for Everyday Products">
+<meta property="og:description" content="Science-backed DIY recipes with honest effectiveness ratings. Replace $40 face cream with $4 of bulk ingredients. 26 recipes, 35 ingredients, real chemistry.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ncwardell.github.io/TheApothecary/">
+<meta property="og:url" content="https://www.theapothecary.diy/">
 <meta property="og:site_name" content="The Apothecary">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Apothecary — Science-Backed DIY Essentials">
-<meta name="twitter:description" content="26 DIY recipes with real chemistry and honest effectiveness ratings. Replace overpriced products with bulk ingredients.">
-<link rel="canonical" href="https://ncwardell.github.io/TheApothecary/">
+<meta property="og:image" content="https://www.theapothecary.diy/og-image.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Apothecary — Homemade Replacements for Everyday Products">
+<meta name="twitter:description" content="DIY recipes with honest effectiveness ratings vs commercial. Real chemistry. Bulk ingredients.">
+<meta name="twitter:image" content="https://www.theapothecary.diy/og-image.svg">
+<link rel="canonical" href="https://www.theapothecary.diy/">
 <link rel="sitemap" type="application/xml" href="sitemap.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,11 +31,11 @@
   "@type": "WebSite",
   "name": "The Apothecary",
   "alternateName": "LifeApothecary",
-  "url": "https://ncwardell.github.io/TheApothecary/",
+  "url": "https://www.theapothecary.diy/",
   "description": "Science-backed DIY replacements for everyday commercial products. Every recipe is grounded in real chemistry, cites actual mechanisms of action, and honestly rates its effectiveness against the commercial product it replaces.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://ncwardell.github.io/TheApothecary/?q={search_term_string}",
+    "target": "https://www.theapothecary.diy/?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
@@ -39,7 +45,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "The Apothecary",
-  "url": "https://ncwardell.github.io/TheApothecary/",
+  "url": "https://www.theapothecary.diy/",
   "description": "A rigorous, science-based repository of DIY replacements for everyday commercial products."
 }
 </script>
@@ -85,25 +91,52 @@ body {
 /* ========== Header ========== */
 header {
   text-align: center;
-  margin-bottom: 28px;
-  padding-bottom: 24px;
+  margin: -32px -20px 28px;
+  padding: 48px 20px 32px;
+  background: linear-gradient(135deg, #f4ecd6 0%, #faf5e3 50%, #f4f1eb 100%);
   border-bottom: 2px solid var(--accent);
+  position: relative;
+}
+header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
 }
 
 header h1 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.4em;
+  font-size: 2.6em;
   color: var(--text);
   letter-spacing: -0.5px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 header p {
   color: var(--muted);
-  font-size: 1.05em;
+  font-size: 1.08em;
   font-weight: 300;
-  max-width: 540px;
+  max-width: 560px;
   margin: 0 auto;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 14px;
+  font-size: 0.78em;
+  color: #5a4f3e;
+  font-weight: 600;
+}
+.hero-stats span strong {
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6em;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
 }
 
 /* ========== Tab Bar ========== */
@@ -220,6 +253,104 @@ header p {
 }
 
 .section-title:first-child { margin-top: 0; }
+
+/* ========== Shop Block (prominent affiliate CTA) ========== */
+.shop-block {
+  background: linear-gradient(135deg, #f4ecd6 0%, #faf5e3 100%);
+  border: 1px solid var(--accent-light);
+  border-radius: var(--radius);
+  padding: 14px 14px 10px;
+  margin: 12px 0 14px;
+  box-shadow: 0 2px 8px rgba(184,134,11,0.08);
+}
+.shop-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.shop-block-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1em;
+  color: var(--text);
+  letter-spacing: -0.2px;
+}
+.shop-block-sub {
+  font-size: 0.74em;
+  color: var(--muted);
+  font-weight: 600;
+}
+.shop-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 12px;
+  background: var(--card);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.shop-row:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(184,134,11,0.12);
+}
+.shop-row-left { min-width: 0; flex: 1; }
+.shop-row-name { font-weight: 700; font-size: 0.88em; color: var(--text); }
+.shop-row-detail { font-size: 0.74em; color: var(--muted); margin-top: 1px; }
+.shop-row-price { font-weight: 700; color: var(--savings-text); }
+.shop-row-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.shop-row:hover .shop-row-cta { background: #9a7209; }
+.shop-row.no-link .shop-row-cta {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--divider);
+  font-weight: 600;
+}
+.shop-disclaimer {
+  font-size: 0.66em;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* Buy pill on ingredient list cards */
+.buy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.72em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: background 0.15s, transform 0.15s;
+}
+.buy-pill:hover { background: #9a7209; transform: translateY(-1px); }
 
 /* ========== Recipe Cards ========== */
 .recipe-card {
@@ -1095,7 +1226,12 @@ header p {
 
   <header>
     <h1>The Apothecary</h1>
-    <p>Science-backed DIY replacements for everyday products. Real chemistry, honest ratings, bulk ingredients.</p>
+    <p>Homemade replacements for everyday commercial products. Real chemistry, honest effectiveness ratings, bulk ingredients.</p>
+    <div class="hero-stats" id="hero-stats" aria-hidden="true">
+      <span><strong id="hero-recipes">—</strong> recipes</span>
+      <span><strong id="hero-ingredients">—</strong> ingredients</span>
+      <span><strong>1-10</strong> honest scores</span>
+    </div>
   </header>
 
   <nav class="tab-bar" aria-label="Main navigation">
@@ -1242,6 +1378,10 @@ async function loadData() {
     state.recipes.sort((a, b) => catOrder.indexOf(a.category) - catOrder.indexOf(b.category));
 
     document.getElementById("loading").classList.add("hidden");
+    const heroR = document.getElementById("hero-recipes");
+    const heroI = document.getElementById("hero-ingredients");
+    if (heroR) heroR.textContent = state.recipes.length;
+    if (heroI) heroI.textContent = Object.keys(state.ingredients).length;
     buildFilterBar();
     renderAll();
     injectStructuredData();
@@ -1261,7 +1401,7 @@ function injectStructuredData() {
     "@type": "ListItem",
     "position": i + 1,
     "name": r.name,
-    "url": `https://ncwardell.github.io/TheApothecary/recipes/${r.slug}/`,
+    "url": `https://www.theapothecary.diy/recipes/${r.slug}/`,
     "description": r.description || ""
   }));
 
@@ -1414,6 +1554,54 @@ function ingredientName(id) {
   return ing ? ing.name : id;
 }
 
+function bestAffiliateLink(ing) {
+  return ing && Array.isArray(ing.affiliateLinks) && ing.affiliateLinks.length > 0
+    ? ing.affiliateLinks[0] : null;
+}
+
+function renderShopBlock(recipe) {
+  const ids = recipe.coreIngredients || [];
+  if (ids.length === 0) return "";
+  const rows = [];
+  let withLinks = 0;
+  for (const id of ids) {
+    const ing = state.ingredients[id];
+    if (!ing) continue;
+    const link = bestAffiliateLink(ing);
+    if (link) {
+      withLinks++;
+      rows.push(`
+        <a class="shop-row" href="${esc(link.url)}" target="_blank" rel="noopener sponsored" data-aff-ingredient="${esc(ing.slug)}" onclick="event.stopPropagation()">
+          <div class="shop-row-left">
+            <div class="shop-row-name">${esc(ing.name)}</div>
+            <div class="shop-row-detail">${esc(link.quantity || "")} &middot; <span class="shop-row-price">${esc(link.price || "")}</span></div>
+          </div>
+          <span class="shop-row-cta">Buy &rarr;</span>
+        </a>`);
+    } else {
+      rows.push(`
+        <a class="shop-row no-link" data-action="open-ingredient" data-ingredient-id="${esc(ing.id)}" onclick="event.stopPropagation()">
+          <div class="shop-row-left">
+            <div class="shop-row-name">${esc(ing.name)}</div>
+            <div class="shop-row-detail">${esc(ing.costNote || "Source locally or in bulk")}</div>
+          </div>
+          <span class="shop-row-cta">View &rarr;</span>
+        </a>`);
+    }
+  }
+  if (rows.length === 0) return "";
+  const sub = withLinks > 0 ? `${withLinks} of ${rows.length} on Amazon` : "Source guide";
+  return `
+    <div class="shop-block" aria-label="Shop ingredients">
+      <div class="shop-block-header">
+        <div class="shop-block-title">Shop the Ingredients</div>
+        <div class="shop-block-sub">${sub}</div>
+      </div>
+      ${rows.join("")}
+      ${withLinks > 0 ? `<div class="shop-disclaimer">Affiliate links — we may earn a commission at no extra cost to you.</div>` : ""}
+    </div>`;
+}
+
 function buildFilterBar() {
   const bar = document.getElementById("filter-bar");
   bar.innerHTML = CATEGORIES.map(c =>
@@ -1513,6 +1701,9 @@ function renderRecipeDetail(r) {
     </div>
     <div class="shelf-life">Shelf life: ${esc(r.shelfLife)}</div>`;
 
+  // Shop block — prominent affiliate CTA right at the top of the detail
+  html += renderShopBlock(r);
+
   // Description
   if (r.description) {
     html += `<p style="font-size:0.88em;color:#4a3f30;line-height:1.6;margin-top:10px">${esc(r.description)}</p>`;
@@ -1591,18 +1782,26 @@ function renderIngredients() {
     return;
   }
 
-  container.innerHTML = ingredients.map(ing => `
+  container.innerHTML = ingredients.map(ing => {
+    const link = bestAffiliateLink(ing);
+    const buyPill = link
+      ? `<a class="buy-pill" href="${esc(link.url)}" target="_blank" rel="noopener sponsored" onclick="event.stopPropagation()" aria-label="Buy ${esc(ing.name)} on Amazon">${esc(link.price || "Buy")} &rarr;</a>`
+      : "";
+    return `
     <div class="ingredient-card" data-action="open-ingredient" data-ingredient-id="${esc(ing.id)}">
       <div class="ingredient-card-header">
         <h3>${esc(ing.name)}</h3>
-        <span class="cost">${esc(ing.costNote)}</span>
+        <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+          <span class="cost">${esc(ing.costNote)}</span>
+          ${buyPill}
+        </div>
       </div>
       <div class="chem-preview">${esc((ing.chemistry || "").substring(0, 140))}${(ing.chemistry || "").length > 140 ? "..." : ""}</div>
       <div class="cat-pills">
         ${(ing.categories || []).map(c => `<span class="cat-pill">${esc(CATEGORY_LABELS[c] || c)}</span>`).join("")}
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
 }
 
 /* ---------- Modal ---------- */
@@ -1645,6 +1844,28 @@ function openModal(ingredientId) {
       </div>`).join("")}</div>`;
   }
 
+  // Buy CTA block — surfaced near the top of the modal so it's the first thing visible
+  const buyBlock = (ing.affiliateLinks && ing.affiliateLinks.length > 0) ? `
+    <div class="shop-block" style="margin:10px 0 14px">
+      <div class="shop-block-header">
+        <div class="shop-block-title">Get ${esc(ing.name)}</div>
+        <div class="shop-block-sub">${esc(ing.costNote || "")}</div>
+      </div>
+      ${ing.affiliateLinks.map(link => `
+        <a class="shop-row" href="${esc(link.url)}" target="_blank" rel="noopener sponsored" data-aff-ingredient="${esc(ing.slug)}">
+          <div class="shop-row-left">
+            <div class="shop-row-name">${esc(link.productName || ing.name)}</div>
+            <div class="shop-row-detail">${esc(link.quantity || "")} &middot; <span class="shop-row-price">${esc(link.price || "")}</span></div>
+          </div>
+          <span class="shop-row-cta">Buy on Amazon &rarr;</span>
+        </a>`).join("")}
+      <div class="shop-disclaimer">Affiliate link — we may earn a commission at no extra cost to you.</div>
+    </div>` : `
+    <div class="modal-cost-box" style="margin:10px 0 14px">
+      <span class="label">Typical Cost: </span>
+      <span class="value">${esc(ing.costNote || "varies")}</span>
+    </div>`;
+
   modal.innerHTML = `
     <div class="modal-header">
       <h2>${esc(ing.name)}</h2>
@@ -1654,6 +1875,7 @@ function openModal(ingredientId) {
       ${(ing.categories || []).map(c => `<span class="cat-pill">${esc(CATEGORY_LABELS[c] || c)}</span>`).join("")}
     </div>
     ${ing.description ? `<p class="modal-desc">${esc(ing.description)}</p>` : ""}
+    ${buyBlock}
     <div class="modal-section-title">Chemistry & Mechanism</div>
     <p class="modal-text">${esc(ing.chemistry)}</p>
     ${propsHtml}
@@ -1664,20 +1886,6 @@ function openModal(ingredientId) {
       </div>` : ""}
     <div class="modal-section-title warn">Warnings & Interactions</div>
     <p class="modal-text">${esc(ing.warnings)}</p>
-    <div class="modal-cost-box">
-      <span class="label">Cost: </span>
-      <span class="value">${esc(ing.costNote)}</span>
-    </div>
-    ${(ing.affiliateLinks && ing.affiliateLinks.length > 0) ? `
-      <div class="modal-section-title">Buy This Ingredient</div>
-      ${ing.affiliateLinks.map(link => `
-        <a href="${esc(link.url)}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--savings-bg);border-radius:7px;margin-bottom:5px;text-decoration:none;color:var(--text);font-size:0.85em;border:1px solid #c8dfc0;transition:border-color 0.15s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#c8dfc0'">
-          <span><strong>${esc(link.productName)}</strong> — ${esc(link.quantity)}</span>
-          <span style="color:var(--savings-text);font-weight:700">${esc(link.price)}</span>
-        </a>
-      `).join("")}
-      <p style="font-size:0.65em;color:var(--muted);margin-top:4px;font-style:italic">Affiliate link — we may earn a commission at no extra cost to you.</p>
-    ` : ""}
     ${related.length > 0 ? `
       <div class="modal-section-title">Related Ingredients</div>
       <div class="modal-pills">
