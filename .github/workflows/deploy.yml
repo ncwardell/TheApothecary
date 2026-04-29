@@ -55,3 +55,29 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify IndexNow (Bing, Yandex)
+        # Single POST to api.indexnow.org with every site URL.
+        # Best-effort; doesn't fail the build if the API is down.
+        run: |
+          set -e
+          KEY="cba1e421f06894f7b383823881c9cae7"
+          HOST="www.theapothecary.diy"
+
+          # Build the JSON payload from _site/urls.txt
+          URLS_JSON=$(jq -R -s -c 'split("\n") | map(select(length > 0))' _site/urls.txt)
+
+          PAYLOAD=$(jq -n \
+            --arg host "$HOST" \
+            --arg key "$KEY" \
+            --arg keyLocation "https://$HOST/$KEY.txt" \
+            --argjson urlList "$URLS_JSON" \
+            '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')
+
+          echo "Submitting $(echo "$URLS_JSON" | jq 'length') URLs to IndexNow..."
+          curl -fsS -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d "$PAYLOAD" \
+            && echo "IndexNow submission accepted." \
+            || echo "IndexNow submission failed (non-blocking)."
+        continue-on-error: true

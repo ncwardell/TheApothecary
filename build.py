@@ -1151,6 +1151,125 @@ document.getElementById("md-content").innerHTML = marked.parse({md_js});
 </html>"""
 
 
+# IndexNow key — random hex, also hosted at /{key}.txt for verification.
+# This lets us notify Bing/Yandex of new URLs on every deploy.
+INDEXNOW_KEY = "cba1e421f06894f7b383823881c9cae7"
+
+
+def build_pin_svg(recipe):
+    """Generate a 1000x1500 Pinterest-optimized SVG pin for a recipe."""
+    name = recipe["name"]
+    replaces = (recipe.get("replaces", "") or "").split("(")[0].strip() or "commercial products"
+    cost = recipe.get("costPerUse", "").lstrip("~") or "—"
+    eff = recipe.get("effectiveness", 0)
+    cat_label = CATEGORY_LABELS.get(recipe.get("category", ""), "DIY").replace("&amp;", "&")
+
+    # Wrap recipe name to fit (~14 chars per line at 84pt)
+    words = name.split()
+    lines = []
+    cur = ""
+    for w in words:
+        candidate = (cur + " " + w).strip()
+        if len(candidate) > 14 and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = candidate
+    if cur:
+        lines.append(cur)
+    lines = lines[:3]  # max 3 lines
+    title_y_start = 580 - (len(lines) - 1) * 50
+    title_lines = "\n  ".join(
+        f'<text x="500" y="{title_y_start + i * 100}" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="84" fill="#2c2416" letter-spacing="-1">{html.escape(line)}</text>'
+        for i, line in enumerate(lines)
+    )
+
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" width="1000" height="1500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4ecd6"/>
+      <stop offset="1" stop-color="#e8dfc6"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b8860b"/>
+      <stop offset="1" stop-color="#dcc07a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1500" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1000" height="14" fill="url(#band)"/>
+  <rect x="0" y="1486" width="1000" height="14" fill="url(#band)"/>
+
+  <!-- Top eyebrow -->
+  <text x="500" y="220" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#b8860b" letter-spacing="6">HOMEMADE · {html.escape(cat_label.upper())}</text>
+  <line x1="380" y1="270" x2="620" y2="270" stroke="#b8860b" stroke-width="3"/>
+
+  <!-- Recipe name -->
+  {title_lines}
+
+  <!-- Replaces -->
+  <text x="500" y="780" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="34" font-weight="300" fill="#5a4f3e" font-style="italic">a science-backed replacement for</text>
+  <text x="500" y="830" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="40" font-weight="600" fill="#2c2416">{html.escape(replaces)}</text>
+
+  <!-- Stats panel -->
+  <rect x="120" y="920" width="760" height="280" fill="#ffffff" stroke="#dcc07a" stroke-width="2" rx="20"/>
+  <text x="320" y="1010" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#7a6f5f" letter-spacing="3">COST PER USE</text>
+  <text x="320" y="1100" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="92" fill="#b8860b">{html.escape(cost)}</text>
+  <line x1="500" y1="980" x2="500" y2="1140" stroke="#e0d8c8" stroke-width="2"/>
+  <text x="680" y="1010" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#7a6f5f" letter-spacing="3">VS COMMERCIAL</text>
+  <text x="680" y="1100" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="92" fill="#3a6b2a">{eff}/10</text>
+  <text x="500" y="1170" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="20" fill="#7a6f5f" font-style="italic">honestly rated · real chemistry</text>
+
+  <!-- Footer -->
+  <text x="500" y="1320" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="56" fill="#2c2416">The Apothecary</text>
+  <text x="500" y="1380" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#b8860b" letter-spacing="6">THEAPOTHECARY.DIY</text>
+  <text x="500" y="1430" text-anchor="middle" font-family="Source Sans 3, Helvetica, sans-serif" font-size="22" fill="#7a6f5f">Full recipe + ingredient sourcing</text>
+</svg>
+"""
+
+
+def build_pin_gallery(recipes):
+    """A simple HTML page listing every pin for easy bulk-download/pinning."""
+    rows = []
+    for r in recipes:
+        slug = r["slug"]
+        rows.append(f"""
+    <li>
+      <a href="{slug}.svg" target="_blank" download>
+        <img src="{slug}.svg" alt="{e(r['name'])}" loading="lazy">
+        <span class="pin-name">{e(r['name'])}</span>
+        <span class="pin-meta">{slug}.svg</span>
+      </a>
+    </li>""")
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Pinterest Pins — The Apothecary</title>
+<style>
+  body {{ font-family: system-ui, sans-serif; background: #f4f1eb; color: #2c2416; padding: 24px; max-width: 1280px; margin: 0 auto; }}
+  h1 {{ font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }}
+  p {{ color: #6b5d4d; margin-bottom: 24px; line-height: 1.5; }}
+  ul {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; list-style: none; padding: 0; }}
+  li a {{ display: block; background: #fff; border: 1px solid #e0d8c8; border-radius: 10px; padding: 10px; text-decoration: none; color: inherit; transition: border-color 0.15s, box-shadow 0.2s; }}
+  li a:hover {{ border-color: #b8860b; box-shadow: 0 4px 16px rgba(184,134,11,0.15); }}
+  img {{ width: 100%; height: auto; aspect-ratio: 2/3; object-fit: cover; border-radius: 6px; background: #eae5d6; }}
+  .pin-name {{ display: block; font-weight: 700; margin-top: 8px; font-size: 0.92em; }}
+  .pin-meta {{ display: block; font-size: 0.78em; color: #9a8e7a; font-family: ui-monospace, monospace; }}
+</style>
+</head>
+<body>
+<h1>Pinterest pins</h1>
+<p>One 1000×1500 pin per recipe. Right-click → Save, or use Pinterest's bulk-pin tool. Each pin file is also reachable directly at <code>/pins/&lt;slug&gt;.svg</code>. This page is <code>noindex</code>.</p>
+<ul>{"".join(rows)}
+</ul>
+</body>
+</html>
+"""
+
+
 def build_sitemap(recipes, ingredients):
     """Generate sitemap.xml."""
     today = date.today().isoformat()
@@ -1413,6 +1532,11 @@ def main():
     # Emit CNAME so the custom domain is preserved across GitHub Pages deploys
     (OUT / "CNAME").write_text("www.theapothecary.diy\n", encoding="utf-8")
 
+    # IndexNow verification key — a file at /<key>.txt containing the key.
+    # Bing/Yandex fetch this when we POST to the IndexNow API to confirm we
+    # own the domain.
+    (OUT / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY, encoding="utf-8")
+
     # Copy static assets that live at the site root
     for asset in ["og-image.svg", "favicon.svg"]:
         src = ROOT / asset
@@ -1455,8 +1579,23 @@ def main():
     print("Generating llms.txt...")
     (OUT / "llms.txt").write_text(build_llms_txt(recipes, ingredients_list), encoding="utf-8")
 
+    # Pinterest pins — one SVG per recipe + a noindex gallery for bulk download
+    print("Generating Pinterest pins...")
+    pins_dir = OUT / "pins"
+    pins_dir.mkdir(exist_ok=True)
+    for recipe in recipes:
+        (pins_dir / f"{recipe['slug']}.svg").write_text(build_pin_svg(recipe), encoding="utf-8")
+    (pins_dir / "index.html").write_text(build_pin_gallery(recipes), encoding="utf-8")
+
+    # urls.txt — flat list of every public URL, consumed by the IndexNow
+    # workflow step to notify Bing/Yandex of new content on each deploy.
+    all_urls = [f"{SITE_URL}/"]
+    all_urls += [f"{SITE_URL}/recipes/{r['slug']}/" for r in recipes]
+    all_urls += [f"{SITE_URL}/ingredients/{ing['slug']}/" for ing in ingredients_list]
+    (OUT / "urls.txt").write_text("\n".join(all_urls) + "\n", encoding="utf-8")
+
     total = len(recipes) + len(ingredients_list)
-    print(f"\nDone! Generated {total} pages + sitemap.xml + robots.txt + llms.txt in _site/")
+    print(f"\nDone! Generated {total} pages + {len(recipes)} pins + sitemap/robots/llms in _site/")
 
 
 if __name__ == "__main__":
