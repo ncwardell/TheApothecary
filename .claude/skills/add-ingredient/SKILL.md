@@ -10,6 +10,7 @@ You are adding a new ingredient to The Apothecary site (`/home/arnold/Work/Perso
 ## Inputs
 
 - `$ARGUMENTS` — the ingredient name (e.g. "potassium bicarbonate"). May include the target bulk size in parens, e.g. "potassium bicarbonate (5 lb)". If the user only provides a name, infer a sensible bulk target (typically 5 lb / 32 oz / 64 oz / 1 gal depending on the substance — favor the size that gives the best $/unit at typical bulk-DIY use).
+- If the user has already shared an `amzn.to/...` link in their message, accept it and skip Step 4's search-URL prompt. Still ask for product name + quantity + price unless the user provided those too — Amazon blocks anonymous scraping, so you cannot derive them from the URL alone.
 
 ## Step 1 — Sanity check
 
