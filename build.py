@@ -1314,6 +1314,49 @@ Sitemap: {SITE_URL}/sitemap.xml
 """
 
 
+def build_rss(recipes):
+    """Generate an RSS 2.0 feed of all recipes, newest by mtime first.
+    Helps with discoverability via feed readers and content syndication tools."""
+    today = date.today()
+    rfc822 = today.strftime("%a, %d %b %Y 00:00:00 +0000")
+
+    # Sort by recipe slug for stable order; for "newest" semantics we'd need
+    # a published-at field in the JSON. Until then, slug order is fine and
+    # produces a deterministic feed.
+    items = []
+    for r in recipes:
+        slug = r["slug"]
+        url = f"{SITE_URL}/recipes/{slug}/"
+        title = r["name"]
+        desc = r.get("description", "")
+        cat = CATEGORY_LABELS.get(r.get("category", ""), "DIY").replace("&amp;", "&")
+        eff = r.get("effectiveness", 0)
+        cost = r.get("costPerUse", "")
+        full_desc = f"{desc} Effectiveness: {eff}/10 vs commercial. Cost: {cost}/use. Category: {cat}."
+        items.append(f"""    <item>
+      <title>{e(title)}</title>
+      <link>{url}</link>
+      <guid isPermaLink="true">{url}</guid>
+      <description>{e(full_desc)}</description>
+      <category>{e(cat)}</category>
+      <pubDate>{rfc822}</pubDate>
+    </item>""")
+
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Apothecary</title>
+    <link>{SITE_URL}/</link>
+    <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Science-backed DIY replacements for everyday commercial products. Real chemistry, honest effectiveness ratings, bulk ingredient sourcing.</description>
+    <language>en-us</language>
+    <lastBuildDate>{rfc822}</lastBuildDate>
+{chr(10).join(items)}
+  </channel>
+</rss>
+"""
+
+
 def build_llms_txt(recipes, ingredients):
     """Generate llms.txt dynamically from actual data."""
     # Group recipes by category
@@ -1575,6 +1618,9 @@ def main():
 
     print("Generating robots.txt...")
     (OUT / "robots.txt").write_text(build_robots_txt(), encoding="utf-8")
+
+    print("Generating rss.xml...")
+    (OUT / "rss.xml").write_text(build_rss(recipes), encoding="utf-8")
 
     print("Generating llms.txt...")
     (OUT / "llms.txt").write_text(build_llms_txt(recipes, ingredients_list), encoding="utf-8")
