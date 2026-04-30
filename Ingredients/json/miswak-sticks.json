@@ -12,7 +12,7 @@
   "solubility": "Not applicable (chewed, not dissolved)",
   "chemistry": "Active compounds: benzyl isothiocyanate (broad-spectrum antimicrobial vs S. mutans and P. gingivalis), salvadorine alkaloid, tannic acid (astringent that reduces gingival bleeding), silica (mild abrasive, RDA ~50–70), trace fluoride (~8–22 ppm), and sulfur compounds. Synergistic plaque/biofilm reduction without surfactants.",
   "warnings": "Trim the chewed end every 2–3 days to refresh fibers and avoid bacterial buildup. Excessive force damages enamel — let the bristles do the work, do not scrub. Source from reputable suppliers; sticks from polluted or chemically-treated trees may carry contaminants.",
-  "costNote": "$1–3 per stick in bulk packs; single vacuum-sealed sticks $3–5",
+  "costNote": "~$0.79/stick in 12-packs ($9.49); single vacuum-sealed sticks $3–5",
   "shelfLife": "Vacuum-sealed: 1–2 years. Opened and dry-stored: several months. Active stick (in use): 1–2 weeks before fibers degrade",
   "categories": ["oral"],
   "relatedIngredients": ["clove-oil", "sea-salt", "baking-soda", "xylitol"],
@@ -20,9 +20,9 @@
     {
       "retailer": "amazon",
       "url": "https://amzn.to/4t3En2g",
-      "productName": "Miswak Sticks (vacuum-sealed pack)",
-      "quantity": "5-pack",
-      "price": "~$10.00"
+      "productName": "Sewak Natural Miswak Toothbrush Sticks (vacuum-sealed)",
+      "quantity": "12-pack",
+      "price": "~$9.49"
     }
   ]
 }

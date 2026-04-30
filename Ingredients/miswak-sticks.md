@@ -129,12 +129,12 @@ Refrigeration is unnecessary and can introduce moisture damage. Avoid bathroom s
 
 ## Cost & Sourcing
 
-| Quantity | Price Range (USD) | Notes |
+| Quantity | Price Range (USD) | Per-Stick |
 |---|---|---|
-| Single stick (vacuum-sealed) | $3–5 | Common at Middle Eastern groceries |
-| 5-pack (vacuum-sealed) | $8–15 | Best value for casual use |
-| 10-pack (vacuum-sealed) | $15–25 | Lowest per-stick cost |
-| 50–100 stick bulk box | $40–80 | Best for households or gifting |
+| Single stick (vacuum-sealed) | $3–5 | $3–5 |
+| 5-pack (vacuum-sealed) | $7–10 | $1.40–2.00 |
+| 12-pack (vacuum-sealed) | ~$9.49 | ~$0.79 |
+| 50–100 stick bulk box | $30–60 | $0.50–0.80 |
 
 **Where to buy:**
 - Amazon (most accessible — look for vacuum-sealed packs with documented origin)
